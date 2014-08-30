@@ -43,6 +43,8 @@
 		906824F719A49F7C003957A1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F419A49F7C003957A1 /* LoginViewController.m */; };
 		90DA96D019B0E98C00C7141A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DA96CF19B0E98C00C7141A /* libsqlite3.dylib */; };
 		90DA96D319B0E9D300C7141A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D219B0E9D300C7141A /* DBManager.m */; };
+		90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D519B1FF9E00C7141A /* DefinitionObject.m */; };
+		90DA96D919B200C600C7141A /* WordObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D819B200C600C7141A /* WordObject.m */; };
 		90F5766F19A87D700099E41D /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F5766E19A87D700099E41D /* facebook.png */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,10 @@
 		90DA96CF19B0E98C00C7141A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		90DA96D119B0E9D300C7141A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		90DA96D219B0E9D300C7141A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		90DA96D419B1FF9E00C7141A /* DefinitionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionObject.h; sourceTree = "<group>"; };
+		90DA96D519B1FF9E00C7141A /* DefinitionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionObject.m; sourceTree = "<group>"; };
+		90DA96D719B200C600C7141A /* WordObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordObject.h; sourceTree = "<group>"; };
+		90DA96D819B200C600C7141A /* WordObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordObject.m; sourceTree = "<group>"; };
 		90F5766E19A87D700099E41D /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		99A6B6C4953C435DA19C2ED7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,6 +276,10 @@
 				906824EC19A49F5F003957A1 /* Authentication.m */,
 				905AFFF119A4AE9E0039A13A /* SocialLogin.h */,
 				905AFFF219A4AE9E0039A13A /* SocialLogin.m */,
+				90DA96D419B1FF9E00C7141A /* DefinitionObject.h */,
+				90DA96D519B1FF9E00C7141A /* DefinitionObject.m */,
+				90DA96D719B200C600C7141A /* WordObject.h */,
+				90DA96D819B200C600C7141A /* WordObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +444,8 @@
 				905B6BE119A4A24300A542E7 /* Contants.m in Sources */,
 				906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
+				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
+				90DA96D919B200C600C7141A /* WordObject.m in Sources */,
 				906824E919A49F2F003957A1 /* NSString+MD5.m in Sources */,
 				905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */,
 				906824ED19A49F5F003957A1 /* Authentication.m in Sources */,
