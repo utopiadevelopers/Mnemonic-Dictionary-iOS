@@ -6,3 +6,29 @@
 #
 # Pods/
 
+*.DS_Store
+
+# Xcode
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+
+*.pbxuser
+xcuserdata
+*.xcuserstate
+
+# Automatic backup files
+*~.nib
+*.save
+*.swp
+*~
+*.dat
+*.dep
+
+# Auto generated files
+build/
+*.o
+*.LinkFileList
+*.hmap
