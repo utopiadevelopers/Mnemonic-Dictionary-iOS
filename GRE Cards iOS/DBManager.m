@@ -94,7 +94,7 @@ static sqlite3 *database = nil;
 
 - (void) addWord:(WordObject *) wordObj
 {
-    
+    NSLog(@"%@",[wordObj description]);
 }
 
 @end
