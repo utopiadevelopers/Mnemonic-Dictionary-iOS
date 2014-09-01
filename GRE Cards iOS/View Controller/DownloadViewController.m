@@ -115,6 +115,33 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSArray *dic = [NSJSONSerialization JSONObjectWithData:self.downloadedMutableData options:NSJSONReadingMutableLeaves error:nil];
+    
+    for (NSMutableDictionary *wordJSON in dic)
+    {
+        WordObject *obj = [[WordObject alloc] init];
+        
+        [obj setWordID:[wordJSON objectForKey:@"wordID"]];
+        [obj setWord:[wordJSON objectForKey:@"word"]];
+        [obj setDefinition_short:[wordJSON objectForKey:@"definition_short"]];
+        [obj setMnemonics_arr:[wordJSON objectForKey:@"mnemonics_arr"]];
+        
+        NSMutableArray *defObj = [[NSMutableArray alloc] init];
+        
+        for (NSMutableDictionary *defJSON in [wordJSON objectForKey:@"defintion_arr"])
+        {
+            DefinitionObject *temp = [[DefinitionObject alloc] init];
+            
+            [temp setDef:[defJSON objectForKey:@"def"]];
+            [temp setSent:[defJSON objectForKey:@"sent"]];
+            [temp setSyn:[defJSON objectForKey:@"syn"]];
+            
+            [defObj addObject:temp];
+        }
+        
+        [obj setDefintion_arr:defObj];
+        [[DBManager sharedDBManager] addWord:obj];
+    }
+    
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_JSON_DOWNLOADED];
     DashboardViewController *viewController = [[DashboardViewController alloc] init];
     [self presentViewController:viewController animated:YES completion:^{

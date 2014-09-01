@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
-
+#import "WordObject.h"
 
 
 #define TABLE_WORDS @"word_list"
@@ -74,6 +74,6 @@
 - (void) closeDatabase;
 - (BOOL) createDB;
 - (void) dropDatabase;
-- (void) addWord;
+- (void) addWord:(WordObject *) wordObj;
 
 @end

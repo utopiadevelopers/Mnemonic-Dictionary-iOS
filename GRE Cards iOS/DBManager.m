@@ -92,7 +92,7 @@ static sqlite3 *database = nil;
     sqlite3_exec(database,[DROP_TABLE_SENTENCE_WORD_LIST UTF8String], NULL, NULL,&errMsg);
 }
 
--(void) addWord
+- (void) addWord:(WordObject *) wordObj
 {
     
 }
