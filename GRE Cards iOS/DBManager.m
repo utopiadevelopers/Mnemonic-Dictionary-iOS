@@ -92,9 +92,34 @@ static sqlite3 *database = nil;
     sqlite3_exec(database,[DROP_TABLE_SENTENCE_WORD_LIST UTF8String], NULL, NULL,&errMsg);
 }
 
+#pragma Transcation Setup
+
+-(void) startTransaction
+{
+    
+}
+
+-(void) commitTransaction
+{
+    
+}
+
+-(void) endTransaction
+{
+    
+}
+
+-(void) setupSQLStatements
+{
+    
+}
+
+#pragma Adding Word
+
 - (void) addWord:(WordObject *) wordObj
 {
     NSLog(@"%@",[wordObj description]);
+    
 }
 
 @end

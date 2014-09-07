@@ -46,9 +46,9 @@
     UIBarButtonItem *customItem1 = [[UIBarButtonItem alloc] initWithTitle:@"Tool1" style:UIBarButtonItemStyleBordered target:self action:@selector(toolBarItem1:)];
     
     NSArray *toolbarItems = [NSArray arrayWithObjects:customItem1,nil];
-    [self.view addSubview:actionToolBar];
-    [actionToolBar setItems:toolbarItems];
-    self.actionBar = actionToolBar;
+//    [self.view addSubview:actionToolBar];
+//    [actionToolBar setItems:toolbarItems];
+//    self.actionBar = actionToolBar;
 }
 
 /*

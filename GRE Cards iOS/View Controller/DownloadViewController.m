@@ -115,7 +115,7 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSArray *dic = [NSJSONSerialization JSONObjectWithData:self.downloadedMutableData options:NSJSONReadingMutableLeaves error:nil];
-    
+    [[DBManager sharedDBManager] startTransaction];
     for (NSMutableDictionary *wordJSON in dic)
     {
         WordObject *obj = [[WordObject alloc] init];
@@ -141,6 +141,8 @@
         [obj setDefintion_arr:defObj];
         [[DBManager sharedDBManager] addWord:obj];
     }
+    [[DBManager sharedDBManager] commitTransaction];
+    [[DBManager sharedDBManager] endTransaction];
     
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_JSON_DOWNLOADED];
     DashboardViewController *viewController = [[DashboardViewController alloc] init];

@@ -28,7 +28,7 @@
 
 #define DATABASE_WORD_LIST (@"create table " TABLE_WORDS @"(" TABLE_WORDS  @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_SERVER_WORDID  @" integer,"   COLUMN_WORD  @" text not null,"   COLUMN_DEF_SHORT  @" text not null,"   COLUMN_IS_FAV  @" TINYINT DEFAULT 0,"   COLUMN_IS_FAV_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_FAV_TIMESTAMP  @" DATETIME,"   COLUMN_IS_IGNORE  @" TINYINT DEFAULT 0,"   COLUMN_IS_IGNORE_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_IGNORE_TIMESTAMP  @" DATETIME,"   COLUMN_IS_HISTORY  @" TINYINT DEFAULT 0,"   COLUMN_IS_HISTORY_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_HISTORY_TIMESTAMP  @" DATETIME" @");")
 #define DROP_TABLE_WORDS (@"DROP TABLE IF EXISTS " TABLE_WORDS)
-
+#define STMT_TABLE_WORDS (@"INSERT INTO " MySQLiteHelper.TABLE_WORDS @" (" MySQLiteHelper.COLUMN_SERVER_WORDID @"," MySQLiteHelper.COLUMN_WORD @"," MySQLiteHelper.COLUMN_DEF_SHORT @") values (?,?,?);")
 
 
 #define TABLE_DEFINITION_WORD_LIST @"definition_word_list"
@@ -38,7 +38,7 @@
 
 #define DATABASE_DEFINITION_WORD_LIST (@"create table "   TABLE_DEFINITION_WORD_LIST  @"("   COLUMN_DEFINITION_ID  @" integer primary key autoincrement, "   COLUMN_WORD_ID  @" integer, "   COLUMN_DEFINITION  @" text not null"  @", FOREIGN KEY("   COLUMN_WORD_ID  @") REFERENCES "   TABLE_WORDS  @"("   COLUMN_ID  @") );")
 #define DROP_TABLE_DEFINITION_WORD_LIST (@"DROP TABLE IF EXISTS " TABLE_DEFINITION_WORD_LIST)
-
+#define STMT_TABLE_DEFINITION_WORD_LIST (@"INSERT INTO " MySQLiteHelper.TABLE_DEFINITION_WORD_LIST @" (" MySQLiteHelper.COLUMN_WORD_ID @"," MySQLiteHelper.COLUMN_DEFINITION @") values (?, ?);")
 
 
 #define TABLE_MNEMONICS_WORD_LIST @"mnemonics_word_list"
@@ -46,7 +46,7 @@
 
 #define DATABASE_MNEMONICS_WORD_LIST (@"create table "   TABLE_MNEMONICS_WORD_LIST  @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_WORD_ID  @" integer, "   COLUMN_MNEMONICS  @" text not null"  @", FOREIGN KEY("   COLUMN_WORD_ID  @") REFERENCES "   TABLE_WORDS  @"("   COLUMN_ID  @") );")
 #define DROP_TABLE_MNEMONICS_WORD_LIST (@"DROP TABLE IF EXISTS " TABLE_MNEMONICS_WORD_LIST)
-
+#define STMT_TABLE_MNEMONICS_WORD_LIST (@"INSERT INTO " MySQLiteHelper.TABLE_MNEMONICS_WORD_LIST @" (" MySQLiteHelper.COLUMN_WORD_ID @"," MySQLiteHelper.COLUMN_MNEMONICS  @") values (?, ?);")
 
 
 #define TABLE_SENTENCE_WORD_LIST @"sentence_word_list"
@@ -54,7 +54,7 @@
 
 #define DATABASE_SENTENCE_WORD_LIST (@"create table "   TABLE_SENTENCE_WORD_LIST  @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_DEFINITION_ID  @" integer, "   COLUMN_SENTENCE  @" text not null"  @", FOREIGN KEY("   COLUMN_DEFINITION_ID  @") REFERENCES "   TABLE_DEFINITION_WORD_LIST  @"("   COLUMN_DEFINITION_ID  @") );")
 #define DROP_TABLE_SENTENCE_WORD_LIST (@"DROP TABLE IF EXISTS " TABLE_SENTENCE_WORD_LIST)
-
+#define STMT_TABLE_SENTENCE_WORD_LIST (@"INSERT INTO " MySQLiteHelper.TABLE_SENTENCE_WORD_LIST @" (" MySQLiteHelper.COLUMN_DEFINITION_ID @"," MySQLiteHelper.COLUMN_SENTENCE @") values (?, ?);")
 
 
 #define TABLE_SYNONYM_WORD_LIST @"synonym_word_list"
@@ -62,7 +62,7 @@
 
 #define DATABASE_SYNONYM_WORD_LIST (@"create table "   TABLE_SYNONYM_WORD_LIST  @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_DEFINITION_ID  @" integer, "   COLUMN_SYNONYM  @" text not null"  @", FOREIGN KEY("   COLUMN_DEFINITION_ID  @") REFERENCES "   TABLE_DEFINITION_WORD_LIST  @"("   COLUMN_DEFINITION_ID  @") );")
 #define DROP_TABLE_SYNONYM_WORD_LIST (@"DROP TABLE IF EXISTS " TABLE_SYNONYM_WORD_LIST)
-
+#define STMT_TABLE_SYNONYM_WORD_LIST (@"INSERT INTO " MySQLiteHelper.TABLE_SYNONYM_WORD_LIST @" (" MySQLiteHelper.COLUMN_DEFINITION_ID @"," MySQLiteHelper.COLUMN_SYNONYM @") values (?, ?);")
 @interface DBManager : NSObject
 {
     NSString *databasePath;
@@ -70,10 +70,16 @@
 
 + (DBManager*)sharedDBManager;
 
-- (void) openDatabase;
-- (void) closeDatabase;
-- (BOOL) createDB;
-- (void) dropDatabase;
+-(void) openDatabase;
+-(void) closeDatabase;
+
+-(BOOL) createDB;
+-(void) dropDatabase;
+
+-(void)startTransaction;
+-(void)commitTransaction;
+-(void)endTransaction;
+
 - (void) addWord:(WordObject *) wordObj;
 
 @end
