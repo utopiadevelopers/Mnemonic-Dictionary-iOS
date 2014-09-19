@@ -63,6 +63,7 @@
 #define DATABASE_SYNONYM_WORD_LIST (@"create table "   TABLE_SYNONYM_WORD_LIST  @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_DEFINITION_ID  @" integer, "   COLUMN_SYNONYM  @" text not null"  @", FOREIGN KEY("   COLUMN_DEFINITION_ID  @") REFERENCES "   TABLE_DEFINITION_WORD_LIST  @"("   COLUMN_DEFINITION_ID  @") );")
 #define DROP_TABLE_SYNONYM_WORD_LIST (@"DROP TABLE IF EXISTS " TABLE_SYNONYM_WORD_LIST)
 #define STMT_TABLE_SYNONYM_WORD_LIST (@"INSERT INTO " MySQLiteHelper.TABLE_SYNONYM_WORD_LIST @" (" MySQLiteHelper.COLUMN_DEFINITION_ID @"," MySQLiteHelper.COLUMN_SYNONYM @") values (?, ?);")
+
 @interface DBManager : NSObject
 {
     NSString *databasePath;
