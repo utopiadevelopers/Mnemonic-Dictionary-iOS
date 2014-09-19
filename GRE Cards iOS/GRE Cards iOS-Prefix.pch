@@ -14,7 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <RestKit/RestKit.h>
-    #import "Contants.h"
+    #import "Constants.h"
     #import "CommonFunction.h"
     #import "DBManager.h"
 #endif

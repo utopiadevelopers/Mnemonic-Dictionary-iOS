@@ -23,7 +23,6 @@
 		905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFFF219A4AE9E0039A13A /* SocialLogin.m */; };
 		905AFFF519A4B3D00039A13A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AFFF419A4B3D00039A13A /* FacebookSDK.framework */; };
 		905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 905B6BDD19A4A24300A542E7 /* CommonFunction.m */; };
-		905B6BE119A4A24300A542E7 /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = 905B6BDF19A4A24300A542E7 /* Contants.m */; };
 		905B6BE419A4A35C00A542E7 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905B6BE219A4A35C00A542E7 /* GoogleOpenSource.framework */; };
 		905B6BE519A4A35C00A542E7 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905B6BE319A4A35C00A542E7 /* GooglePlus.framework */; };
 		905B6BE719A4A37000A542E7 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 905B6BE619A4A37000A542E7 /* GooglePlus.bundle */; };
@@ -41,6 +40,7 @@
 		906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F019A49F7C003957A1 /* DashboardViewController.m */; };
 		906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F219A49F7C003957A1 /* DownloadViewController.m */; };
 		906824F719A49F7C003957A1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F419A49F7C003957A1 /* LoginViewController.m */; };
+		908B6A5719CBE33600633F2F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 908B6A5619CBE33600633F2F /* Constants.m */; };
 		90DA96D019B0E98C00C7141A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DA96CF19B0E98C00C7141A /* libsqlite3.dylib */; };
 		90DA96D319B0E9D300C7141A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D219B0E9D300C7141A /* DBManager.m */; };
 		90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D519B1FF9E00C7141A /* DefinitionObject.m */; };
@@ -81,8 +81,6 @@
 		905AFFF419A4B3D00039A13A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		905B6BDC19A4A24300A542E7 /* CommonFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
 		905B6BDD19A4A24300A542E7 /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunction.m; sourceTree = "<group>"; };
-		905B6BDE19A4A24300A542E7 /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
-		905B6BDF19A4A24300A542E7 /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
 		905B6BE219A4A35C00A542E7 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		905B6BE319A4A35C00A542E7 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		905B6BE619A4A37000A542E7 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "View Helpers/GooglePlus.bundle"; sourceTree = "<group>"; };
@@ -106,6 +104,8 @@
 		906824F219A49F7C003957A1 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		906824F319A49F7C003957A1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		906824F419A49F7C003957A1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		908B6A5519CBE33600633F2F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		908B6A5619CBE33600633F2F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		90DA96CF19B0E98C00C7141A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		90DA96D119B0E9D300C7141A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		90DA96D219B0E9D300C7141A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 				90DA96D219B0E9D300C7141A /* DBManager.m */,
 				905B6BDC19A4A24300A542E7 /* CommonFunction.h */,
 				905B6BDD19A4A24300A542E7 /* CommonFunction.m */,
-				905B6BDE19A4A24300A542E7 /* Contants.h */,
-				905B6BDF19A4A24300A542E7 /* Contants.m */,
+				908B6A5519CBE33600633F2F /* Constants.h */,
+				908B6A5619CBE33600633F2F /* Constants.m */,
 				903D5C7A19A483CB00119129 /* Images.xcassets */,
 				903D5C6F19A483CB00119129 /* Supporting Files */,
 			);
@@ -441,7 +441,7 @@
 				906824E319A49F13003957A1 /* Toast.m in Sources */,
 				905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */,
 				90DA96D319B0E9D300C7141A /* DBManager.m in Sources */,
-				905B6BE119A4A24300A542E7 /* Contants.m in Sources */,
+				908B6A5719CBE33600633F2F /* Constants.m in Sources */,
 				906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,

@@ -3,7 +3,6 @@
 //  Gre Cards
 //
 //  Created by Satyam Krishna on 11/07/14.
-//  Copyright (c) 2014 Zomato. All rights reserved.
 //
 
 #import "LoginViewController.h"
@@ -220,7 +219,7 @@
     
     [textFieldContainerView setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
     [textFieldContainerView addSubview:self.emailTextField];
-    [textFieldContainerView.layer setCornerRadius:ZRC_MEDIUM];
+    [textFieldContainerView.layer setCornerRadius:URC_MEDIUM];
     [textFieldContainerView setClipsToBounds:true];
     
     return textFieldContainerView;
@@ -239,7 +238,7 @@
     
     [textFieldContainerView setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
     [textFieldContainerView addSubview:self.passwordTextField];
-    [textFieldContainerView.layer setCornerRadius:ZRC_MEDIUM];
+    [textFieldContainerView.layer setCornerRadius:URC_MEDIUM];
     [textFieldContainerView setClipsToBounds:true];
     
     return textFieldContainerView;
