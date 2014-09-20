@@ -12,8 +12,12 @@
 @end
 
 @implementation DashboardViewController
+{
+    NSMutableArray* wordList;
+}
 
 @synthesize actionBar;
+@synthesize wordLV;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +32,7 @@
 {
     [super viewDidLoad];
     [self addToolbar];
+    [self setupTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,8 +41,52 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) setupTableView
+{
+    wordList = [[DBManager sharedDBManager] getWordList];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT_ADDITION, W(self.view), H(self.view))];
+    [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [wordLV setDataSource:self];
+    [wordLV setDelegate:self];
+    [self.view addSubview:wordLV];
+}
+
+#pragma TableView Delegates
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row>[wordList count])
+    {
+        return [[UITableViewCell alloc] init];
+    }
+    else
+    {
+        UITableViewCell *cell = [wordLV dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        WordObject* wordObj = [wordList objectAtIndex:indexPath.row];
+        [[cell textLabel] setText:[wordObj word]];
+        return cell;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [wordList count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Word List";
+}
+
+#pragma ToolBar
+
 - (void) addToolbar
 {
+    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0))
+    {
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    }
+    
     UIToolbar *actionToolBar = [[UIToolbar alloc] init];
     [actionToolBar setFrame:CGRectMake(0, 0, W(self.view), 80)];
     [actionToolBar setBackgroundColor:[UIColor grayColor]];

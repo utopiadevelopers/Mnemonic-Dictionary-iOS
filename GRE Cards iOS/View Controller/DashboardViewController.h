@@ -7,9 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DashboardViewController : UIViewController
+
+@interface DashboardViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIToolbar *actionBar;
-@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) IBOutlet UITableView *wordLV;
 
 @end

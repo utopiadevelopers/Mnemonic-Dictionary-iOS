@@ -82,5 +82,6 @@
 -(void)endTransaction;
 
 - (void) addWord:(WordObject *) wordObj;
+-(NSMutableArray*) getWordList;
 
 @end

@@ -115,21 +115,63 @@ static sqlite3 *database = nil;
     }
 }
 
+
+-(NSMutableArray*) getWordList
+{
+    NSMutableArray *array = [[NSMutableArray alloc]init];
+    sqlite3_stmt    *statement;
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@ FROM %@",COLUMN_WORD,TABLE_WORDS];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            WordObject *wordObj = [[WordObject alloc] init];
+            [wordObj setWord:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 1)]];
+            [array addObject:wordObj];
+        }
+        sqlite3_finalize(statement);
+    }
+    return array;
+}
+
 #pragma Adding Word
 
 - (void) addWord:(WordObject *) wordObj
 {
-    
-    NSLog(@"%@",[wordObj description]);
+    return;
+    //NSLog(@"%@",[wordObj description]);
+    NSLog(@"%@",STMT_TABLE_WORDS);
     
     if(sqlite3_prepare_v2(database, [STMT_TABLE_WORDS UTF8String], -1, &word_stmt, NULL) == SQLITE_OK)
     {
+        @try
+        {
+            sqlite3_bind_text(word_stmt, 1, [[wordObj wordID] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(word_stmt, 2, [[wordObj word] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(word_stmt, 3, [[wordObj definition_short] UTF8String], -1, SQLITE_TRANSIENT);
+        }
+        @catch (NSException *exception)
+        {
+            
+        }
         
+        if (sqlite3_step(word_stmt) == SQLITE_DONE)
+        {
+            NSLog(@"Word Inserted : %@",[wordObj word]);
+        }
+        else
+        {
+            NSLog(@"Error While Inserting");
+        }
+        sqlite3_finalize(word_stmt);
+    }
+    else
+    {
+        NSLog(@"Error In Statement");
     }
     
-    
-    //if (sqlite3_step(compiledStatement) != SQLITE_DONE) NSLog(@"DB not updated. Error: %s",sqlite3_errmsg(db));
-   //if (sqlite3_reset(compiledStatement) != SQLITE_OK) NSLog(@"SQL Error: %s",sqlite3_errmsg(db));
     
 //    word_stmt.bindString(1, obj.getWordID());
 //    word_stmt.bindString(2, obj.getWord());

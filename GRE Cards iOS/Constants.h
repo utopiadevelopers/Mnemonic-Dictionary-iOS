@@ -37,6 +37,7 @@
 #define URC_MEDIUM 5.0
 #define NAVIGATION_BAR_HEIGHT 64.0
 #define TAB_BAR_HEIGHT 49.0
+#define STATUS_BAR_HEIGHT_ADDITION (SYSTEM_VERSION_LESS_THAN(@"7.0") ? 0.0f : 20.0f)
 
 //***********************end***********************
 
