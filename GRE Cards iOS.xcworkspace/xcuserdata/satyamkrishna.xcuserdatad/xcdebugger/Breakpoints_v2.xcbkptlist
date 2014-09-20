@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GRE Cards iOS/DBManager.m"
-            timestampString = "431866238.993324"
+            timestampString = "432906795.138298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "@implementation DBManager"
             landmarkType = "3">
          </BreakpointContent>

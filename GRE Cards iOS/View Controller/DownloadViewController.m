@@ -141,7 +141,6 @@
         [[DBManager sharedDBManager] addWord:obj];
     }
     [[DBManager sharedDBManager] commitTransaction];
-    [[DBManager sharedDBManager] endTransaction];
     
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_JSON_DOWNLOADED];
     DashboardViewController *viewController = [[DashboardViewController alloc] init];

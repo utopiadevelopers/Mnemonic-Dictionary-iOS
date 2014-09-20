@@ -28,7 +28,6 @@ static sqlite3 *database = nil;
         sharedInstance = [[super allocWithZone:NULL]init];
         [sharedInstance openDatabase];
         [sharedInstance createDB];
-        [sharedInstance setupVariables];
     }
     return sharedInstance;
 }
@@ -36,11 +35,6 @@ static sqlite3 *database = nil;
 -(void) dealloc
 {
     [self closeDatabase];
-}
-
--(void) setupVariables
-{
-    isTransactionSetup = NO;
 }
 
 #pragma Open and Close DB
@@ -110,36 +104,30 @@ static sqlite3 *database = nil;
 
 -(void) startTransaction
 {
-    if(!isTransactionSetup)
-    {
-        [sharedInstance setupSQLStatements];
-        sqlite3_exec(database, "BEGIN EXCLUSIVE TRANSACTION", 0, 0, 0);
-    }
+    sqlite3_exec(database, "BEGIN", 0, 0, 0); // Begin Transaction
 }
 
 -(void) commitTransaction
 {
-    
-}
-
--(void) endTransaction
-{
-    if (sqlite3_exec(database, "COMMIT TRANSACTION", 0, 0, 0) != SQLITE_OK)
+    if (sqlite3_exec(database, "COMMIT", 0, 0, 0) != SQLITE_OK) // Complete Transaction
     {
         NSLog(@"SQL Error: %s",sqlite3_errmsg(database));
     }
-}
-
--(void) setupSQLStatements
-{
-    //sqlite3_prepare_v2(database, [STMT_TABLE_WORDS cStringUsingEncoding:NSUTF8StringEncoding], -1, word_stmt, NULL);
 }
 
 #pragma Adding Word
 
 - (void) addWord:(WordObject *) wordObj
 {
+    
     NSLog(@"%@",[wordObj description]);
+    
+    if(sqlite3_prepare_v2(database, [STMT_TABLE_WORDS UTF8String], -1, &word_stmt, NULL) == SQLITE_OK)
+    {
+        
+    }
+    
+    
     //if (sqlite3_step(compiledStatement) != SQLITE_DONE) NSLog(@"DB not updated. Error: %s",sqlite3_errmsg(db));
    //if (sqlite3_reset(compiledStatement) != SQLITE_OK) NSLog(@"SQL Error: %s",sqlite3_errmsg(db));
     
