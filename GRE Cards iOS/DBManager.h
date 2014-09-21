@@ -26,10 +26,9 @@
 #define COLUMN_IS_HISTORY_DIRTY @"is_history_dirty"
 #define COLUMN_HISTORY_TIMESTAMP @"history_timestamp"
 
-#define DATABASE_WORD_LIST (@"create table " TABLE_WORDS @"(" TABLE_WORDS  @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_SERVER_WORDID  @" integer,"   COLUMN_WORD  @" text not null,"   COLUMN_DEF_SHORT  @" text not null,"   COLUMN_IS_FAV  @" TINYINT DEFAULT 0,"   COLUMN_IS_FAV_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_FAV_TIMESTAMP  @" DATETIME,"   COLUMN_IS_IGNORE  @" TINYINT DEFAULT 0,"   COLUMN_IS_IGNORE_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_IGNORE_TIMESTAMP  @" DATETIME,"   COLUMN_IS_HISTORY  @" TINYINT DEFAULT 0,"   COLUMN_IS_HISTORY_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_HISTORY_TIMESTAMP  @" DATETIME" @");")
+#define DATABASE_WORD_LIST (@"create table " TABLE_WORDS @"("   COLUMN_ID  @" integer primary key autoincrement, "   COLUMN_SERVER_WORDID  @" integer,"   COLUMN_WORD  @" text not null,"   COLUMN_DEF_SHORT  @" text not null,"   COLUMN_IS_FAV  @" TINYINT DEFAULT 0,"   COLUMN_IS_FAV_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_FAV_TIMESTAMP  @" DATETIME,"   COLUMN_IS_IGNORE  @" TINYINT DEFAULT 0,"   COLUMN_IS_IGNORE_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_IGNORE_TIMESTAMP  @" DATETIME,"   COLUMN_IS_HISTORY  @" TINYINT DEFAULT 0,"   COLUMN_IS_HISTORY_DIRTY  @" TINYINT DEFAULT 0,"   COLUMN_HISTORY_TIMESTAMP  @" DATETIME" @");")
 #define DROP_TABLE_WORDS (@"DROP TABLE IF EXISTS " TABLE_WORDS)
 #define STMT_TABLE_WORDS (@"INSERT INTO " TABLE_WORDS @" (" COLUMN_SERVER_WORDID @"," COLUMN_WORD @"," COLUMN_DEF_SHORT @") values (?,?,?);")
-
 
 #define TABLE_DEFINITION_WORD_LIST @"definition_word_list"
 #define COLUMN_WORD_ID @"_wordID"
@@ -79,7 +78,6 @@
 
 -(void)startTransaction;
 -(void)commitTransaction;
--(void)endTransaction;
 
 - (void) addWord:(WordObject *) wordObj;
 -(NSMutableArray*) getWordList;

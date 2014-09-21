@@ -26,8 +26,8 @@ static sqlite3 *database = nil;
     if (!sharedInstance)
     {
         sharedInstance = [[super allocWithZone:NULL]init];
-        [sharedInstance openDatabase];
         [sharedInstance createDB];
+        [sharedInstance openDatabase];
     }
     return sharedInstance;
 }
@@ -45,7 +45,7 @@ static sqlite3 *database = nil;
     
     if (sqlite3_open(dbpath, &database) != SQLITE_OK)
     {
-        NSLog(@"Failed to open/create database");
+        NSLog(@"Error %s", sqlite3_errmsg(database));
     }
 }
 
@@ -78,13 +78,14 @@ static sqlite3 *database = nil;
             sqlite3_exec(database, [DATABASE_MNEMONICS_WORD_LIST UTF8String], NULL, NULL,&errMsg);
             sqlite3_exec(database, [DATABASE_SENTENCE_WORD_LIST UTF8String], NULL, NULL,&errMsg);
             sqlite3_exec(database, [DATABASE_SYNONYM_WORD_LIST UTF8String], NULL, NULL,&errMsg);
+            
             sqlite3_close(database);
             return  isSuccess;
         }
         else
         {
             isSuccess = NO;
-            NSLog(@"Failed to open/create database");
+            NSLog(@"Failed to open/create database : %s", sqlite3_errmsg(database));
         }
     }
     return isSuccess;
@@ -120,15 +121,16 @@ static sqlite3 *database = nil;
 {
     NSMutableArray *array = [[NSMutableArray alloc]init];
     sqlite3_stmt    *statement;
-    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@ FROM %@",COLUMN_WORD,TABLE_WORDS];
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT count(%@) FROM %@",COLUMN_WORD,TABLE_WORDS];
     const char *query_stmt = [querySQL UTF8String];
-    
+    int index = 1;
     if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
     {
         while (sqlite3_step(statement) == SQLITE_ROW)
         {
             WordObject *wordObj = [[WordObject alloc] init];
-            [wordObj setWord:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 1)]];
+            char * str = (char*)sqlite3_column_text(statement, 1);
+            [wordObj setWord:[NSString stringWithFormat:@"Word %d",index++]];
             [array addObject:wordObj];
         }
         sqlite3_finalize(statement);
@@ -140,22 +142,13 @@ static sqlite3 *database = nil;
 
 - (void) addWord:(WordObject *) wordObj
 {
-    return;
-    //NSLog(@"%@",[wordObj description]);
-    NSLog(@"%@",STMT_TABLE_WORDS);
+    NSLog(@"%@",[wordObj description]);
     
     if(sqlite3_prepare_v2(database, [STMT_TABLE_WORDS UTF8String], -1, &word_stmt, NULL) == SQLITE_OK)
     {
-        @try
-        {
-            sqlite3_bind_text(word_stmt, 1, [[wordObj wordID] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_text(word_stmt, 2, [[wordObj word] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_text(word_stmt, 3, [[wordObj definition_short] UTF8String], -1, SQLITE_TRANSIENT);
-        }
-        @catch (NSException *exception)
-        {
-            
-        }
+        sqlite3_bind_text(word_stmt, 1, [[wordObj wordID] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(word_stmt, 2, [[wordObj word] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(word_stmt, 3, [[wordObj definition_short] UTF8String], -1, SQLITE_TRANSIENT);
         
         if (sqlite3_step(word_stmt) == SQLITE_DONE)
         {
@@ -169,7 +162,7 @@ static sqlite3 *database = nil;
     }
     else
     {
-        NSLog(@"Error In Statement");
+        NSLog(@"Error %s while preparing statement", sqlite3_errmsg(database));
     }
     
     

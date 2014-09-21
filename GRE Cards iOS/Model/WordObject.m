@@ -16,6 +16,20 @@
 @synthesize defintion_arr;
 @synthesize mnemonics_arr;
 
+-(id) init
+{
+    self = [super init];
+    if (self)
+    {
+        word             = @"";
+        wordID           = @"";
+        definition_short = @"";
+        defintion_arr    = [[NSMutableArray alloc] init];
+        mnemonics_arr    = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 -(NSString*) description
 {
     NSString *line   = [NSString stringWithFormat:@"---------------------------------"];
