@@ -116,21 +116,19 @@ static sqlite3 *database = nil;
     }
 }
 
-
 -(NSMutableArray*) getWordList
 {
     NSMutableArray *array = [[NSMutableArray alloc]init];
     sqlite3_stmt    *statement;
-    NSString *querySQL = [NSString stringWithFormat:@"SELECT count(%@) FROM %@",COLUMN_WORD,TABLE_WORDS];
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@ FROM %@",COLUMN_WORD,TABLE_WORDS];
     const char *query_stmt = [querySQL UTF8String];
-    int index = 1;
     if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
     {
         while (sqlite3_step(statement) == SQLITE_ROW)
         {
             WordObject *wordObj = [[WordObject alloc] init];
-            char * str = (char*)sqlite3_column_text(statement, 1);
-            [wordObj setWord:[NSString stringWithFormat:@"Word %d",index++]];
+            char * str = (char*)sqlite3_column_text(statement, 0);
+            [wordObj setWord:[NSString stringWithUTF8String:str]];
             [array addObject:wordObj];
         }
         sqlite3_finalize(statement);
@@ -138,12 +136,12 @@ static sqlite3 *database = nil;
     return array;
 }
 
+
 #pragma Adding Word
 
 - (void) addWord:(WordObject *) wordObj
 {
     NSLog(@"%@",[wordObj description]);
-    //NSLog(@"%@ (" v1 @"," v2 @"," v3 @");")",STMT_TABLE_WORDS_TEST);
     if(sqlite3_prepare_v2(database, [STMT_TABLE_WORDS UTF8String], -1, &word_stmt, NULL) == SQLITE_OK)
     {
         sqlite3_bind_text(word_stmt, 1, [[wordObj wordID] UTF8String], -1, SQLITE_TRANSIENT);
