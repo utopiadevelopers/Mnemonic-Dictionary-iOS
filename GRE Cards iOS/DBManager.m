@@ -141,7 +141,6 @@ static sqlite3 *database = nil;
 
 - (void) addWord:(WordObject *) wordObj
 {
-    NSLog(@"%@",[wordObj description]);
     if(sqlite3_prepare_v2(database, [STMT_TABLE_WORDS UTF8String], -1, &word_stmt, NULL) == SQLITE_OK)
     {
         sqlite3_bind_text(word_stmt, 1, [[wordObj wordID] UTF8String], -1, SQLITE_TRANSIENT);
