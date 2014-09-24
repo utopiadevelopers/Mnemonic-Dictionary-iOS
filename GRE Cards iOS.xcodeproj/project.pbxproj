@@ -26,6 +26,8 @@
 		905B6BE419A4A35C00A542E7 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905B6BE219A4A35C00A542E7 /* GoogleOpenSource.framework */; };
 		905B6BE519A4A35C00A542E7 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905B6BE319A4A35C00A542E7 /* GooglePlus.framework */; };
 		905B6BE719A4A37000A542E7 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 905B6BE619A4A37000A542E7 /* GooglePlus.bundle */; };
+		905F8D9E19D3159D00519C99 /* WordListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 905F8D9D19D3159D00519C99 /* WordListTableViewCell.m */; };
+		905F8DA219D31AD900519C99 /* WordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905F8DA119D31AD800519C99 /* WordListViewController.m */; };
 		906824C719A49A87003957A1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906824C619A49A87003957A1 /* AddressBook.framework */; };
 		906824C919A49A8F003957A1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906824C819A49A8F003957A1 /* AssetsLibrary.framework */; };
 		906824CB19A49A9F003957A1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906824CA19A49A9F003957A1 /* CoreLocation.framework */; };
@@ -84,6 +86,10 @@
 		905B6BE219A4A35C00A542E7 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		905B6BE319A4A35C00A542E7 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		905B6BE619A4A37000A542E7 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "View Helpers/GooglePlus.bundle"; sourceTree = "<group>"; };
+		905F8D9C19D3159D00519C99 /* WordListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordListTableViewCell.h; path = "GRE Cards iOS/Custom Cells/WordListTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		905F8D9D19D3159D00519C99 /* WordListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordListTableViewCell.m; path = "GRE Cards iOS/Custom Cells/WordListTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		905F8DA019D31AD800519C99 /* WordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordListViewController.h; sourceTree = "<group>"; };
+		905F8DA119D31AD800519C99 /* WordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordListViewController.m; sourceTree = "<group>"; };
 		906824C619A49A87003957A1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		906824C819A49A8F003957A1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		906824CA19A49A9F003957A1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -206,6 +212,7 @@
 				906824EE19A49F7C003957A1 /* View Controller */,
 				906824EA19A49F5F003957A1 /* Model */,
 				906824E419A49F2F003957A1 /* Category */,
+				905F8D9F19D315A900519C99 /* Custom Cells */,
 				906824E019A49F13003957A1 /* View Helpers */,
 				903D5C7719A483CB00119129 /* AppDelegate.h */,
 				903D5C7819A483CB00119129 /* AppDelegate.m */,
@@ -248,6 +255,15 @@
 				903D5C8A19A483CB00119129 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		905F8D9F19D315A900519C99 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				905F8D9C19D3159D00519C99 /* WordListTableViewCell.h */,
+				905F8D9D19D3159D00519C99 /* WordListTableViewCell.m */,
+			);
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		906824E019A49F13003957A1 /* View Helpers */ = {
@@ -293,6 +309,8 @@
 				906824F219A49F7C003957A1 /* DownloadViewController.m */,
 				906824F319A49F7C003957A1 /* LoginViewController.h */,
 				906824F419A49F7C003957A1 /* LoginViewController.m */,
+				905F8DA019D31AD800519C99 /* WordListViewController.h */,
+				905F8DA119D31AD800519C99 /* WordListViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -447,9 +465,11 @@
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
 				90DA96D919B200C600C7141A /* WordObject.m in Sources */,
 				906824E919A49F2F003957A1 /* NSString+MD5.m in Sources */,
+				905F8DA219D31AD900519C99 /* WordListViewController.m in Sources */,
 				905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */,
 				906824ED19A49F5F003957A1 /* Authentication.m in Sources */,
 				903D5C7919A483CB00119129 /* AppDelegate.m in Sources */,
+				905F8D9E19D3159D00519C99 /* WordListTableViewCell.m in Sources */,
 				903D5C7519A483CB00119129 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

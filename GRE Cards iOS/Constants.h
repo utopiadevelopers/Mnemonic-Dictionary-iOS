@@ -15,7 +15,7 @@
 
 //********************API***********************
 #define API_URL @"http://www.utopiadevelopers.com/gre/api/"
-#define JSON_URL @"http://www.utopiadevelopers.com/gre/upload/data.json"
+#define JSON_URL @"http://www.utopiadevelopers.com/gre/upload/O.json"
 
 #define LOGIN_API @"login.php"
 #define SOCIAL_LOGIN_API @"login_social.php"

@@ -6,11 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WordListViewController.h"
 
 
-@interface DashboardViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface DashboardViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UIToolbar *actionBar;
-@property (nonatomic, strong) IBOutlet UITableView *wordLV;
+@property (nonatomic,weak) UIViewController *wordList;
+@property (nonatomic,weak) UIViewController *favList;
+@property (nonatomic,weak) UIViewController *ignoreList;
+
 
 @end
