@@ -22,8 +22,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initVariables];
     [self addToolbar];
     [self setupTableView];
+}
+
+- (void) initVariables
+{
+    [[self tabBarItem] setTitle:@"Test"];
 }
 
 - (void)didReceiveMemoryWarning
