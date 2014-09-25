@@ -151,7 +151,7 @@
     self.titleLabel = [[UILabel alloc] init];
     [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.titleLabel setText:@"GRE Cards"];
-    [self.titleLabel setFrame:CGRectMake(0,10, W(self.view),50)];
+    [self.titleLabel setFrame:CGRectMake(0,0, W(self.view),50)];
     
     self.signInButton = [[GPPSignInButton alloc] init];
     [self.signInButton setFrame:CGRectMake(SIDE_PADDING,BOTTOM(self.titleLabel)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
@@ -253,12 +253,6 @@
     [self.loginActivityIndicator setHidesWhenStopped:true];
     [self.loginActivityIndicator stopAnimating];
     [self.view addSubview:self.loginActivityIndicator];
-}
-
-
--(BOOL) prefersStatusBarHidden
-{
-    return YES;
 }
 
 -(void) socialLoginWithAccessToken:(NSString *)accessToken andType:(NSString *)type

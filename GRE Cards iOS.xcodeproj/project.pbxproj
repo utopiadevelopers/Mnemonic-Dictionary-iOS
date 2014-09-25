@@ -600,6 +600,7 @@
 				GCC_PREFIX_HEADER = "GRE Cards iOS/GRE Cards iOS-Prefix.pch";
 				INFOPLIST_FILE = "GRE Cards iOS/GRE Cards iOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -620,6 +621,7 @@
 				GCC_PREFIX_HEADER = "GRE Cards iOS/GRE Cards iOS-Prefix.pch";
 				INFOPLIST_FILE = "GRE Cards iOS/GRE Cards iOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
