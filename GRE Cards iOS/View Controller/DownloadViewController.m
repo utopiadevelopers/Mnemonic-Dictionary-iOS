@@ -80,8 +80,7 @@
     if([title isEqualToString:cancelTitle])
     {
         [CommonFunction logOutUser];
-        LoginViewController *viewController = [[LoginViewController alloc] init];
-        [self presentViewController:viewController animated:YES completion:^{
+        [self presentViewController:[CommonFunction getLoginViewController] animated:YES completion:^{
             
         }];
     }

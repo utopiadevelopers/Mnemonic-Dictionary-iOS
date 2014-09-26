@@ -117,4 +117,15 @@
     [prefs removeObjectForKey:LOGIN_TYPE];
 }
 
+#pragma View Controllers
+
++ (UINavigationController *) getLoginViewController
+{
+    LoginViewController *lvc = [[LoginViewController alloc] init];
+    
+    UINavigationController *loginNavigationController = [[UINavigationController alloc] initWithRootViewController:lvc];
+    [[loginNavigationController navigationBar] setBackgroundColor:[UIColor blackColor]];
+    return loginNavigationController;
+}
+
 @end

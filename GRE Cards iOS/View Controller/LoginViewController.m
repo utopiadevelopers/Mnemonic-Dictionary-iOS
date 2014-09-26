@@ -50,6 +50,7 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    [self setupNavigationBar];
     [self setupKeyboardNotification];
     [self createViews];
     [self createLoginIndicator];
@@ -60,6 +61,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) setupNavigationBar
+{
+    
 }
 
 #pragma Keyboard Notification
@@ -145,16 +151,10 @@
 -(void) createViews
 {
     buttonWidth = 42;
-    
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    self.titleLabel = [[UILabel alloc] init];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.titleLabel setText:@"GRE Cards"];
-    [self.titleLabel setFrame:CGRectMake(0,0, W(self.view),50)];
-    
     self.signInButton = [[GPPSignInButton alloc] init];
-    [self.signInButton setFrame:CGRectMake(SIDE_PADDING,BOTTOM(self.titleLabel)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
+    [self.signInButton setFrame:CGRectMake(SIDE_PADDING,NAVIGATION_BAR_HEIGHT+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
     [self.signInButton setStyle:kGPPSignInButtonStyleWide];
     [self.signInButton.layer setCornerRadius:3.0];
 

@@ -11,9 +11,11 @@
 
 @implementation AppDelegate
 
+@synthesize window;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     if([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGGED_IN])
     {
         if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
@@ -31,8 +33,7 @@
     }
     else
     {
-        LoginViewController* viewController = [[LoginViewController alloc] init];
-        self.window.rootViewController = viewController;
+        self.window.rootViewController = [CommonFunction getLoginViewController];
         [self.window makeKeyAndVisible];
     }
     return YES;
