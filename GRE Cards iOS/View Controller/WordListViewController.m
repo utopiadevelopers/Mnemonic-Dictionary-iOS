@@ -18,18 +18,39 @@
 
 @synthesize actionBar;
 @synthesize wordLV;
+@synthesize wordListType;
+
+-(id) initWithWordListType:(WordListType) listType
+{
+    self = [super init];
+    if(self)
+    {
+        wordListType = listType;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initVariables];
-    [self addToolbar];
     [self setupTableView];
 }
 
 - (void) initVariables
 {
-    [[self tabBarItem] setTitle:@"Test"];
+    if (wordListType == WordListTypeFull)
+    {
+        [[self tabBarItem] setTitle:@"Word List"];
+    }
+    else if(wordListType == WordListTypeFav)
+    {
+        [[self tabBarItem] setTitle:@"Favorites"];
+    }
+    else
+    {
+        [[self tabBarItem] setTitle:@"Ignores"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,39 +93,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Word List";
+    return @"A";
 }
-
-#pragma ToolBar
-
-- (void) addToolbar
-{
-    if (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0))
-    {
-        [self setEdgesForExtendedLayout:UIRectEdgeNone];
-    }
-    
-    UIToolbar *actionToolBar = [[UIToolbar alloc] init];
-    [actionToolBar setFrame:CGRectMake(0, 0, W(self.view), 80)];
-    [actionToolBar setBackgroundColor:[UIColor grayColor]];
-    
-    UIBarButtonItem *customItem1 = [[UIBarButtonItem alloc] initWithTitle:@"Tool1" style:UIBarButtonItemStyleBordered target:self action:@selector(toolBarItem1:)];
-    
-    NSArray *toolbarItems = [NSArray arrayWithObjects:customItem1,nil];
-    //    [self.view addSubview:actionToolBar];
-    //    [actionToolBar setItems:toolbarItems];
-    //    self.actionBar = actionToolBar;
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

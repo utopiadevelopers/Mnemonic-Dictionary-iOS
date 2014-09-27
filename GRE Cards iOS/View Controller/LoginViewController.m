@@ -66,6 +66,9 @@
 - (void) setupNavigationBar
 {
     
+    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] init];
+    [leftLabelButton setTitle:@"Login"];
+    [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
 }
 
 #pragma Keyboard Notification

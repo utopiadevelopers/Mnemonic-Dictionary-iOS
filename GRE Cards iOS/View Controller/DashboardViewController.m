@@ -26,9 +26,9 @@
 
 - (void) setupViewController
 {
-    wordList   = [[WordListViewController alloc] init];
-    favList    = [[WordListViewController alloc] init];
-    ignoreList = [[WordListViewController alloc] init];
+    wordList   = [[WordListViewController alloc] initWithWordListType:WordListTypeFull];
+    favList    = [[WordListViewController alloc] initWithWordListType:WordListTypeFav];
+    ignoreList = [[WordListViewController alloc] initWithWordListType:WordListTypeIgn];
 }
 
 - (void) setupTabBarExperience
