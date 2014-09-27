@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3F01A396C5984D5AA5188619 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8D9578962D41289FA0B4A1 /* libPods.a */; };
+		90163D8A19D739CC00CB0BBE /* star_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8519D739CC00CB0BBE /* star_select.png */; };
+		90163D8B19D739CC00CB0BBE /* star_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8619D739CC00CB0BBE /* star_unselect.png */; };
+		90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8719D739CC00CB0BBE /* tab_fav.png */; };
+		90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8819D739CC00CB0BBE /* tab_ign.png */; };
+		90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8919D739CC00CB0BBE /* tab_list.png */; };
+		90163D9019D739F300CB0BBE /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8F19D739F300CB0BBE /* facebook.png */; };
 		903D5C6919A483CB00119129 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6819A483CB00119129 /* Foundation.framework */; };
 		903D5C6B19A483CB00119129 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6A19A483CB00119129 /* CoreGraphics.framework */; };
 		903D5C6D19A483CB00119129 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6C19A483CB00119129 /* UIKit.framework */; };
@@ -47,7 +53,6 @@
 		90DA96D319B0E9D300C7141A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D219B0E9D300C7141A /* DBManager.m */; };
 		90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D519B1FF9E00C7141A /* DefinitionObject.m */; };
 		90DA96D919B200C600C7141A /* WordObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D819B200C600C7141A /* WordObject.m */; };
-		90F5766F19A87D700099E41D /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F5766E19A87D700099E41D /* facebook.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,12 @@
 
 /* Begin PBXFileReference section */
 		0C8D9578962D41289FA0B4A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90163D8519D739CC00CB0BBE /* star_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_select.png; sourceTree = "<group>"; };
+		90163D8619D739CC00CB0BBE /* star_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_unselect.png; sourceTree = "<group>"; };
+		90163D8719D739CC00CB0BBE /* tab_fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav.png; sourceTree = "<group>"; };
+		90163D8819D739CC00CB0BBE /* tab_ign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_ign.png; sourceTree = "<group>"; };
+		90163D8919D739CC00CB0BBE /* tab_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_list.png; sourceTree = "<group>"; };
+		90163D8F19D739F300CB0BBE /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		903D5C6519A483CB00119129 /* GRE Cards iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GRE Cards iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		903D5C6819A483CB00119129 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		903D5C6A19A483CB00119129 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,7 +130,6 @@
 		90DA96D519B1FF9E00C7141A /* DefinitionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionObject.m; sourceTree = "<group>"; };
 		90DA96D719B200C600C7141A /* WordObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordObject.h; sourceTree = "<group>"; };
 		90DA96D819B200C600C7141A /* WordObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordObject.m; sourceTree = "<group>"; };
-		90F5766E19A87D700099E41D /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		99A6B6C4953C435DA19C2ED7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +170,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90163D8419D739CC00CB0BBE /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				90163D8F19D739F300CB0BBE /* facebook.png */,
+				90163D8519D739CC00CB0BBE /* star_select.png */,
+				90163D8619D739CC00CB0BBE /* star_unselect.png */,
+				90163D8719D739CC00CB0BBE /* tab_fav.png */,
+				90163D8819D739CC00CB0BBE /* tab_ign.png */,
+				90163D8919D739CC00CB0BBE /* tab_list.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		903D5C5C19A483CB00119129 = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +230,7 @@
 		903D5C6E19A483CB00119129 /* GRE Cards iOS */ = {
 			isa = PBXGroup;
 			children = (
-				90F5766D19A87D650099E41D /* Assets */,
+				90163D8419D739CC00CB0BBE /* assets */,
 				905B6BE619A4A37000A542E7 /* GooglePlus.bundle */,
 				906824EE19A49F7C003957A1 /* View Controller */,
 				906824EA19A49F5F003957A1 /* Model */,
@@ -315,14 +338,6 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		90F5766D19A87D650099E41D /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				90F5766E19A87D700099E41D /* facebook.png */,
-			);
-			name = Assets;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,10 +415,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90163D8B19D739CC00CB0BBE /* star_unselect.png in Resources */,
 				903D5C7319A483CB00119129 /* InfoPlist.strings in Resources */,
-				90F5766F19A87D700099E41D /* facebook.png in Resources */,
+				90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */,
+				90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */,
+				90163D9019D739F300CB0BBE /* facebook.png in Resources */,
 				905B6BE719A4A37000A542E7 /* GooglePlus.bundle in Resources */,
+				90163D8A19D739CC00CB0BBE /* star_select.png in Resources */,
 				903D5C7B19A483CB00119129 /* Images.xcassets in Resources */,
+				90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

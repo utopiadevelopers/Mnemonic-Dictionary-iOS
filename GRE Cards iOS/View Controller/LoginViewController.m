@@ -162,7 +162,7 @@
     [self.signInButton.layer setCornerRadius:3.0];
 
     UIFont *googleFont = [self.signInButton.titleLabel.font copy];
-    UIImageView *fbLoginImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"facebook.png"]];
+    UIImageView *fbLoginImage = [[UIImageView alloc]initWithImage:IMG(@"facebook.png")];
     NSInteger fbLoginImageSize = 22;
     
     [fbLoginImage setFrame:CGRectMake(SIDE_PADDING + fbLoginImageSize/2,BOTTOM(self.signInButton)+SIDE_PADDING + (buttonWidth-fbLoginImageSize)/2,fbLoginImageSize,fbLoginImageSize)];

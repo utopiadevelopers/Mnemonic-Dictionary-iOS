@@ -66,6 +66,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define IOS_BLUE            0x007AFF
 #define IOS_BLUE_FEEDBACK   0x005AFF
 
+#define IMG(p)        [UIImage imageNamed:[NSString stringWithFormat: @"%@", p]]
+
 //*********************ends **************************
 
 //********************* nsuser defaults constants **************************
