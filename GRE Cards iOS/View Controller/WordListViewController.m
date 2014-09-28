@@ -11,6 +11,8 @@
 @interface WordListViewController ()
 {
     NSMutableArray* wordList;
+    NSString *Alphabets;
+    NSMutableDictionary *sectionWordList;
 }
 @end
 
@@ -26,6 +28,8 @@
     if(self)
     {
         wordListType = listType;
+        sectionWordList = [[NSMutableDictionary alloc] init];
+        Alphabets = @"ABCDEFGHIJKLMONPQRSTUVWXYZ";
     }
     return self;
 }
@@ -65,11 +69,37 @@
 - (void) setupTableView
 {
     wordList = [[DBManager sharedDBManager] getWordList];
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT_ADDITION, W(self.view), H(self.view))];
+    [self setupMutuableDic];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT_ADDITION, W(self.view), H(self.view)-TAB_BAR_HEIGHT-STATUS_BAR_HEIGHT_ADDITION)];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
     [self.view addSubview:wordLV];
+}
+
+- (void) setupMutuableDic
+{
+    NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
+    for (WordObject *word in wordList)
+    {
+        for (int i=0; i<[lowerAplha length]; i++)
+        {
+            NSString *l_str = [[lowerAplha substringFromIndex:i] substringToIndex:1];
+            NSString *w_str = [[[word word] substringFromIndex:0] substringToIndex:1];
+            
+            if([l_str isEqualToString:w_str])
+            {
+                NSMutableArray * array = [sectionWordList objectForKey:l_str];
+                if (array==nil)
+                {
+                    array = [[NSMutableArray alloc] init];
+                }
+                [array addObject:word];
+                [sectionWordList setObject:array forKey:l_str];
+                break;
+            }
+        }
+    }
 }
 
 #pragma TableView Delegates
@@ -83,20 +113,31 @@
     else
     {
         UITableViewCell *cell = [wordLV dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        WordObject* wordObj = [wordList objectAtIndex:indexPath.row];
+        NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
+        NSString *l_str = [[lowerAplha substringFromIndex:indexPath.section] substringToIndex:1];
+        NSMutableArray *list = [sectionWordList objectForKey:l_str];
+        WordObject* wordObj = [list objectAtIndex:indexPath.row];
         [[cell textLabel] setText:[wordObj word]];
         return cell;
     }
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [sectionWordList count];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [wordList count];
+    NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
+    NSString *l_str = [[lowerAplha substringFromIndex:section] substringToIndex:1];
+    
+    return [[sectionWordList objectForKey:l_str] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"A";
+    return [[Alphabets substringFromIndex:section] substringToIndex:1];
 }
 
 @end
