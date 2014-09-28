@@ -106,20 +106,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row>[wordList count])
+    NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
+    NSString *l_str = [[lowerAplha substringFromIndex:indexPath.section] substringToIndex:1];
+    NSMutableArray *list = [sectionWordList objectForKey:l_str];
+    WordObject* wordObj = [list objectAtIndex:indexPath.row];
+    
+    WordListTableViewCell *cell = (WordListTableViewCell *)[wordLV dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    if(cell == nil)
     {
-        return [[UITableViewCell alloc] init];
+        cell = [[WordListTableViewCell alloc] init];
+        [cell updateWord:wordObj];
     }
-    else
-    {
-        UITableViewCell *cell = [wordLV dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
-        NSString *l_str = [[lowerAplha substringFromIndex:indexPath.section] substringToIndex:1];
-        NSMutableArray *list = [sectionWordList objectForKey:l_str];
-        WordObject* wordObj = [list objectAtIndex:indexPath.row];
-        [[cell textLabel] setText:[wordObj word]];
-        return cell;
-    }
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -138,6 +137,17 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [[Alphabets substringFromIndex:section] substringToIndex:1];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSMutableArray * array = [[NSMutableArray alloc] init];
+    for (int i=0; i<[Alphabets length]; i++)
+    {
+        NSString *l_str = [[Alphabets substringFromIndex:i] substringToIndex:1];
+        [array addObject:l_str];
+    }
+    return array;
 }
 
 @end

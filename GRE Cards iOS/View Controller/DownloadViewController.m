@@ -42,7 +42,7 @@
 - (void)startDownload
 {
     [self.progressBar setHidden:NO];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:JSON_URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:JSON_URL_TEST] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     self.connectionManager = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     [self.connectionManager start];
 }

@@ -10,13 +10,33 @@
 
 @implementation WordListTableViewCell
 
-- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+@synthesize wordObj;
+@synthesize wordLabel;
+
+-(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-        
+        [self setupWord];
     }
     return self;
+}
+
+-(void) setupWord
+{
+    wordLabel = [[UILabel alloc] init];
+    
+    [wordLabel setFrame:CGRectMake(0, 0,W(self.contentView),H(self.contentView))];
+    
+    [self.contentView addSubview:wordLabel];
+}
+
+- (void) updateWord:(WordObject*) word
+{
+    wordObj = word;
+    
+    [wordLabel setText:[word word]];
 }
 
 @end

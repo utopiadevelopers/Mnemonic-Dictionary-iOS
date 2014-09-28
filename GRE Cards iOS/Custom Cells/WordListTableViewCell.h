@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WordObject.h"
 
 @interface WordListTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) WordObject *wordObj;
+@property (nonatomic, strong) IBOutlet UILabel *wordLabel;
+
+- (void) updateWord:(WordObject*) word;
 
 @end

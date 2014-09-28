@@ -120,15 +120,16 @@ static sqlite3 *database = nil;
 {
     NSMutableArray *array = [[NSMutableArray alloc]init];
     sqlite3_stmt    *statement;
-    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@ FROM %@",COLUMN_WORD,TABLE_WORDS];
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@",COLUMN_SERVER_WORDID,COLUMN_WORD,COLUMN_DEF_SHORT,TABLE_WORDS];
     const char *query_stmt = [querySQL UTF8String];
     if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
     {
         while (sqlite3_step(statement) == SQLITE_ROW)
         {
             WordObject *wordObj = [[WordObject alloc] init];
-            char * str = (char*)sqlite3_column_text(statement, 0);
-            [wordObj setWord:[NSString stringWithUTF8String:str]];
+            [wordObj setWordID:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 0)]];
+            [wordObj setWord:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 1)]];
+            [wordObj setDefinition_short:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 2)]];
             [array addObject:wordObj];
         }
         sqlite3_finalize(statement);
