@@ -50,8 +50,23 @@
     [wordLabel setText:[word word]];
     [shortDefLabel setText:[word definition_short]];
     
+    
     [wordLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
     [shortDefLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:13]];
+ 
+    [self updateFav];
+}
+
+- (void) updateFav
+{
+    if([wordObj isFav])
+    {
+        [favView setBackgroundImage:[UIImage imageNamed:@"star_select.png"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [favView setBackgroundImage:[UIImage imageNamed:@"star_unselect.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void) toggleFav

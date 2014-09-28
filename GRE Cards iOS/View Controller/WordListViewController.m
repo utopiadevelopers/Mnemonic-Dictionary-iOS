@@ -159,7 +159,7 @@
 {
     [wordLV deselectRowAtIndexPath:indexPath animated:NO];
     WordListTableViewCell *cell = (WordListTableViewCell*)[wordLV cellForRowAtIndexPath:indexPath];
-    [cell toggleFav];
+    
 }
 
 
