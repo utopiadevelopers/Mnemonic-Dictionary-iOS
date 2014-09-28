@@ -15,6 +15,7 @@
 @synthesize definition_short;
 @synthesize defintion_arr;
 @synthesize mnemonics_arr;
+@synthesize isFav;
 
 -(id) init
 {
@@ -26,6 +27,7 @@
         definition_short = @"";
         defintion_arr    = [[NSMutableArray alloc] init];
         mnemonics_arr    = [[NSMutableArray alloc] init];
+        isFav            = FALSE;
     }
     return self;
 }

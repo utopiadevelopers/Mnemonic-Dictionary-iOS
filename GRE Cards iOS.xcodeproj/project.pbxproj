@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3F01A396C5984D5AA5188619 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8D9578962D41289FA0B4A1 /* libPods.a */; };
-		90163D8A19D739CC00CB0BBE /* star_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8519D739CC00CB0BBE /* star_select.png */; };
-		90163D8B19D739CC00CB0BBE /* star_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8619D739CC00CB0BBE /* star_unselect.png */; };
 		90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8719D739CC00CB0BBE /* tab_fav.png */; };
 		90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8819D739CC00CB0BBE /* tab_ign.png */; };
 		90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8919D739CC00CB0BBE /* tab_list.png */; };
 		90163D9019D739F300CB0BBE /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8F19D739F300CB0BBE /* facebook.png */; };
+		90163D9319D864B100CB0BBE /* star_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D9119D864B100CB0BBE /* star_select.png */; };
+		90163D9419D864B100CB0BBE /* star_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D9219D864B100CB0BBE /* star_unselect.png */; };
+		90163D9719D869F100CB0BBE /* WordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90163D9619D869F100CB0BBE /* WordViewController.m */; };
 		903D5C6919A483CB00119129 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6819A483CB00119129 /* Foundation.framework */; };
 		903D5C6B19A483CB00119129 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6A19A483CB00119129 /* CoreGraphics.framework */; };
 		903D5C6D19A483CB00119129 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6C19A483CB00119129 /* UIKit.framework */; };
@@ -67,12 +68,14 @@
 
 /* Begin PBXFileReference section */
 		0C8D9578962D41289FA0B4A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		90163D8519D739CC00CB0BBE /* star_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_select.png; sourceTree = "<group>"; };
-		90163D8619D739CC00CB0BBE /* star_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_unselect.png; sourceTree = "<group>"; };
 		90163D8719D739CC00CB0BBE /* tab_fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav.png; sourceTree = "<group>"; };
 		90163D8819D739CC00CB0BBE /* tab_ign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_ign.png; sourceTree = "<group>"; };
 		90163D8919D739CC00CB0BBE /* tab_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_list.png; sourceTree = "<group>"; };
 		90163D8F19D739F300CB0BBE /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		90163D9119D864B100CB0BBE /* star_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_select.png; sourceTree = "<group>"; };
+		90163D9219D864B100CB0BBE /* star_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_unselect.png; sourceTree = "<group>"; };
+		90163D9519D869F100CB0BBE /* WordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordViewController.h; sourceTree = "<group>"; };
+		90163D9619D869F100CB0BBE /* WordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordViewController.m; sourceTree = "<group>"; };
 		903D5C6519A483CB00119129 /* GRE Cards iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GRE Cards iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		903D5C6819A483CB00119129 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		903D5C6A19A483CB00119129 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -173,9 +176,9 @@
 		90163D8419D739CC00CB0BBE /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				90163D9119D864B100CB0BBE /* star_select.png */,
+				90163D9219D864B100CB0BBE /* star_unselect.png */,
 				90163D8F19D739F300CB0BBE /* facebook.png */,
-				90163D8519D739CC00CB0BBE /* star_select.png */,
-				90163D8619D739CC00CB0BBE /* star_unselect.png */,
 				90163D8719D739CC00CB0BBE /* tab_fav.png */,
 				90163D8819D739CC00CB0BBE /* tab_ign.png */,
 				90163D8919D739CC00CB0BBE /* tab_list.png */,
@@ -334,6 +337,8 @@
 				906824F419A49F7C003957A1 /* LoginViewController.m */,
 				905F8DA019D31AD800519C99 /* WordListViewController.h */,
 				905F8DA119D31AD800519C99 /* WordListViewController.m */,
+				90163D9519D869F100CB0BBE /* WordViewController.h */,
+				90163D9619D869F100CB0BBE /* WordViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -415,13 +420,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90163D8B19D739CC00CB0BBE /* star_unselect.png in Resources */,
 				903D5C7319A483CB00119129 /* InfoPlist.strings in Resources */,
 				90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */,
 				90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */,
+				90163D9319D864B100CB0BBE /* star_select.png in Resources */,
 				90163D9019D739F300CB0BBE /* facebook.png in Resources */,
 				905B6BE719A4A37000A542E7 /* GooglePlus.bundle in Resources */,
-				90163D8A19D739CC00CB0BBE /* star_select.png in Resources */,
+				90163D9419D864B100CB0BBE /* star_unselect.png in Resources */,
 				903D5C7B19A483CB00119129 /* Images.xcassets in Resources */,
 				90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */,
 			);
@@ -489,6 +494,7 @@
 				905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */,
 				906824ED19A49F5F003957A1 /* Authentication.m in Sources */,
 				903D5C7919A483CB00119129 /* AppDelegate.m in Sources */,
+				90163D9719D869F100CB0BBE /* WordViewController.m in Sources */,
 				905F8D9E19D3159D00519C99 /* WordListTableViewCell.m in Sources */,
 				903D5C7519A483CB00119129 /* main.m in Sources */,
 			);

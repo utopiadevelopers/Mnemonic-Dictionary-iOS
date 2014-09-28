@@ -16,5 +16,5 @@
 @property (nonatomic,strong) NSString *definition_short;
 @property (nonatomic,strong) NSMutableArray *mnemonics_arr;
 @property (nonatomic,strong) NSMutableArray *defintion_arr;
-
+@property (nonatomic) BOOL isFav;
 @end

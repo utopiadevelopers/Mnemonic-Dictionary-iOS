@@ -13,7 +13,11 @@
 
 @property (nonatomic, strong) WordObject *wordObj;
 @property (nonatomic, strong) IBOutlet UILabel *wordLabel;
+@property (nonatomic, strong) IBOutlet UILabel *shortDefLabel;
+@property (nonatomic, strong) IBOutlet UIButton *favView;
 
 - (void) updateWord:(WordObject*) word;
+- (void) toggleFav;
++ (float) cellHeight;
 
 @end

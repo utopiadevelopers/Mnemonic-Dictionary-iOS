@@ -111,19 +111,24 @@
     NSMutableArray *list = [sectionWordList objectForKey:l_str];
     WordObject* wordObj = [list objectAtIndex:indexPath.row];
     
-    WordListTableViewCell *cell = (WordListTableViewCell *)[wordLV dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString * cellIdentifier = @"WordListCell";
     
-    if(cell == nil)
-    {
-        cell = [[WordListTableViewCell alloc] init];
-        [cell updateWord:wordObj];
+    WordListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[WordListTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    [cell updateWord:wordObj];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [sectionWordList count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [WordListTableViewCell cellHeight];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -149,5 +154,14 @@
     }
     return array;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [wordLV deselectRowAtIndexPath:indexPath animated:NO];
+    WordListTableViewCell *cell = (WordListTableViewCell*)[wordLV cellForRowAtIndexPath:indexPath];
+    [cell toggleFav];
+}
+
+
 
 @end
