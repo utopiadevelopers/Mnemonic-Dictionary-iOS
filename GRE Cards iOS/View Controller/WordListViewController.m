@@ -45,18 +45,15 @@
 {
     if (wordListType == WordListTypeFull)
     {
-        [[self tabBarItem] setTitle:@"Word List"];
-        [[self tabBarItem] setSelectedImage:IMG(@"tab_list.png")];
+    
     }
     else if(wordListType == WordListTypeFav)
     {
-        [[self tabBarItem] setTitle:@"Favorites"];
-        [[self tabBarItem] setSelectedImage:IMG(@"tab_fav.png")];
+    
     }
     else
     {
-        [[self tabBarItem] setTitle:@"Ignores"];
-        [[self tabBarItem] setSelectedImage:IMG(@"tab_ign.png")];
+    
     }
 }
 
@@ -159,7 +156,7 @@
 {
     [wordLV deselectRowAtIndexPath:indexPath animated:NO];
     WordListTableViewCell *cell = (WordListTableViewCell*)[wordLV cellForRowAtIndexPath:indexPath];
-    
+    [cell toggleFav];
 }
 
 

@@ -31,7 +31,7 @@
     shortDefLabel = [[UILabel alloc] init];
     
     favView = [[UIButton alloc] init];
-    [favView setBackgroundImage:[UIImage imageNamed:@"star_unselect.png"] forState:UIControlStateNormal];
+    [favView setBackgroundImage:IMG(@"star_unselect.png") forState:UIControlStateNormal];
     [favView addTarget:self action:@selector(toggleFav) forControlEvents:UIControlEventTouchDown];
     
     [favView setFrame:CGRectMake(W(self.contentView)-1.60*SIDE_PADDING-20, SIDE_PADDING, 20, 20)];
@@ -61,11 +61,11 @@
 {
     if([wordObj isFav])
     {
-        [favView setBackgroundImage:[UIImage imageNamed:@"star_select.png"] forState:UIControlStateNormal];
+        [favView setBackgroundImage:IMG(@"star_select.png") forState:UIControlStateNormal];
     }
     else
     {
-        [favView setBackgroundImage:[UIImage imageNamed:@"star_unselect.png"] forState:UIControlStateNormal];
+        [favView setBackgroundImage:IMG(@"star_unselect.png") forState:UIControlStateNormal];
     }
 }
 
@@ -74,12 +74,12 @@
     if([wordObj isFav])
     {
         [wordObj setIsFav:FALSE];
-        [favView setBackgroundImage:[UIImage imageNamed:@"star_unselect.png"] forState:UIControlStateNormal];
+        [favView setBackgroundImage:IMG(@"star_unselect.png") forState:UIControlStateNormal];
     }
     else
     {
         [wordObj setIsFav:TRUE];
-        [favView setBackgroundImage:[UIImage imageNamed:@"star_select.png"] forState:UIControlStateNormal];
+        [favView setBackgroundImage:IMG(@"star_select.png") forState:UIControlStateNormal];
     }
 }
 
