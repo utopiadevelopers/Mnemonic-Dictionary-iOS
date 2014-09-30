@@ -21,6 +21,7 @@
 @synthesize actionBar;
 @synthesize wordLV;
 @synthesize wordListType;
+@synthesize searchBar;
 
 -(id) initWithWordListType:(WordListType) listType
 {
@@ -38,6 +39,7 @@
 {
     [super viewDidLoad];
     [self initVariables];
+    [self setupSearchBar];
     [self setupTableView];
 }
 
@@ -63,15 +65,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) setupSearchBar
+{
+    searchBar = [[UISearchBar alloc] init];
+    [searchBar setFrame:CGRectMake(0,STATUS_BAR_HEIGHT_ADDITION, W([self view]),40)];
+    [searchBar setDelegate:self];
+    [[self view] addSubview:searchBar];
+}
+
 - (void) setupTableView
 {
     wordList = [[DBManager sharedDBManager] getWordList];
     [self setupMutuableDic];
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT_ADDITION, W(self.view), H(self.view)-TAB_BAR_HEIGHT-STATUS_BAR_HEIGHT_ADDITION)];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT_ADDITION+H(searchBar), W(self.view), H(self.view)-TAB_BAR_HEIGHT-STATUS_BAR_HEIGHT_ADDITION-H(searchBar))];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
-    [self.view addSubview:wordLV];
+    [[self view] addSubview:wordLV];
 }
 
 - (void) setupMutuableDic
@@ -100,6 +110,11 @@
 }
 
 #pragma Search
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    
+}
 
 //- (void)textFieldDidChange:(UITextField *) textField {
 //    if (textField == cuisinesSearchField) {

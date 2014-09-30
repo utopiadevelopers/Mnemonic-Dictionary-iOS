@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WordListTableViewCell.h"
 
-@interface WordListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface WordListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate, UISearchDisplayDelegate>
 
 typedef NS_ENUM(NSInteger, WordListType)
 {
@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, WordListType)
 
 @property (nonatomic, weak) IBOutlet UIToolbar *actionBar;
 @property (nonatomic, strong) IBOutlet UITableView *wordLV;
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, assign) WordListType wordListType;
 
 -(id) initWithWordListType:(WordListType) listType;
