@@ -35,18 +35,23 @@
 
 - (void) setupTabBarExperience
 {
+    [[self tabBar] setBackgroundColor:[UIColor blackColor]];
+    
     UITabBarItem *tabBarItem1 = [self.tabBar.items objectAtIndex:0];
     UITabBarItem *tabBarItem2 = [self.tabBar.items objectAtIndex:1];
     UITabBarItem *tabBarItem3 = [self.tabBar.items objectAtIndex:2];
     
     [tabBarItem1 setTitle:@"Word List"];
-    [tabBarItem1 setSelectedImage:IMG(@"tab_list.png")];
+    //[tabBarItem1 setSelectedImage:IMG(@"tab_list.png")];
+    //[tabBarItem1 setImage:IMG(@"star_select.png")];
     
     [tabBarItem2 setTitle:@"Favorites"];
     [tabBarItem2 setSelectedImage:IMG(@"tab_fav.png")];
     
     [tabBarItem3 setTitle:@"Ignores"];
     [tabBarItem3 setSelectedImage:IMG(@"tab_ign.png")];
+    
+    
 }
 
 @end

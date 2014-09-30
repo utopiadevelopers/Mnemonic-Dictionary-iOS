@@ -99,6 +99,50 @@
     }
 }
 
+#pragma Search
+
+//- (void)textFieldDidChange:(UITextField *) textField {
+//    if (textField == cuisinesSearchField) {
+//        if([[textField text] length]>2) {
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//                [sectionWordList removeAllObjects];
+//                [wordList removeAllObjects];
+//                [cuisineDict removeAllObjects];
+//                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name contains[c] %@",[textField text]];
+//                filteredArray = [NSMutableArray arrayWithArray:[dbArray filteredArrayUsingPredicate:predicate]];
+//                if([filteredArray count]>0) {
+//                    if([previousSelectedCuisines count]>0) {
+//                        [self updateFilteredArray];
+//                    }
+//                    [self createCuisineDict];
+//                }
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [cuisinesTableView reloadData];
+//                });
+//            });
+//        }
+//        else {
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//                [filteredArray removeAllObjects];
+//                [sectionHeading removeAllObjects];
+//                [cuisineDict removeAllObjects];
+//                if([previousSelectedCuisines count]>0) {
+//                    [self updateDBArray];
+//                }
+//                else {
+//                    [filteredArray addObjectsFromArray:dbArray];
+//                }
+//                [self createCuisineDict];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [cuisinesTableView reloadData];
+//                });
+//            });
+//            
+//        }
+//    }
+//}
+
+
 #pragma TableView Delegates
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
