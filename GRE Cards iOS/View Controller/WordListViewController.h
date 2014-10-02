@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, WordListType)
 @property (nonatomic, weak) IBOutlet UIToolbar *actionBar;
 @property (nonatomic, strong) IBOutlet UITableView *wordLV;
 @property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) IBOutlet UISearchDisplayController *searchBarController;
 @property (nonatomic, assign) WordListType wordListType;
 
 -(id) initWithWordListType:(WordListType) listType;
