@@ -11,7 +11,9 @@
 @interface WordListViewController ()
 {
     NSMutableArray* wordList;
-    NSString *Alphabets;
+    NSMutableArray* searchResults;
+    NSMutableArray* dbArray;
+    NSMutableArray* sectionHeading;
     NSMutableDictionary *sectionWordList;
 }
 @end
@@ -30,7 +32,7 @@
     {
         wordListType = listType;
         sectionWordList = [[NSMutableDictionary alloc] init];
-        Alphabets = @"ABCDEFGHIJKLMONPQRSTUVWXYZ";
+        sectionHeading  = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -86,84 +88,49 @@
 
 - (void) setupMutuableDic
 {
-    NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
     for (WordObject *word in wordList)
     {
-        for (int i=0; i<[lowerAplha length]; i++)
+        NSString *w_str = [[[[word word] substringFromIndex:0] substringToIndex:1] uppercaseString];
+        
+        if([sectionHeading containsObject:w_str])
         {
-            NSString *l_str = [[lowerAplha substringFromIndex:i] substringToIndex:1];
-            NSString *w_str = [[[word word] substringFromIndex:0] substringToIndex:1];
-            
-            if([l_str isEqualToString:w_str])
-            {
-                NSMutableArray * array = [sectionWordList objectForKey:l_str];
-                if (array==nil)
-                {
-                    array = [[NSMutableArray alloc] init];
-                }
-                [array addObject:word];
-                [sectionWordList setObject:array forKey:l_str];
-                break;
-            }
+            NSMutableArray * array = [sectionWordList objectForKey:w_str];
+            [array addObject:word];
+            [sectionWordList setObject:array forKey:w_str];
+        }
+        else
+        {
+            NSMutableArray * array = [[NSMutableArray alloc] init];
+            [array addObject:word];
+            [sectionWordList setObject:array forKey:w_str];
+            [sectionHeading addObject:w_str];
         }
     }
 }
 
 #pragma Search
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"word contains[c] %@", searchText];
+    searchResults = [wordList filteredArrayUsingPredicate:resultPredicate];
 }
 
-//- (void)textFieldDidChange:(UITextField *) textField {
-//    if (textField == cuisinesSearchField) {
-//        if([[textField text] length]>2) {
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//                [sectionWordList removeAllObjects];
-//                [wordList removeAllObjects];
-//                [cuisineDict removeAllObjects];
-//                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name contains[c] %@",[textField text]];
-//                filteredArray = [NSMutableArray arrayWithArray:[dbArray filteredArrayUsingPredicate:predicate]];
-//                if([filteredArray count]>0) {
-//                    if([previousSelectedCuisines count]>0) {
-//                        [self updateFilteredArray];
-//                    }
-//                    [self createCuisineDict];
-//                }
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [cuisinesTableView reloadData];
-//                });
-//            });
-//        }
-//        else {
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//                [filteredArray removeAllObjects];
-//                [sectionHeading removeAllObjects];
-//                [cuisineDict removeAllObjects];
-//                if([previousSelectedCuisines count]>0) {
-//                    [self updateDBArray];
-//                }
-//                else {
-//                    [filteredArray addObjectsFromArray:dbArray];
-//                }
-//                [self createCuisineDict];
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [cuisinesTableView reloadData];
-//                });
-//            });
-//            
-//        }
-//    }
-//}
-
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
 
 #pragma TableView Delegates
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
-    NSString *l_str = [[lowerAplha substringFromIndex:indexPath.section] substringToIndex:1];
+    NSString *l_str = [sectionHeading objectAtIndex:indexPath.section];
     NSMutableArray *list = [sectionWordList objectForKey:l_str];
     WordObject* wordObj = [list objectAtIndex:indexPath.row];
     
@@ -189,26 +156,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *lowerAplha = [[NSString stringWithString:Alphabets] lowercaseString];
-    NSString *l_str = [[lowerAplha substringFromIndex:section] substringToIndex:1];
-    
-    return [[sectionWordList objectForKey:l_str] count];
+    return [[sectionWordList objectForKey:[sectionHeading objectAtIndex:section]] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [[Alphabets substringFromIndex:section] substringToIndex:1];
+    return [sectionHeading objectAtIndex:section];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    NSMutableArray * array = [[NSMutableArray alloc] init];
-    for (int i=0; i<[Alphabets length]; i++)
-    {
-        NSString *l_str = [[Alphabets substringFromIndex:i] substringToIndex:1];
-        [array addObject:l_str];
-    }
-    return array;
+    return sectionHeading;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
