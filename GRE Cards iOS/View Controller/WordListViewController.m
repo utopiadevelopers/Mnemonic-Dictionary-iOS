@@ -161,9 +161,9 @@
     WordObject* wordObj;
     
     if(isSearching)
-        wordObj = [searchSectionWordList objectForKey:[searchSectionHeading objectAtIndex:indexPath.section]];
+        wordObj = [[searchSectionWordList objectForKey:[searchSectionHeading objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     else
-        wordObj = [sectionWordList objectForKey:[sectionHeading objectAtIndex:indexPath.section]];
+        wordObj = [[sectionWordList objectForKey:[sectionHeading objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     static NSString * cellIdentifier = @"WordListCell";
     

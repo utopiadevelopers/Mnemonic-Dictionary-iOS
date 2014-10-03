@@ -120,7 +120,7 @@ static sqlite3 *database = nil;
 {
     NSMutableArray *array = [[NSMutableArray alloc]init];
     sqlite3_stmt    *statement;
-    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@",COLUMN_SERVER_WORDID,COLUMN_WORD,COLUMN_DEF_SHORT,TABLE_WORDS];
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@ ORDER BY %@",COLUMN_SERVER_WORDID,COLUMN_WORD,COLUMN_DEF_SHORT,TABLE_WORDS,COLUMN_WORD];
     const char *query_stmt = [querySQL UTF8String];
     if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
     {
@@ -145,7 +145,7 @@ static sqlite3 *database = nil;
     if(sqlite3_prepare_v2(database, [STMT_TABLE_WORDS UTF8String], -1, &word_stmt, NULL) == SQLITE_OK)
     {
         sqlite3_bind_text(word_stmt, 1, [[wordObj wordID] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(word_stmt, 2, [[wordObj word] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(word_stmt, 2, [[[wordObj word] lowercaseString] UTF8String], -1, SQLITE_TRANSIENT);
         sqlite3_bind_text(word_stmt, 3, [[wordObj definition_short] UTF8String], -1, SQLITE_TRANSIENT);
         
         if (sqlite3_step(word_stmt) == SQLITE_DONE)
