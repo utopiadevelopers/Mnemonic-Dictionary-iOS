@@ -102,12 +102,12 @@
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    if([[prefs objectForKey:LOGIN_TYPE] isEqualToString:SOCIAL_TYPE_GooglePlus])
+    if([[prefs objectForKey:LOGIN_TYPE] isEqualToString:SOCIAL_TYPE_GOOGLEPLUS])
     {
         [[GPPSignIn sharedInstance] signOut];
         [[GPPSignIn sharedInstance] disconnect];
     }
-    else if([[prefs objectForKey:LOGIN_TYPE] isEqualToString:SOCIAL_TYPE_Facebook])
+    else if([[prefs objectForKey:LOGIN_TYPE] isEqualToString:SOCIAL_TYPE_FACEBOOK])
     {
         [[FBSession activeSession] closeAndClearTokenInformation];
     }

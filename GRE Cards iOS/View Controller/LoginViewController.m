@@ -107,7 +107,7 @@
         {
             if(!error)
             {
-                [self socialLoginWithAccessToken:[session.accessTokenData accessToken] andType:SOCIAL_TYPE_Facebook];
+                [self socialLoginWithAccessToken:[session.accessTokenData accessToken] andType:SOCIAL_TYPE_FACEBOOK];
             }
             else
             {
@@ -140,7 +140,7 @@
     else
     {
         [self disableViews];
-        [self socialLoginWithAccessToken:auth.accessToken andType:SOCIAL_TYPE_GooglePlus];
+        [self socialLoginWithAccessToken:auth.accessToken andType:SOCIAL_TYPE_GOOGLEPLUS];
     }
 }
 
@@ -270,7 +270,7 @@
                                                   }];
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?auth=%@&type=%@",API_URL,SOCIAL_LOGIN_API,accessToken,type]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?access_token=%@&social_type=%@",API_URL,SOCIAL_LOGIN_API,accessToken,type]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)

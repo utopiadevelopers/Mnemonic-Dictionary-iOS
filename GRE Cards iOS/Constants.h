@@ -25,8 +25,8 @@
 #define LOGIN_FAIL @"fail"
 #define LOGIN_TYPE @"login_type"
 #define LOGIN_NORMAL @"login_normal"
-#define SOCIAL_TYPE_GooglePlus @"GPlus"
-#define SOCIAL_TYPE_Facebook @"FB"
+#define SOCIAL_TYPE_GOOGLEPLUS @"GPlus"
+#define SOCIAL_TYPE_FACEBOOK @"FB"
 
 //***********************end***********************
 
