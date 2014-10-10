@@ -78,7 +78,9 @@
 - (void) setupSearchBar
 {
     searchBar = [[UISearchBar alloc] init];
-    //searchBarController = [[UISearchDisplayController alloc] initWithSearchBar:searchBarController contentsController:self];
+    searchBarController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    [searchBarController setSearchResultsDataSource:self];
+    [searchBarController setSearchResultsDelegate:self];
     [searchBar setFrame:CGRectMake(0,STATUS_BAR_HEIGHT_ADDITION, W([self view]),40)];
     [searchBar setDelegate:self];
     [[self view] addSubview:searchBar];
@@ -86,7 +88,7 @@
 
 - (void) setupTableView
 {
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT_ADDITION, W(self.view), H(self.view)-TAB_BAR_HEIGHT-STATUS_BAR_HEIGHT_ADDITION)];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,40+STATUS_BAR_HEIGHT_ADDITION, W(self.view), H(self.view)-TAB_BAR_HEIGHT-STATUS_BAR_HEIGHT_ADDITION-40)];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
@@ -140,19 +142,10 @@
     }
 }
 
-
-//- (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-//{
-//    
-//}
-//
-//
-//-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-//{
-//    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"word BEGINSWITH[c] %@", searchString];
-//    NSMutableArray *searchResults = [wordList filteredArrayUsingPredicate:resultPredicate];
-//    return YES;
-//}
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    return true;
+}
 
 #pragma TableView Delegates
 
