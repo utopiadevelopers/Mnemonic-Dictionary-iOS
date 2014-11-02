@@ -14,6 +14,7 @@
 #import "Toast.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
+#import "MainHeaderView.h"
 
 @implementation LoginViewController
 {
@@ -60,9 +61,9 @@
 
 - (void) setupNavigationBar
 {
-    UILabel *loginBarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, NAVIGATION_BAR_HEIGHT)];
-    [loginBarLabel setText:@"Login"];
-    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:loginBarLabel];
+    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Login" subtitleText:@"" backButtonRequired:NO extraButtonRequired:NO];
+
+    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
 }
 
