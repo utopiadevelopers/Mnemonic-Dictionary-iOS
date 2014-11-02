@@ -9,7 +9,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <GooglePlus/GooglePlus.h>
 #import "Constants.h"
-#import "LoginViewController.h"
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -56,5 +55,7 @@
 + (void) logOutUser;
 
 + (UINavigationController *) getLoginViewController;
++ (UINavigationController *) getDownloadViewController;
++ (UINavigationController *) getDashboardViewController;
 
 @end

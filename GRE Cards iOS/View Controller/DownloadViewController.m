@@ -142,8 +142,7 @@
     [[DBManager sharedDBManager] commitTransaction];
     
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_JSON_DOWNLOADED];
-    DashboardViewController *viewController = [[DashboardViewController alloc] init];
-    [self presentViewController:viewController animated:YES completion:^{
+    [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
         
     }];
 }

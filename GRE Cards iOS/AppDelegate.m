@@ -16,26 +16,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     if([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGGED_IN])
     {
         if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
         {
-            DashboardViewController* viewController = [[DashboardViewController alloc] init];
-            self.window.rootViewController = viewController;
-            [self.window makeKeyAndVisible];
+            [window setRootViewController:[CommonFunction getDashboardViewController]];
         }
         else
         {
-            DownloadViewController* viewController = [[DownloadViewController alloc] init];
-            self.window.rootViewController = viewController;
-            [self.window makeKeyAndVisible];
+            [window setRootViewController:[CommonFunction getDownloadViewController]];
         }
     }
     else
     {
-        self.window.rootViewController = [CommonFunction getLoginViewController];
-        [self.window makeKeyAndVisible];
+        [window setRootViewController:[CommonFunction getLoginViewController]];
     }
+    [window makeKeyAndVisible];
     return YES;
 }
 

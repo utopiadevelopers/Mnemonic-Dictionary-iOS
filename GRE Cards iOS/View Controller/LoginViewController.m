@@ -65,7 +65,6 @@
 
 - (void) setupNavigationBar
 {
-    
     UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] init];
     [leftLabelButton setTitle:@"Login"];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
@@ -284,15 +283,13 @@
              [[NSUserDefaults standardUserDefaults] setValue:type forKey:LOGIN_TYPE];
              if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
              {
-                 DashboardViewController *viewController = [[DashboardViewController alloc] init];
-                 [self presentViewController:viewController animated:YES completion:^{
+                 [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
                      
                  }];
              }
              else
              {
-                 DownloadViewController *viewController = [[DownloadViewController alloc] init];
-                 [self presentViewController:viewController animated:YES completion:^{
+                 [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
                      
                  }];
              }
@@ -332,15 +329,13 @@
             [[NSUserDefaults standardUserDefaults] setValue:LOGIN_NORMAL forKey:LOGIN_TYPE];
             if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
             {
-                DashboardViewController *viewController = [[DashboardViewController alloc] init];
-                [self presentViewController:viewController animated:YES completion:^{
+                [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
                     
                 }];
             }
             else
             {
-                DownloadViewController *viewController = [[DownloadViewController alloc] init];
-                [self presentViewController:viewController animated:YES completion:^{
+                [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
                     
                 }];
             }

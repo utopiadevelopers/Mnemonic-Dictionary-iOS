@@ -65,6 +65,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define BLACK_COLOR         0x000000
 #define IOS_BLUE            0x007AFF
 #define IOS_BLUE_FEEDBACK   0x005AFF
+#define UTOPIA_BLUE         0x2F8AE9
+#define NAV_BAR_COLOR       UTOPIA_BLUE
 
 #define IMG(p)        [UIImage imageNamed:[NSString stringWithFormat: @"%@", p]]
 
