@@ -15,27 +15,22 @@
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
 
-@interface LoginViewController ()
-
-@property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UILabel *loginLabel;
-@property (strong, nonatomic)  UITextField *emailTextField;
-@property (strong, nonatomic)  UITextField *passwordTextField;
-@property (strong, nonatomic)  UIButton *loginButton;
-@property (strong, nonatomic) UIView *emailTextView ;
-@property (strong, nonatomic) UIView *passwordTextView;
-@property (strong, nonatomic) UIActivityIndicatorView * loginActivityIndicator;
-
-@end
-
 @implementation LoginViewController
 {
     NSInteger buttonWidth;
-}
+    UILabel *titleLabel;
+    UILabel *loginLabel;
+    UITextField *emailTextField;
+    UITextField *passwordTextField;
+    UIButton *loginButton;
+    UIView *emailTextView ;
+    UIView *passwordTextView;
+    UIActivityIndicatorView * loginActivityIndicator;
+    GPPSignInButton *signInButton;
+    UIButton *fbButton;
+    GPPSignIn *signIn;
 
-@synthesize signIn;
-@synthesize signInButton;
-@synthesize fbButton;
+}
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,8 +60,9 @@
 
 - (void) setupNavigationBar
 {
-    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] init];
-    [leftLabelButton setTitle:@"Login"];
+    UILabel *loginBarLabel = [[UILabel alloc] init];
+    [loginBarLabel setText:@"Login"];
+    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:loginBarLabel];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
 }
 
@@ -80,8 +76,8 @@
 
 - (void) dismissKeyboard
 {
-    [self.emailTextField resignFirstResponder];
-    [self.passwordTextField resignFirstResponder];
+    [emailTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
 }
 
 #pragma Facebook Login
@@ -153,74 +149,74 @@
 -(void) createViews
 {
     buttonWidth = 42;
-    self.view.backgroundColor = [UIColor lightGrayColor];
     
-    self.signInButton = [[GPPSignInButton alloc] init];
-    [self.signInButton setFrame:CGRectMake(SIDE_PADDING,NAVIGATION_BAR_HEIGHT+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
-    [self.signInButton setStyle:kGPPSignInButtonStyleWide];
-    [self.signInButton.layer setCornerRadius:3.0];
+    [[self view] setBackgroundColor:UIColorFromRGB(UTOPIA_GREY)];
 
-    UIFont *googleFont = [self.signInButton.titleLabel.font copy];
+    signInButton = [[GPPSignInButton alloc] init];
+    [signInButton setFrame:CGRectMake(SIDE_PADDING,NAVIGATION_BAR_HEIGHT+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
+    [signInButton setStyle:kGPPSignInButtonStyleWide];
+    [signInButton.layer setCornerRadius:3.0];
+
+    UIFont *googleFont = [signInButton.titleLabel.font copy];
     UIImageView *fbLoginImage = [[UIImageView alloc]initWithImage:IMG(@"facebook.png")];
     NSInteger fbLoginImageSize = 22;
     
-    [fbLoginImage setFrame:CGRectMake(SIDE_PADDING + fbLoginImageSize/2,BOTTOM(self.signInButton)+SIDE_PADDING + (buttonWidth-fbLoginImageSize)/2,fbLoginImageSize,fbLoginImageSize)];
+    [fbLoginImage setFrame:CGRectMake(SIDE_PADDING + fbLoginImageSize/2,BOTTOM(signInButton)+SIDE_PADDING + (buttonWidth-fbLoginImageSize)/2,fbLoginImageSize,fbLoginImageSize)];
     [fbLoginImage setContentMode:UIViewContentModeScaleAspectFill];
     
-    self.fbButton = [[UIButton alloc] init];
-    [self.fbButton setFrame:CGRectMake(SIDE_PADDING,BOTTOM(self.signInButton)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
-    [self.fbButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(0X3B5999)] forState:UIControlStateNormal];
-    [self.fbButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(0X3B59C0)] forState:UIControlStateHighlighted];
+    fbButton = [[UIButton alloc] init];
+    [fbButton setFrame:CGRectMake(SIDE_PADDING,BOTTOM(signInButton)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
+    [fbButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(0X3B5999)] forState:UIControlStateNormal];
+    [fbButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(0X3B59C0)] forState:UIControlStateHighlighted];
     
     
-    [self.fbButton.layer setCornerRadius:3.0];
-    [self.fbButton setTitle:@"Sign in with Facebook" forState:UIControlStateNormal];
-    [self.fbButton setTitleColor:UIColorFromRGB(WHITE_COLOR) forState:UIControlStateNormal];
-    [self.fbButton.titleLabel setFont:[UIFont fontWithName:googleFont.fontName size:14.0]];
-    [self.fbButton addTarget:self action:@selector(loginFB) forControlEvents:UIControlEventTouchUpInside];
+    [fbButton.layer setCornerRadius:3.0];
+    [fbButton setTitle:@"Sign in with Facebook" forState:UIControlStateNormal];
+    [fbButton setTitleColor:UIColorFromRGB(WHITE_COLOR) forState:UIControlStateNormal];
+    [fbButton.titleLabel setFont:[UIFont fontWithName:googleFont.fontName size:14.0]];
+    [fbButton addTarget:self action:@selector(loginFB) forControlEvents:UIControlEventTouchUpInside];
     
-    self.loginLabel = [[UILabel alloc] init];
-    [self.loginLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.loginLabel setText:@"OR LOG IN USING EMAIL"];
-    [self.loginLabel setFrame:CGRectMake(0,BOTTOM(self.fbButton) + SIDE_PADDING, W(self.view),50)];
+    loginLabel = [[UILabel alloc] init];
+    [loginLabel setTextAlignment:NSTextAlignmentCenter];
+    [loginLabel setText:@"OR LOG IN USING EMAIL"];
+    [loginLabel setFrame:CGRectMake(0,BOTTOM(fbButton) + SIDE_PADDING, W(self.view),50)];
     
-    self.emailTextView = [self getEmailTextField];
+    emailTextView = [self getEmailTextField];
+    passwordTextView = [self getPasswordView];
     
-    self.passwordTextView = [self getPasswordView];
-    
-    self.loginButton = [[UIButton alloc]init];
-    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    [self.loginButton.titleLabel setTextColor:UIColorFromRGB(WHITE_COLOR)];
-    [self.loginButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(IOS_BLUE)] forState:UIControlStateNormal];
-    [self.loginButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(IOS_BLUE_FEEDBACK)] forState:UIControlStateHighlighted];
-    [self.loginButton setFrame:CGRectMake(SIDE_PADDING, BOTTOM(self.passwordTextView)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
-    [self.loginButton.layer setCornerRadius:3.0];
-    [self.loginButton setClipsToBounds:true];
-    [self.loginButton addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    loginButton = [[UIButton alloc]init];
+    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [loginButton.titleLabel setTextColor:UIColorFromRGB(WHITE_COLOR)];
+    [loginButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(IOS_BLUE)] forState:UIControlStateNormal];
+    [loginButton setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(IOS_BLUE_FEEDBACK)] forState:UIControlStateHighlighted];
+    [loginButton setFrame:CGRectMake(SIDE_PADDING, BOTTOM(passwordTextView)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
+    [loginButton.layer setCornerRadius:3.0];
+    [loginButton setClipsToBounds:true];
+    [loginButton addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
-    [self.view addSubview:self.titleLabel];
-    [self.view addSubview:self.signInButton];
-    [self.view addSubview:self.fbButton];
-    [self.view addSubview:self.loginLabel];
-    [self.view addSubview:self.emailTextView];
-    [self.view addSubview:self.passwordTextView];
-    [self.view addSubview:self.loginButton];
+    [self.view addSubview:titleLabel];
+    [self.view addSubview:signInButton];
+    [self.view addSubview:fbButton];
+    [self.view addSubview:loginLabel];
+    [self.view addSubview:emailTextView];
+    [self.view addSubview:passwordTextView];
+    [self.view addSubview:loginButton];
     [self.view insertSubview:fbLoginImage aboveSubview:fbButton];
 }
 
 -(UIView *) getEmailTextField
 {
-    UIView *textFieldContainerView = [[UIView alloc] initWithFrame:CGRectMake(SIDE_PADDING,BOTTOM(self.loginLabel) + SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
-    self.emailTextField = [[UITextField alloc]initWithFrame:CGRectMake(SIDE_PADDING, 0, W(self.view)-4*SIDE_PADDING, buttonWidth)];
+    UIView *textFieldContainerView = [[UIView alloc] initWithFrame:CGRectMake(SIDE_PADDING,BOTTOM(loginLabel) + SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
+    emailTextField = [[UITextField alloc]initWithFrame:CGRectMake(SIDE_PADDING, 0, W(self.view)-4*SIDE_PADDING, buttonWidth)];
     
-    [self.emailTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [self.emailTextField setPlaceholder:@"Email"];
-    [self.emailTextField setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
-    [self.emailTextField setKeyboardType:UIKeyboardTypeEmailAddress];
-    [self.emailTextField setText:@""];
+    [emailTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [emailTextField setPlaceholder:@"Email"];
+    [emailTextField setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
+    [emailTextField setKeyboardType:UIKeyboardTypeEmailAddress];
+    [emailTextField setText:@""];
     
     [textFieldContainerView setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
-    [textFieldContainerView addSubview:self.emailTextField];
+    [textFieldContainerView addSubview:emailTextField];
     [textFieldContainerView.layer setCornerRadius:URC_MEDIUM];
     [textFieldContainerView setClipsToBounds:true];
     
@@ -229,17 +225,17 @@
 
 -(UIView *) getPasswordView
 {
-    UIView *textFieldContainerView = [[UIView alloc] initWithFrame:CGRectMake(SIDE_PADDING, BOTTOM(self.emailTextView)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
-    self.passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(SIDE_PADDING,0, W(self.view)-4*SIDE_PADDING, buttonWidth)];
+    UIView *textFieldContainerView = [[UIView alloc] initWithFrame:CGRectMake(SIDE_PADDING, BOTTOM(emailTextView)+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, buttonWidth)];
+    passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(SIDE_PADDING,0, W(self.view)-4*SIDE_PADDING, buttonWidth)];
     
-    [self.passwordTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [self.passwordTextField setPlaceholder:@"Password"];
-    [self.passwordTextField setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
-    [self.passwordTextField setSecureTextEntry:YES];
-    [self.passwordTextField setText:@""];
+    [passwordTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [passwordTextField setPlaceholder:@"Password"];
+    [passwordTextField setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
+    [passwordTextField setSecureTextEntry:YES];
+    [passwordTextField setText:@""];
     
     [textFieldContainerView setBackgroundColor:UIColorFromRGB(WHITE_COLOR)];
-    [textFieldContainerView addSubview:self.passwordTextField];
+    [textFieldContainerView addSubview:passwordTextField];
     [textFieldContainerView.layer setCornerRadius:URC_MEDIUM];
     [textFieldContainerView setClipsToBounds:true];
     
@@ -250,11 +246,11 @@
 
 -(void) createLoginIndicator
 {
-    self.loginActivityIndicator = [[UIActivityIndicatorView alloc]init];
-    [self.loginActivityIndicator setCenter:self.loginButton.center];
-    [self.loginActivityIndicator setHidesWhenStopped:true];
-    [self.loginActivityIndicator stopAnimating];
-    [self.view addSubview:self.loginActivityIndicator];
+    loginActivityIndicator = [[UIActivityIndicatorView alloc]init];
+    [loginActivityIndicator setCenter:loginButton.center];
+    [loginActivityIndicator setHidesWhenStopped:true];
+    [loginActivityIndicator stopAnimating];
+    [self.view addSubview:loginActivityIndicator];
 }
 
 -(void) socialLoginWithAccessToken:(NSString *)accessToken andType:(NSString *)type
@@ -274,7 +270,7 @@
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
      {
-         [self.loginActivityIndicator stopAnimating];
+         [loginActivityIndicator stopAnimating];
          SocialLogin *auth = (SocialLogin*)[result firstObject];
          if([auth.login isEqualToString:LOGIN_SUCCESS])
          {
@@ -320,7 +316,7 @@
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
     {
-        [self.loginActivityIndicator stopAnimating];
+        [loginActivityIndicator stopAnimating];
         Authentication *auth = (Authentication*)[result firstObject];
         if([auth.login isEqualToString:LOGIN_SUCCESS])
         {
@@ -351,27 +347,27 @@
 
 -(void) disableViews
 {
-    [self.loginActivityIndicator startAnimating];
-    [self.signInButton setEnabled:FALSE];
-    [self.fbButton setEnabled:FALSE];
-    [self.loginButton setTitle:@"" forState:UIControlStateNormal];
-    [self.loginButton setEnabled:FALSE];
-    [self.emailTextField resignFirstResponder];
-    [self.passwordTextField resignFirstResponder];
-    [self.emailTextField setUserInteractionEnabled:FALSE];
-    [self.passwordTextField setUserInteractionEnabled:FALSE];
+    [loginActivityIndicator startAnimating];
+    [signInButton setEnabled:FALSE];
+    [fbButton setEnabled:FALSE];
+    [loginButton setTitle:@"" forState:UIControlStateNormal];
+    [loginButton setEnabled:FALSE];
+    [emailTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
+    [emailTextField setUserInteractionEnabled:FALSE];
+    [passwordTextField setUserInteractionEnabled:FALSE];
     
 }
 
 -(void) enableViews
 {
-    [self.signInButton setEnabled:TRUE];
-    [self.fbButton setEnabled:TRUE];
-    [self.loginButton setEnabled:TRUE];
-    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    [self.emailTextField setUserInteractionEnabled:TRUE];
-    [self.passwordTextField setUserInteractionEnabled:TRUE];
-    [self.loginActivityIndicator stopAnimating];
+    [signInButton setEnabled:TRUE];
+    [fbButton setEnabled:TRUE];
+    [loginButton setEnabled:TRUE];
+    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [emailTextField setUserInteractionEnabled:TRUE];
+    [passwordTextField setUserInteractionEnabled:TRUE];
+    [loginActivityIndicator stopAnimating];
     
     
 }
@@ -387,8 +383,8 @@
 
 - (void) loginButtonTapped:(UIButton *)sender {
     
-    if (self.emailTextField.text.length>0 && self.passwordTextField.text.length>0) {
-        [self loginWithUserName:self.emailTextField.text password:self.passwordTextField.text];
+    if (emailTextField.text.length>0 && passwordTextField.text.length>0) {
+        [self loginWithUserName:emailTextField.text password:passwordTextField.text];
         
     }
     else

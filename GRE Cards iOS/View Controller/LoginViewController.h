@@ -13,8 +13,4 @@
 
 @interface LoginViewController : UIViewController<GPPSignInDelegate>
 
-@property (retain, nonatomic) IBOutlet GPPSignInButton *signInButton;
-@property (retain, nonatomic) IBOutlet UIButton *fbButton;
-@property (strong, nonatomic) GPPSignIn *signIn;
-
 @end
