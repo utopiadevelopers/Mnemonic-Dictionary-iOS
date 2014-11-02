@@ -37,10 +37,17 @@
 #define URC_LOW 3.0
 #define URC_MEDIUM 5.0
 #define NAVIGATION_BAR_HEIGHT 64.0
+#define MAIN_HEADER_HEIGHT 50.0f
 #define TAB_BAR_HEIGHT 49.0
 #define STATUS_BAR_HEIGHT_ADDITION (SYSTEM_VERSION_LESS_THAN(@"7.0") ? 0.0f : 20.0f)
 
 //***********************end***********************
+
+//**********************Default Styles**********************************
+
+
+
+//**************************************************************
 
 //********************* nsuser defaults constants **************************
 #define IS_LOGGED_IN    @"is_logged_in"
@@ -61,17 +68,35 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
-#define WHITE_COLOR         0xFFFFFF
-#define BLACK_COLOR         0x000000
-#define IOS_BLUE            0x007AFF
-#define IOS_BLUE_FEEDBACK   0x005AFF
-#define UTOPIA_BLUE         0x2F8AE9
-#define UTOPIA_GREY         0xD6D7D8
-#define NAV_BAR_COLOR       UTOPIA_BLUE
+#define WHITE_COLOR          0xFFFFFF
+#define BLACK_COLOR          0x000000
+#define IOS_BLUE             0x007AFF
+#define IOS_BLUE_FEEDBACK    0x005AFF
+#define UTOPIA_BLUE          0x2F8AE9
+#define UTOPIA_GREY          0xD6D7D8
+#define NAV_BAR_COLOR        UTOPIA_BLUE
+#define NAV_BAR_ITEMS_COLOR  WHITE_COLOR
 
 #define IMG(p)        [UIImage imageNamed:[NSString stringWithFormat: @"%@", p]]
 
 //*********************ends **************************
+
+
+/*=============================Universal Fonts=======================================*/
+#define FONT_BODY_SMALL             [UIFont fontWithName:@"OpenSans" size:13]
+#define FONT_BODY                   [UIFont fontWithName:@"OpenSans" size:14]
+#define FONT_BODY_BOLD              [UIFont fontWithName:@"OpenSans-Bold" size:14]
+#define FONT_BODY_BOLD_LARGE        FONT_BOLD_15
+#define FONT_HEADER_LABEL           FONT_GOTHAM_BOLD(12)
+#define FONT_NAV_BAR_LABEL          [UIFont fontWithName:@"OpenSans-Semibold" size:17]
+#define FONT_MODAL_LABEL            FONT_BOLD(16)
+#define FONT_TITLE_LABEL            FONT_SEMIBOLD(15)
+#define FONT_COLLECTIONS_TITLE      [UIFont fontWithName:@"OpenSans" size:23]
+#define FONT_HELVETICANEUE_REGULAR(X)     [UIFont fontWithName:@"HelveticaNeue" size:X]
+#define FONT_HELVETICANEUE_LIGHT(X)     [UIFont fontWithName:@"Helvetica-Light" size:X]
+#define FONT_SUBMIT_BUTTON          FONT_GOTHAM_BOLD(18)
+/*===================================================================================*/
+
 
 //********************* nsuser defaults constants **************************
 #define IS_LOGGED_IN    @"is_logged_in"

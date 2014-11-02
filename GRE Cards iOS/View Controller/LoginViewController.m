@@ -60,7 +60,7 @@
 
 - (void) setupNavigationBar
 {
-    UILabel *loginBarLabel = [[UILabel alloc] init];
+    UILabel *loginBarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, NAVIGATION_BAR_HEIGHT)];
     [loginBarLabel setText:@"Login"];
     UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:loginBarLabel];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];

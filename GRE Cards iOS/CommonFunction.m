@@ -173,4 +173,34 @@
     return dashboardNavigationController;
 }
 
+#pragma Size Related
+
++ (CGFloat) getPhoneWidth
+{
+    return [UIScreen mainScreen].bounds.size.width;
+}
+
++ (CGFloat) getPhoneHeight
+{
+    return [UIScreen mainScreen].bounds.size.height;
+}
+
++ (CGFloat) isiPhone6
+{
+    if([UIScreen mainScreen].bounds.size.width > 350)
+    {
+        return YES;
+    }
+    return NO;
+}
+
++ (CGFloat) isiPhone6Plus
+{
+    if([UIScreen mainScreen].bounds.size.width > 380)
+    {
+        return YES;
+    }
+    return NO;
+}
+
 @end

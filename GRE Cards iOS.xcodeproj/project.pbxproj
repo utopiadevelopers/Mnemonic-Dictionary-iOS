@@ -27,6 +27,7 @@
 		903D5C8419A483CB00119129 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6C19A483CB00119129 /* UIKit.framework */; };
 		903D5C8C19A483CB00119129 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903D5C8A19A483CB00119129 /* InfoPlist.strings */; };
 		903D5C8E19A483CB00119129 /* GRE_Cards_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */; };
+		90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90551A6D1A06B66400FACAF3 /* MainHeaderView.m */; };
 		905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFFF219A4AE9E0039A13A /* SocialLogin.m */; };
 		905AFFF519A4B3D00039A13A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AFFF419A4B3D00039A13A /* FacebookSDK.framework */; };
 		905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 905B6BDD19A4A24300A542E7 /* CommonFunction.m */; };
@@ -92,6 +93,8 @@
 		903D5C8919A483CB00119129 /* GRE Cards iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GRE Cards iOSTests-Info.plist"; sourceTree = "<group>"; };
 		903D5C8B19A483CB00119129 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Cards_iOSTests.m; sourceTree = "<group>"; };
+		90551A6C1A06B66400FACAF3 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHeaderView.h; sourceTree = "<group>"; };
+		90551A6D1A06B66400FACAF3 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView.m; sourceTree = "<group>"; };
 		905AFFF119A4AE9E0039A13A /* SocialLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialLogin.h; sourceTree = "<group>"; };
 		905AFFF219A4AE9E0039A13A /* SocialLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialLogin.m; sourceTree = "<group>"; };
 		905AFFF419A4B3D00039A13A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 			children = (
 				906824E119A49F13003957A1 /* Toast.h */,
 				906824E219A49F13003957A1 /* Toast.m */,
+				90551A6C1A06B66400FACAF3 /* MainHeaderView.h */,
+				90551A6D1A06B66400FACAF3 /* MainHeaderView.m */,
 			);
 			path = "View Helpers";
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				90DA96D319B0E9D300C7141A /* DBManager.m in Sources */,
 				908B6A5719CBE33600633F2F /* Constants.m in Sources */,
 				906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */,
+				90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
 				90DA96D919B200C600C7141A /* WordObject.m in Sources */,

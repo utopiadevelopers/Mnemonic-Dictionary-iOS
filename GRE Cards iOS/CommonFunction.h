@@ -58,4 +58,11 @@
 + (UINavigationController *) getDownloadViewController;
 + (UINavigationController *) getDashboardViewController;
 
+// Size Related
++ (CGFloat) getPhoneWidth;
++ (CGFloat) getPhoneHeight;
++ (CGFloat) isiPhone6;
++ (CGFloat) isiPhone6Plus;
+
+
 @end
