@@ -61,8 +61,8 @@
 
 - (void) setupNavigationBar
 {
-    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Login" subtitleText:@"" backButtonRequired:NO extraButtonRequired:NO];
-
+    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Login" backButtonRequired:NO];
+    [headerView setBackgroundColor:[UIColor greenColor]];
     UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
 }

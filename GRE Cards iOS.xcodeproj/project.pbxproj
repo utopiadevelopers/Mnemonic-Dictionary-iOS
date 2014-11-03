@@ -55,6 +55,7 @@
 		90DA96D319B0E9D300C7141A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D219B0E9D300C7141A /* DBManager.m */; };
 		90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D519B1FF9E00C7141A /* DefinitionObject.m */; };
 		90DA96D919B200C600C7141A /* WordObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA96D819B200C600C7141A /* WordObject.m */; };
+		90EF618A1A080995007F4D7E /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EF61891A080995007F4D7E /* SplashViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,8 @@
 		90DA96D519B1FF9E00C7141A /* DefinitionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionObject.m; sourceTree = "<group>"; };
 		90DA96D719B200C600C7141A /* WordObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordObject.h; sourceTree = "<group>"; };
 		90DA96D819B200C600C7141A /* WordObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordObject.m; sourceTree = "<group>"; };
+		90EF61881A080995007F4D7E /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		90EF61891A080995007F4D7E /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		99A6B6C4953C435DA19C2ED7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,6 +347,8 @@
 				905F8DA119D31AD800519C99 /* WordListViewController.m */,
 				90163D9519D869F100CB0BBE /* WordViewController.h */,
 				90163D9619D869F100CB0BBE /* WordViewController.m */,
+				90EF61881A080995007F4D7E /* SplashViewController.h */,
+				90EF61891A080995007F4D7E /* SplashViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				905F8DA219D31AD900519C99 /* WordListViewController.m in Sources */,
 				905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */,
 				906824ED19A49F5F003957A1 /* Authentication.m in Sources */,
+				90EF618A1A080995007F4D7E /* SplashViewController.m in Sources */,
 				903D5C7919A483CB00119129 /* AppDelegate.m in Sources */,
 				90163D9719D869F100CB0BBE /* WordViewController.m in Sources */,
 				905F8D9E19D3159D00519C99 /* WordListTableViewCell.m in Sources */,

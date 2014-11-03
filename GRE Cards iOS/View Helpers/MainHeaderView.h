@@ -12,15 +12,10 @@
 
 @property (weak, nonatomic) id parentVC;
 @property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UILabel *subtitleLabel;
 @property (strong, nonatomic) UIButton *backButton;
 @property (strong, nonatomic) UIBarButtonItem *barBackButton;
 
-/**
- * This method is used to create the header view in all view controllers that are pushed into the stack.
- * It returns a UIView that can be added to the main view.
- */
-- (id)initMainHeaderWithParent:(id)parent WithTitle:(NSString *)titletext subtitleText:(NSString *)subtitleText backButtonRequired:(BOOL)backButtonRequired extraButtonRequired:(BOOL)extraButtonRequired;
+- (id)initMainHeaderWithParent:(id)parent WithTitle:(NSString *)titletext backButtonRequired:(BOOL)backButtonRequired;
 - (void)centerAlignTitle;
 + (void)popVC:(id)vc;
 

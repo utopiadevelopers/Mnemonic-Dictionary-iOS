@@ -54,6 +54,7 @@
 
 + (void) logOutUser;
 
++ (UIViewController *) getSplashViewController;
 + (UINavigationController *) getLoginViewController;
 + (UINavigationController *) getDownloadViewController;
 + (UINavigationController *) getDashboardViewController;

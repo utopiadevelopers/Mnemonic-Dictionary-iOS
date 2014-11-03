@@ -16,22 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    if([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGGED_IN])
-    {
-        if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
-        {
-            [window setRootViewController:[CommonFunction getDashboardViewController]];
-        }
-        else
-        {
-            [window setRootViewController:[CommonFunction getDownloadViewController]];
-        }
-    }
-    else
-    {
-        [window setRootViewController:[CommonFunction getLoginViewController]];
-    }
+    [window setRootViewController:[CommonFunction getSplashViewController]];
     [window makeKeyAndVisible];
     return YES;
 }

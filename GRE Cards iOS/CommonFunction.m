@@ -6,6 +6,7 @@
 //
 
 #import "CommonFunction.h"
+#import "SplashViewController.h"
 #import "LoginViewController.h"
 #import "DownloadViewController.h"
 #import "DashboardViewController.h"
@@ -121,6 +122,12 @@
 }
 
 #pragma View Controllers
+
++ (UIViewController *) getSplashViewController
+{
+    SplashViewController *svc = [[SplashViewController alloc] init];
+    return svc;
+}
 
 + (UINavigationController *) getLoginViewController
 {
