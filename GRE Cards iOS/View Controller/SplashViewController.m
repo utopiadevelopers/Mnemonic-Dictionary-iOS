@@ -14,19 +14,15 @@
 
 @implementation SplashViewController
 
-- (id) init
-{
-    self = [self init];
-    if(self)
-    {
-        
-    }
-    return self;
-}
-
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    [[self view] setBackgroundColor:UIColorFromRGB(UTOPIA_BLUE)];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(presentViewController:) userInfo:nil repeats:NO];
 }
 
 -(BOOL) prefersStatusBarHidden
@@ -34,7 +30,7 @@
     return YES;
 }
 
-- (void) presentViewController
+- (void) presentViewController:(NSTimer*) timer
 {
     if([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGGED_IN])
     {

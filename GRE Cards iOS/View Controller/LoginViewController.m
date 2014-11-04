@@ -33,16 +33,6 @@
 
 }
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        
-    }
-    return self;
-}
-
 - (void) viewDidLoad
 {
     [super viewDidLoad];
@@ -53,16 +43,9 @@
     [self setupGooglePlus];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void) setupNavigationBar
 {
     MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Login" backButtonRequired:NO];
-    [headerView setBackgroundColor:[UIColor greenColor]];
     UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
 }
@@ -154,7 +137,7 @@
     [[self view] setBackgroundColor:UIColorFromRGB(UTOPIA_GREY)];
 
     signInButton = [[GPPSignInButton alloc] init];
-    [signInButton setFrame:CGRectMake(SIDE_PADDING,NAVIGATION_BAR_HEIGHT+SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
+    [signInButton setFrame:CGRectMake(SIDE_PADDING,SIDE_PADDING, W(self.view)-2*SIDE_PADDING, 2*buttonWidth)];
     [signInButton setStyle:kGPPSignInButtonStyleWide];
     [signInButton.layer setCornerRadius:3.0];
 

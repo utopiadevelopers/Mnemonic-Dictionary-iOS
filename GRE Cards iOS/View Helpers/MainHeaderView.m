@@ -26,7 +26,6 @@
 {
     [self setParentVC:parent];    
     self = [self initWithFrame:CGRectMake(0, 0, [CommonFunction getPhoneWidth], MAIN_HEADER_HEIGHT)];
-    [self setBackgroundColor:[UIColor greenColor]];
     backButtonSpaceRequired = backButtonRequired;
 
     
@@ -47,7 +46,7 @@
     if(titletext != nil)
     {
         titleLabel = [[UILabel alloc] init];
-        [titleLabel setFont:FONT_NAV_BAR_LABEL];
+        [titleLabel setFont:FONT_BODY_BOLD];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel setTextAlignment:NSTextAlignmentCenter];
         [titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];
@@ -73,7 +72,6 @@
         [titleLabel setFrame:CGRectMake(titleX, 0, titleWidth - titleX, H(self))];
         [titleLabel setFrame:CGRectMake(0, 0, titleWidth, H(self))];
         [titleLabel setTextAlignment:NSTextAlignmentLeft];
-        [titleLabel setBackgroundColor:[UIColor cyanColor]];
     }
     
     [self addSubview:titleLabel];

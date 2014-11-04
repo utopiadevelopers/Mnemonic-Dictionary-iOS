@@ -6,6 +6,7 @@
 //
 
 #import "DownloadViewController.h"
+#import "MainHeaderView.h"
 
 @interface DownloadViewController ()
 
@@ -23,21 +24,40 @@
 @synthesize downloadedMutableData;
 @synthesize urlResponse;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self createViews];
+    [self setupNavigationBar];
     [self askPermission];
 }
+
+- (void)createViews
+{
+    [self.view setBackgroundColor:UIColorFromRGB(UTOPIA_GREY)];
+    //Title
+    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(2*SIDE_PADDING,50, W(self.view), 50)];
+    [title setText:@"Downloading Data"];
+    //ProgressBar
+    self.progressBar = [[UIProgressView alloc] initWithFrame:CGRectMake(2*SIDE_PADDING,BOTTOM(title)+SIDE_PADDING,W(self.view)-4*SIDE_PADDING,30)];
+    [self.progressBar setHidden:YES];
+    
+    [self.view addSubview:title];
+    [self.view addSubview:progressBar];
+    
+    //Setting up Basic Parameters
+    cancelTitle = [NSString stringWithFormat:@"No"];
+    otherTitle  = [NSString stringWithFormat:@"Yes"];
+    self.downloadedMutableData = [[NSMutableData alloc] init];
+}
+
+- (void) setupNavigationBar
+{
+    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Download" backButtonRequired:NO];
+    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
+    [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
+}
+
 
 - (void)startDownload
 {
@@ -53,25 +73,6 @@
     
     [alert show];
     [alert setDelegate:self];
-}
-
-- (void)createViews
-{
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    //Title
-    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(2*SIDE_PADDING,50, W(self.view), 50)];
-    [title setText:@"Downloading Data"];
-    //ProgressBar
-    self.progressBar = [[UIProgressView alloc] initWithFrame:CGRectMake(2*SIDE_PADDING,BOTTOM(title)+SIDE_PADDING,W(self.view)-4*SIDE_PADDING,30)];
-    [self.progressBar setHidden:YES];
-    
-    [self.view addSubview:title];
-    [self.view addSubview:progressBar];
-    
-    //Setting up Basic Parameters
-    cancelTitle = [NSString stringWithFormat:@"No"];
-    otherTitle  = [NSString stringWithFormat:@"Yes"];
-    self.downloadedMutableData = [[NSMutableData alloc] init];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
