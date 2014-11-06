@@ -239,94 +239,94 @@
 
 -(void) socialLoginWithAccessToken:(NSString *)accessToken andType:(NSString *)type
 {
-    NSLog(@"Trying to Login");
-    [self disableViews];
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SocialLogin class]];
-    [mapping addAttributeMappingsFromDictionary:@{
-                                                  @"login":   @"login",
-                                                  @"auth" :   @"auth",
-                                                  @"email":   @"email"
-                                                  }];
-    
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?access_token=%@&social_type=%@",API_URL,SOCIAL_LOGIN_API,accessToken,type]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
-     {
-         [loginActivityIndicator stopAnimating];
-         SocialLogin *auth = (SocialLogin*)[result firstObject];
-         if([auth.login isEqualToString:LOGIN_SUCCESS])
-         {
-             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
-             [[NSUserDefaults standardUserDefaults] setValue:auth.auth forKey:AUTH_KEY];
-             [[NSUserDefaults standardUserDefaults] setValue:type forKey:LOGIN_TYPE];
-             if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
-             {
-                 [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
-                     
-                 }];
-             }
-             else
-             {
-                 [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
-                     
-                 }];
-             }
-         }
-         else
-         {
-             [self displayDropdownwithmessage:@"There was some error.Please Try Again Later"];
-             [self enableViews];
-         }
-     } failure:nil];
-    [operation start];
+//    NSLog(@"Trying to Login");
+//    [self disableViews];
+//    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SocialLogin class]];
+//    [mapping addAttributeMappingsFromDictionary:@{
+//                                                  @"login":   @"login",
+//                                                  @"auth" :   @"auth",
+//                                                  @"email":   @"email"
+//                                                  }];
+//    
+//    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?access_token=%@&social_type=%@",API_URL,SOCIAL_LOGIN_API,accessToken,type]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+//    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
+//     {
+//         [loginActivityIndicator stopAnimating];
+//         SocialLogin *auth = (SocialLogin*)[result firstObject];
+//         if([auth.login isEqualToString:LOGIN_SUCCESS])
+//         {
+//             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
+//             [[NSUserDefaults standardUserDefaults] setValue:auth.auth forKey:AUTH_KEY];
+//             [[NSUserDefaults standardUserDefaults] setValue:type forKey:LOGIN_TYPE];
+//             if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
+//             {
+//                 [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
+//                     
+//                 }];
+//             }
+//             else
+//             {
+//                 [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
+//                     
+//                 }];
+//             }
+//         }
+//         else
+//         {
+//             [self displayDropdownwithmessage:@"There was some error.Please Try Again Later"];
+//             [self enableViews];
+//         }
+//     } failure:nil];
+//    [operation start];
 }
 
 
 -(void) loginWithUserName:(NSString *)userName password:(NSString *)password
 {
-    NSLog(@"Trying to Login");
-    [self disableViews];
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Authentication class]];
-    [mapping addAttributeMappingsFromDictionary:@{
-                                                  @"login":   @"login",
-                                                  @"auth":     @"auth"
-                                                  }];
-    
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?email=%@&password=%@",API_URL,LOGIN_API,userName,[password MD5]]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
-    {
-        [loginActivityIndicator stopAnimating];
-        Authentication *auth = (Authentication*)[result firstObject];
-        if([auth.login isEqualToString:LOGIN_SUCCESS])
-        {
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
-            [[NSUserDefaults standardUserDefaults] setValue:auth.auth forKey:AUTH_KEY];
-            [[NSUserDefaults standardUserDefaults] setValue:LOGIN_NORMAL forKey:LOGIN_TYPE];
-            if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
-            {
-                [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
-                    
-                }];
-            }
-            else
-            {
-                [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
-                    
-                }];
-            }
-        }
-        else
-        {
-            [self displayDropdownwithmessage:@"Incorrect Login/Password"];
-            [self enableViews];
-        }
-    } failure:nil];
-    [operation start];
+//    NSLog(@"Trying to Login");
+//    [self disableViews];
+//    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Authentication class]];
+//    [mapping addAttributeMappingsFromDictionary:@{
+//                                                  @"login":   @"login",
+//                                                  @"auth":     @"auth"
+//                                                  }];
+//    
+//    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?email=%@&password=%@",API_URL,LOGIN_API,userName,[password MD5]]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+//    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
+//    {
+//        [loginActivityIndicator stopAnimating];
+//        Authentication *auth = (Authentication*)[result firstObject];
+//        if([auth.login isEqualToString:LOGIN_SUCCESS])
+//        {
+//            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
+//            [[NSUserDefaults standardUserDefaults] setValue:auth.auth forKey:AUTH_KEY];
+//            [[NSUserDefaults standardUserDefaults] setValue:LOGIN_NORMAL forKey:LOGIN_TYPE];
+//            if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
+//            {
+//                [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
+//                    
+//                }];
+//            }
+//            else
+//            {
+//                [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
+//                    
+//                }];
+//            }
+//        }
+//        else
+//        {
+//            [self displayDropdownwithmessage:@"Incorrect Login/Password"];
+//            [self enableViews];
+//        }
+//    } failure:nil];
+//    [operation start];
 }
 
 -(void) disableViews
