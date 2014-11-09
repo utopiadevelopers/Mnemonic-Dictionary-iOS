@@ -54,6 +54,8 @@
 
 + (void) logOutUser;
 
++ (NSString*) getQueryStringFromDictionary: (NSDictionary *) dictionary;
+
 + (UIViewController *) getSplashViewController;
 + (UINavigationController *) getLoginViewController;
 + (UINavigationController *) getDownloadViewController;

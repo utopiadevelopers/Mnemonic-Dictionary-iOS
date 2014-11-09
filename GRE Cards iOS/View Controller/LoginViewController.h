@@ -8,9 +8,10 @@
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "LoginAPI.h"
 
 @class GPPSignInButton;
 
-@interface LoginViewController : UIViewController<GPPSignInDelegate>
+@interface LoginViewController : UIViewController<GPPSignInDelegate,LoginDelegateAPI>
 
 @end

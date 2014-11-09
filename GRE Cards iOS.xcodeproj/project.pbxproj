@@ -26,6 +26,8 @@
 		903D5C8419A483CB00119129 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6C19A483CB00119129 /* UIKit.framework */; };
 		903D5C8C19A483CB00119129 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903D5C8A19A483CB00119129 /* InfoPlist.strings */; };
 		903D5C8E19A483CB00119129 /* GRE_Cards_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */; };
+		9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9047189D1A0E93A4003B483C /* LoginAPI.m */; };
+		904718A11A0F3963003B483C /* UtopiaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718A01A0F3963003B483C /* UtopiaObject.m */; };
 		9049CD1F1A0C0F56001B61AE /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9049CD1E1A0C0F56001B61AE /* APIManager.m */; };
 		90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90551A6D1A06B66400FACAF3 /* MainHeaderView.m */; };
 		905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFFF219A4AE9E0039A13A /* SocialLogin.m */; };
@@ -94,6 +96,10 @@
 		903D5C8919A483CB00119129 /* GRE Cards iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GRE Cards iOSTests-Info.plist"; sourceTree = "<group>"; };
 		903D5C8B19A483CB00119129 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Cards_iOSTests.m; sourceTree = "<group>"; };
+		9047189C1A0E93A4003B483C /* LoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAPI.h; path = API/LoginAPI.h; sourceTree = "<group>"; };
+		9047189D1A0E93A4003B483C /* LoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPI.m; path = API/LoginAPI.m; sourceTree = "<group>"; };
+		9047189F1A0F3963003B483C /* UtopiaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtopiaObject.h; sourceTree = "<group>"; };
+		904718A01A0F3963003B483C /* UtopiaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtopiaObject.m; sourceTree = "<group>"; };
 		9049CD1D1A0C0F56001B61AE /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIManager.h; path = "API Manager/APIManager.h"; sourceTree = "<group>"; };
 		9049CD1E1A0C0F56001B61AE /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIManager.m; path = "API Manager/APIManager.m"; sourceTree = "<group>"; };
 		90551A6C1A06B66400FACAF3 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHeaderView.h; sourceTree = "<group>"; };
@@ -248,6 +254,7 @@
 		903D5C6E19A483CB00119129 /* GRE Cards iOS */ = {
 			isa = PBXGroup;
 			children = (
+				904718931A0E67EA003B483C /* API */,
 				9049CD1C1A0C0F36001B61AE /* API Manager */,
 				90163D8419D739CC00CB0BBE /* assets */,
 				905B6BE619A4A37000A542E7 /* GooglePlus.bundle */,
@@ -266,6 +273,8 @@
 				908B6A5619CBE33600633F2F /* Constants.m */,
 				903D5C7A19A483CB00119129 /* Images.xcassets */,
 				903D5C6F19A483CB00119129 /* Supporting Files */,
+				9047189F1A0F3963003B483C /* UtopiaObject.h */,
+				904718A01A0F3963003B483C /* UtopiaObject.m */,
 			);
 			path = "GRE Cards iOS";
 			sourceTree = "<group>";
@@ -297,6 +306,15 @@
 				903D5C8A19A483CB00119129 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		904718931A0E67EA003B483C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9047189C1A0E93A4003B483C /* LoginAPI.h */,
+				9047189D1A0E93A4003B483C /* LoginAPI.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		9049CD1C1A0C0F36001B61AE /* API Manager */ = {
@@ -519,10 +537,12 @@
 				90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
+				904718A11A0F3963003B483C /* UtopiaObject.m in Sources */,
 				90DA96D919B200C600C7141A /* WordObject.m in Sources */,
 				906824E919A49F2F003957A1 /* NSString+MD5.m in Sources */,
 				905F8DA219D31AD900519C99 /* WordListViewController.m in Sources */,
 				905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */,
+				9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */,
 				906824ED19A49F5F003957A1 /* Authentication.m in Sources */,
 				90EF618A1A080995007F4D7E /* SplashViewController.m in Sources */,
 				903D5C7919A483CB00119129 /* AppDelegate.m in Sources */,
@@ -586,7 +606,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -626,7 +646,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -650,8 +670,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/satyamkrishna/Downloads/Code,
@@ -707,6 +727,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GRE Cards iOSTests/GRE Cards iOSTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GRE Cards iOS.app/GRE Cards iOS";
 				WRAPPER_EXTENSION = xctest;
@@ -726,6 +747,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GRE Cards iOS/GRE Cards iOS-Prefix.pch";
 				INFOPLIST_FILE = "GRE Cards iOSTests/GRE Cards iOSTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GRE Cards iOS.app/GRE Cards iOS";
 				WRAPPER_EXTENSION = xctest;

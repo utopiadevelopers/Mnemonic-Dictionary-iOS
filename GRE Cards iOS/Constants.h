@@ -14,7 +14,9 @@
 #define TRANSACTION_DATE_FORMAT @"yyyy-MM-dd HH:mm:ss"
 
 //********************API***********************
-#define API_URL @"http://www.utopiadevelopers.com/gre/api/"
+
+#define HOST @"www.utopiadevelopers.com"
+#define API_URL @"/gre/api"
 #define JSON_URL @"http://www.utopiadevelopers.com/gre/upload/data.json"
 #define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/test.json"
 

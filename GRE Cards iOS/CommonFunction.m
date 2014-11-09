@@ -95,6 +95,34 @@
     return [dateFormatter stringFromDate:date];
 }
 
++ (NSString*) getQueryStringFromDictionary: (NSDictionary *) dictionary
+{
+    NSMutableArray *parts = [NSMutableArray array];
+
+    for (id key in dictionary)
+    {
+        id value = [dictionary objectForKey: key];
+        NSString *part = [NSString stringWithFormat: @"%@=%@", urlEncode(key), urlEncode(value)];
+        [parts addObject: part];
+    }
+    
+    return [parts componentsJoinedByString: @"&"];
+}
+
+static NSString *toString(id object)
+{
+    return [NSString stringWithFormat: @"%@", object];
+}
+
+
+static NSString *urlEncode(id object)
+{
+    NSString *string = toString(object);
+    return [string stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+}
+
+
+
 #pragma User Login 
 
 + (BOOL) isUserLoggedIn

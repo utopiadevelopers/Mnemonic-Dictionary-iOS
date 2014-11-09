@@ -16,4 +16,6 @@
     #import "Constants.h"
     #import "CommonFunction.h"
     #import "DBManager.h"
+    #import "UtopiaObject.h"
+    #import "APIManager.h"
 #endif

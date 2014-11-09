@@ -9,7 +9,6 @@
 #import "DownloadViewController.h"
 #import "Authentication.h"
 #import "SocialLogin.h"
-#import "NSString+MD5.h"
 #import "DashboardViewController.h"
 #import "Toast.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
@@ -30,17 +29,24 @@
     GPPSignInButton *signInButton;
     UIButton *fbButton;
     GPPSignIn *signIn;
+    LoginAPI *loginManager;
 
 }
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    [self initializeVariables];
     [self setupNavigationBar];
     [self setupKeyboardNotification];
     [self createViews];
     [self createLoginIndicator];
     [self setupGooglePlus];
+}
+
+- (void) initializeVariables
+{
+    loginManager = [[LoginAPI alloc] init];
 }
 
 - (void) setupNavigationBar
@@ -286,6 +292,7 @@
 
 -(void) loginWithUserName:(NSString *)userName password:(NSString *)password
 {
+    [loginManager loginWithUserName:userName password:password];
 //    NSLog(@"Trying to Login");
 //    [self disableViews];
 //    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Authentication class]];
@@ -376,4 +383,17 @@
         [self displayDropdownwithmessage:@"Fill in All the Details"];
     }
 }
+
+#pragma Login Delegate
+
+-(void) loginWasSuccessful
+{
+    
+}
+
+-(void) loginFalied
+{
+    
+}
+
 @end
