@@ -45,11 +45,8 @@
     }
     else
     {
-        [self displayDropdownwithmessage:@"Incorrect Login/Password"];
-        [self enableViews];
+        
     }
-} failure:nil];
-
 }
 
 + (NSString *)getAPIPath
