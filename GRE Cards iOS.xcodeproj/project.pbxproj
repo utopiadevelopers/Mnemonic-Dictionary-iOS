@@ -28,9 +28,9 @@
 		903D5C8E19A483CB00119129 /* GRE_Cards_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */; };
 		9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9047189D1A0E93A4003B483C /* LoginAPI.m */; };
 		904718A11A0F3963003B483C /* UtopiaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718A01A0F3963003B483C /* UtopiaObject.m */; };
+		904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718BB1A109A16003B483C /* SocialLoginAPI.m */; };
 		9049CD1F1A0C0F56001B61AE /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9049CD1E1A0C0F56001B61AE /* APIManager.m */; };
 		90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90551A6D1A06B66400FACAF3 /* MainHeaderView.m */; };
-		905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFFF219A4AE9E0039A13A /* SocialLogin.m */; };
 		905AFFF519A4B3D00039A13A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AFFF419A4B3D00039A13A /* FacebookSDK.framework */; };
 		905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 905B6BDD19A4A24300A542E7 /* CommonFunction.m */; };
 		905B6BE419A4A35C00A542E7 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905B6BE219A4A35C00A542E7 /* GoogleOpenSource.framework */; };
@@ -48,7 +48,6 @@
 		906824D519A49AF5003957A1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906824D419A49AF5003957A1 /* SystemConfiguration.framework */; };
 		906824E319A49F13003957A1 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824E219A49F13003957A1 /* Toast.m */; };
 		906824E919A49F2F003957A1 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824E719A49F2F003957A1 /* NSString+MD5.m */; };
-		906824ED19A49F5F003957A1 /* Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824EC19A49F5F003957A1 /* Authentication.m */; };
 		906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F019A49F7C003957A1 /* DashboardViewController.m */; };
 		906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F219A49F7C003957A1 /* DownloadViewController.m */; };
 		906824F719A49F7C003957A1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906824F419A49F7C003957A1 /* LoginViewController.m */; };
@@ -100,12 +99,12 @@
 		9047189D1A0E93A4003B483C /* LoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPI.m; path = API/LoginAPI.m; sourceTree = "<group>"; };
 		9047189F1A0F3963003B483C /* UtopiaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtopiaObject.h; sourceTree = "<group>"; };
 		904718A01A0F3963003B483C /* UtopiaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtopiaObject.m; sourceTree = "<group>"; };
+		904718BA1A109A16003B483C /* SocialLoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialLoginAPI.h; path = API/SocialLoginAPI.h; sourceTree = "<group>"; };
+		904718BB1A109A16003B483C /* SocialLoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialLoginAPI.m; path = API/SocialLoginAPI.m; sourceTree = "<group>"; };
 		9049CD1D1A0C0F56001B61AE /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIManager.h; path = "API Manager/APIManager.h"; sourceTree = "<group>"; };
 		9049CD1E1A0C0F56001B61AE /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIManager.m; path = "API Manager/APIManager.m"; sourceTree = "<group>"; };
 		90551A6C1A06B66400FACAF3 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHeaderView.h; sourceTree = "<group>"; };
 		90551A6D1A06B66400FACAF3 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView.m; sourceTree = "<group>"; };
-		905AFFF119A4AE9E0039A13A /* SocialLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialLogin.h; sourceTree = "<group>"; };
-		905AFFF219A4AE9E0039A13A /* SocialLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialLogin.m; sourceTree = "<group>"; };
 		905AFFF419A4B3D00039A13A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		905B6BDC19A4A24300A542E7 /* CommonFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
 		905B6BDD19A4A24300A542E7 /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunction.m; sourceTree = "<group>"; };
@@ -128,8 +127,6 @@
 		906824E219A49F13003957A1 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
 		906824E619A49F2F003957A1 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		906824E719A49F2F003957A1 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		906824EB19A49F5F003957A1 /* Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authentication.h; sourceTree = "<group>"; };
-		906824EC19A49F5F003957A1 /* Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authentication.m; sourceTree = "<group>"; };
 		906824EF19A49F7C003957A1 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		906824F019A49F7C003957A1 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		906824F119A49F7C003957A1 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
@@ -313,6 +310,8 @@
 			children = (
 				9047189C1A0E93A4003B483C /* LoginAPI.h */,
 				9047189D1A0E93A4003B483C /* LoginAPI.m */,
+				904718BA1A109A16003B483C /* SocialLoginAPI.h */,
+				904718BB1A109A16003B483C /* SocialLoginAPI.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -359,10 +358,6 @@
 		906824EA19A49F5F003957A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				906824EB19A49F5F003957A1 /* Authentication.h */,
-				906824EC19A49F5F003957A1 /* Authentication.m */,
-				905AFFF119A4AE9E0039A13A /* SocialLogin.h */,
-				905AFFF219A4AE9E0039A13A /* SocialLogin.m */,
 				90DA96D419B1FF9E00C7141A /* DefinitionObject.h */,
 				90DA96D519B1FF9E00C7141A /* DefinitionObject.m */,
 				90DA96D719B200C600C7141A /* WordObject.h */,
@@ -536,14 +531,13 @@
 				906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */,
 				90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
+				904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
 				904718A11A0F3963003B483C /* UtopiaObject.m in Sources */,
 				90DA96D919B200C600C7141A /* WordObject.m in Sources */,
 				906824E919A49F2F003957A1 /* NSString+MD5.m in Sources */,
 				905F8DA219D31AD900519C99 /* WordListViewController.m in Sources */,
-				905AFFF319A4AE9E0039A13A /* SocialLogin.m in Sources */,
 				9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */,
-				906824ED19A49F5F003957A1 /* Authentication.m in Sources */,
 				90EF618A1A080995007F4D7E /* SplashViewController.m in Sources */,
 				903D5C7919A483CB00119129 /* AppDelegate.m in Sources */,
 				90163D9719D869F100CB0BBE /* WordViewController.m in Sources */,
@@ -681,6 +675,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GRE Cards iOS/GRE Cards iOS-Prefix.pch";
 				INFOPLIST_FILE = "GRE Cards iOS/GRE Cards iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -704,6 +699,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GRE Cards iOS/GRE Cards iOS-Prefix.pch";
 				INFOPLIST_FILE = "GRE Cards iOS/GRE Cards iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

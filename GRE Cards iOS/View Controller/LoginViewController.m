@@ -7,8 +7,6 @@
 
 #import "LoginViewController.h"
 #import "DownloadViewController.h"
-#import "Authentication.h"
-#import "SocialLogin.h"
 #import "DashboardViewController.h"
 #import "Toast.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
@@ -30,6 +28,7 @@
     UIButton *fbButton;
     GPPSignIn *signIn;
     LoginAPI *loginManager;
+    SocialLoginAPI *socialLoginManager;
 
 }
 
@@ -47,6 +46,10 @@
 - (void) initializeVariables
 {
     loginManager = [[LoginAPI alloc] init];
+    [loginManager setDelegate:self];
+    
+    socialLoginManager = [[SocialLoginAPI alloc] init];
+    [socialLoginManager setDelegate:self];
 }
 
 - (void) setupNavigationBar
@@ -245,95 +248,46 @@
 
 -(void) socialLoginWithAccessToken:(NSString *)accessToken andType:(NSString *)type
 {
-//    NSLog(@"Trying to Login");
-//    [self disableViews];
-//    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[SocialLogin class]];
-//    [mapping addAttributeMappingsFromDictionary:@{
-//                                                  @"login":   @"login",
-//                                                  @"auth" :   @"auth",
-//                                                  @"email":   @"email"
-//                                                  }];
-//    
-//    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?access_token=%@&social_type=%@",API_URL,SOCIAL_LOGIN_API,accessToken,type]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-//    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
-//     {
-//         [loginActivityIndicator stopAnimating];
-//         SocialLogin *auth = (SocialLogin*)[result firstObject];
-//         if([auth.login isEqualToString:LOGIN_SUCCESS])
-//         {
-//             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
-//             [[NSUserDefaults standardUserDefaults] setValue:auth.auth forKey:AUTH_KEY];
-//             [[NSUserDefaults standardUserDefaults] setValue:type forKey:LOGIN_TYPE];
-//             if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
-//             {
-//                 [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
-//                     
-//                 }];
-//             }
-//             else
-//             {
-//                 [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
-//                     
-//                 }];
-//             }
-//         }
-//         else
-//         {
-//             [self displayDropdownwithmessage:@"There was some error.Please Try Again Later"];
-//             [self enableViews];
-//         }
-//     } failure:nil];
-//    [operation start];
+    [self disableViews];
+    [socialLoginManager socialLoginWithAccessToken:accessToken andType:type];
 }
 
+#pragma Login Delegate
 
--(void) loginWithUserName:(NSString *)userName password:(NSString *)password
+-(void) loginWasSuccessful
 {
-    [loginManager loginWithUserName:userName password:password];
-//    NSLog(@"Trying to Login");
-//    [self disableViews];
-//    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Authentication class]];
-//    [mapping addAttributeMappingsFromDictionary:@{
-//                                                  @"login":   @"login",
-//                                                  @"auth":     @"auth"
-//                                                  }];
-//    
-//    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?email=%@&password=%@",API_URL,LOGIN_API,userName,[password MD5]]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-//    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
-//    {
-//        [loginActivityIndicator stopAnimating];
-//        Authentication *auth = (Authentication*)[result firstObject];
-//        if([auth.login isEqualToString:LOGIN_SUCCESS])
-//        {
-//            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
-//            [[NSUserDefaults standardUserDefaults] setValue:auth.auth forKey:AUTH_KEY];
-//            [[NSUserDefaults standardUserDefaults] setValue:LOGIN_NORMAL forKey:LOGIN_TYPE];
-//            if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
-//            {
-//                [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
-//                    
-//                }];
-//            }
-//            else
-//            {
-//                [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
-//                    
-//                }];
-//            }
-//        }
-//        else
-//        {
-//            [self displayDropdownwithmessage:@"Incorrect Login/Password"];
-//            [self enableViews];
-//        }
-//    } failure:nil];
-//    [operation start];
+    [loginActivityIndicator stopAnimating];
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
+    {
+        [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
+            
+        }];
+    }
+    else
+    {
+        [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
+            
+        }];
+    }
+}
+
+-(void) loginFalied
+{
+    [self displayDropdownwithmessage:@"Incorrect Login/Password"];
+    [self enableViews];
+}
+
+#pragma Social Login Delegate
+
+-(void) socialLoginWasSuccessful
+{
+    [self loginWasSuccessful];
+}
+
+-(void) socialLoginFalied
+{
+    [self loginFalied];
 }
 
 -(void) disableViews
@@ -372,28 +326,17 @@
     }
 }
 
-- (void) loginButtonTapped:(UIButton *)sender {
-    
-    if (emailTextField.text.length>0 && passwordTextField.text.length>0) {
-        [self loginWithUserName:emailTextField.text password:passwordTextField.text];
-        
+- (void) loginButtonTapped:(UIButton *)sender
+{
+    if (emailTextField.text.length>0 && passwordTextField.text.length>0)
+    {
+        [self disableViews];
+        [loginManager loginWithUserName:[emailTextField text] password:[passwordTextField text]];
     }
     else
     {
         [self displayDropdownwithmessage:@"Fill in All the Details"];
     }
-}
-
-#pragma Login Delegate
-
--(void) loginWasSuccessful
-{
-    
-}
-
--(void) loginFalied
-{
-    
 }
 
 @end

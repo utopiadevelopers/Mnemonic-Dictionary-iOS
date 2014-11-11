@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *password;
 
+@property (nonatomic) id<LoginDelegateAPI>delegate;
+
 -(void) loginWithUserName:(NSString *)user password:(NSString *)pass;
 
 @end

@@ -20,9 +20,6 @@
 #define JSON_URL @"http://www.utopiadevelopers.com/gre/upload/data.json"
 #define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/test.json"
 
-#define LOGIN_API @"login.php"
-#define SOCIAL_LOGIN_API @"login_social.php"
-
 #define LOGIN_SUCCESS @"success"
 #define LOGIN_FAIL @"fail"
 #define LOGIN_TYPE @"login_type"
