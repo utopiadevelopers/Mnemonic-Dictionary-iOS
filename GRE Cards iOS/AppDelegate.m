@@ -15,6 +15,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Pre Launch Setup
+    
+    // Setup Database
+    //[self setUpDatabase];
+    
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [window setRootViewController:[CommonFunction getSplashViewController]];
     [window makeKeyAndVisible];
@@ -47,6 +52,65 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma App Delegate Methods
+
+- (void) setUpDatabase
+{
+    NSString* documentPath = [DBManager getDatabasePath];
+    BOOL dbFileExists = [[NSFileManager alloc] fileExistsAtPath:documentPath];
+    
+    if(!dbFileExists)
+    {
+        [self copyPackagedDbToPath:documentPath];
+    }
+    
+    dbFileExists = [[NSFileManager alloc] fileExistsAtPath:documentPath];
+    
+    if(dbFileExists)
+    {
+        [self updateDatabase];
+    }
+    else
+    {
+        NSAssert(0, @"[ERROR] Could not copy packaged database");
+    }
+}
+
+- (void) copyPackagedDbToPath: (NSString *)dbPath
+{
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"assets/package.db"];
+    NSData *compressedData = [[NSData alloc] initWithContentsOfFile:defaultDBPath];
+    
+    //NSData *uncompressedData = [CommonFunction gzipInflate:compressedData];
+    
+    BOOL dbFileExists = [[NSFileManager alloc] fileExistsAtPath:defaultDBPath];
+    
+    if(!dbFileExists)
+    {
+        NSAssert(0, @"Packaged file does not exist.");
+    }
+    
+    //[uncompressedData writeToFile:dbPath atomically:YES];
+}
+
+- (void) updateDatabase
+{
+    sqlite3 *tempConnection;
+    NSString *documentPath = [DBManager getDatabasePath];
+    
+    if(sqlite3_open([documentPath UTF8String], &tempConnection) != SQLITE_OK)
+    {
+        NSAssert1(0, @"[ERROR] Could not connect to database - %s", sqlite3_errmsg(tempConnection));
+    }
+    else
+    {
+        [self copyPackagedDbToPath:[DBManager getDatabasePath]];
+    }
+    
+    sqlite3_close(tempConnection);
+}
+
 
 #pragma Social Login
 

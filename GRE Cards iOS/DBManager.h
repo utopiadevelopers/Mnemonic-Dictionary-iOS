@@ -82,4 +82,7 @@
 - (void) addWord:(WordObject *) wordObj;
 -(NSMutableArray*) getWordList;
 
+//Static Methods
++ (NSString *) getDatabasePath;
+
 @end

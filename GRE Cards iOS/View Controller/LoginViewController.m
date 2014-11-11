@@ -29,7 +29,6 @@
     GPPSignIn *signIn;
     LoginAPI *loginManager;
     SocialLoginAPI *socialLoginManager;
-
 }
 
 - (void) viewDidLoad

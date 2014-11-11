@@ -37,6 +37,33 @@ static sqlite3 *database = nil;
     [self closeDatabase];
 }
 
+#pragma Static Functions
+
++ (NSString *) getDatabasePath
+{
+    // Get the documents directory
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    
+    // Build the path to the database file
+    NSString *databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"utopia_gre.db"]];
+    
+    return databasePath;
+}
+
++ (NSString *) getTemporaryDatabasePath
+{
+    // Get the documents directory
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    
+    // Build the path to the database file
+    NSString *databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"utopia_gre_temp.db"]];
+    
+    return databasePath;
+}
+
+
 #pragma Open and Close DB
 
 -(void) openDatabase
@@ -58,13 +85,7 @@ static sqlite3 *database = nil;
 
 -(BOOL) createDB
 {
-    NSString *docsDir;
-    NSArray *dirPaths;
-    // Get the documents directory
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = dirPaths[0];
-    // Build the path to the database file
-    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent: @"utopia_gre.db"]];
+    databasePath = [DBManager getDatabasePath];
     BOOL isSuccess = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
     if ([filemgr fileExistsAtPath: databasePath ] == NO)

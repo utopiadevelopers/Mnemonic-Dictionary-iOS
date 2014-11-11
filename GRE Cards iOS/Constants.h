@@ -18,7 +18,8 @@
 #define HOST @"www.utopiadevelopers.com"
 #define API_URL @"/gre/api"
 #define JSON_URL @"http://www.utopiadevelopers.com/gre/upload/data.json"
-#define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/test.json"
+#define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/data.json"
+//#define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/test.json"
 
 #define LOGIN_SUCCESS @"success"
 #define LOGIN_FAIL @"fail"
