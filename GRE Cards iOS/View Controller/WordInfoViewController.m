@@ -14,6 +14,10 @@
 @end
 
 @implementation WordInfoViewController
+{
+    UIActivityIndicatorView *activityIndicator;
+    UIView *activityIndicatorView;
+}
 
 @synthesize wordObj;
 
@@ -23,6 +27,7 @@
     if(self)
     {
         [self setWordObj:word];
+        [self setupIndicatorView];
         [self setupNavigationBar];
     }
     return self;
@@ -31,9 +36,33 @@
 - (void) setupNavigationBar
 {
     MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:[wordObj word] backButtonRequired:YES];
+    
     UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
     [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
+    
+    UIBarButtonItem *rightLabelButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicatorView];
+    [[self navigationItem] setRightBarButtonItem:rightLabelButton];
+    
 }
+
+- (void) setupIndicatorView
+{
+    activityIndicator = [[UIActivityIndicatorView alloc] init];
+    [activityIndicator setHidesWhenStopped:YES];
+    [activityIndicator stopAnimating];
+    
+    activityIndicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, MAIN_HEADER_HEIGHT)];
+    [activityIndicatorView setBackgroundColor:[UIColor clearColor]];
+    [activityIndicator setCenter:[activityIndicatorView center]];
+    [activityIndicatorView addSubview:activityIndicator];
+    
+    if(![wordObj isComplete])
+    {
+        [activityIndicator startAnimating];
+    }
+}
+
+
 
 - (void)viewDidLoad
 {

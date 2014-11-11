@@ -7,6 +7,7 @@
 //
 
 #import "MainHeaderView.h"
+#import "WordInfoViewController.h"
 
 @interface MainHeaderView()
 {
@@ -24,15 +25,25 @@
 
 - (id)initMainHeaderWithParent:(id)parent WithTitle:(NSString *)titletext backButtonRequired:(BOOL)backButtonRequired
 {
-    [self setParentVC:parent];    
-    self = [self initWithFrame:CGRectMake(0, 0, [CommonFunction getPhoneWidth], MAIN_HEADER_HEIGHT)];
+    [self setParentVC:parent];
+    
+    if([parent isKindOfClass:[WordInfoViewController class]])
+    {
+        self = [self initWithFrame:CGRectMake(0, 0, [CommonFunction getPhoneWidth]-50, MAIN_HEADER_HEIGHT)];
+    }
+    else
+    {
+        self = [self initWithFrame:CGRectMake(0, 0, [CommonFunction getPhoneWidth], MAIN_HEADER_HEIGHT)];
+    }
+    
+    
+    
     backButtonSpaceRequired = backButtonRequired;
 
     
     if(backButtonRequired)
     {
         backButton = [[UIButton alloc] init];
-        //[UIButton getHeaderButtonWithInsets:UIEdgeInsetsMake(10, -15, 0, 15)];
         [backButton setBackgroundColor:[UIColor clearColor]];
         [backButton addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
         //[backButton setImage:UIIcon_Z9(@"misc_backarrowwhite.png") forState:UIControlStateNormal];
@@ -46,14 +57,13 @@
     if(titletext != nil)
     {
         titleLabel = [[UILabel alloc] init];
-        [titleLabel setFont:FONT_BODY_BOLD];
+        [titleLabel setFont:FONT_GOTHAM_BOLD(20)];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel setTextAlignment:NSTextAlignmentCenter];
         [titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];
         [titleLabel setTextColor:UIColorFromRGB(NAV_BAR_ITEMS_COLOR)];
         [titleLabel setText:titletext];
     }
-    
     return self;
 }
 
