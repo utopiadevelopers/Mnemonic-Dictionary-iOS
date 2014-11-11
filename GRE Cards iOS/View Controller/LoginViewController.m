@@ -256,19 +256,7 @@
 -(void) loginWasSuccessful
 {
     [loginActivityIndicator stopAnimating];
-    
-    if([[NSUserDefaults standardUserDefaults] boolForKey:IS_JSON_DOWNLOADED])
-    {
-        [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{
-            
-        }];
-    }
-    else
-    {
-        [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{
-            
-        }];
-    }
+    [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{}];
 }
 
 -(void) loginFalied

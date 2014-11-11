@@ -26,6 +26,7 @@
 		903D5C8419A483CB00119129 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903D5C6C19A483CB00119129 /* UIKit.framework */; };
 		903D5C8C19A483CB00119129 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903D5C8A19A483CB00119129 /* InfoPlist.strings */; };
 		903D5C8E19A483CB00119129 /* GRE_Cards_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */; };
+		9042BF4B1A1231D000D87623 /* package.db in Resources */ = {isa = PBXBuildFile; fileRef = 9042BF4A1A1231D000D87623 /* package.db */; };
 		9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9047189D1A0E93A4003B483C /* LoginAPI.m */; };
 		904718A11A0F3963003B483C /* UtopiaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718A01A0F3963003B483C /* UtopiaObject.m */; };
 		904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718BB1A109A16003B483C /* SocialLoginAPI.m */; };
@@ -95,6 +96,7 @@
 		903D5C8919A483CB00119129 /* GRE Cards iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GRE Cards iOSTests-Info.plist"; sourceTree = "<group>"; };
 		903D5C8B19A483CB00119129 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Cards_iOSTests.m; sourceTree = "<group>"; };
+		9042BF4A1A1231D000D87623 /* package.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = package.db; sourceTree = "<group>"; };
 		9047189C1A0E93A4003B483C /* LoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAPI.h; path = API/LoginAPI.h; sourceTree = "<group>"; };
 		9047189D1A0E93A4003B483C /* LoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPI.m; path = API/LoginAPI.m; sourceTree = "<group>"; };
 		9047189F1A0F3963003B483C /* UtopiaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtopiaObject.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		90163D8419D739CC00CB0BBE /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				9042BF4A1A1231D000D87623 /* package.db */,
 				90163D9119D864B100CB0BBE /* star_select.png */,
 				90163D9219D864B100CB0BBE /* star_unselect.png */,
 				90163D8F19D739F300CB0BBE /* facebook.png */,
@@ -468,6 +471,7 @@
 				90163D9319D864B100CB0BBE /* star_select.png in Resources */,
 				90163D9019D739F300CB0BBE /* facebook.png in Resources */,
 				905B6BE719A4A37000A542E7 /* GooglePlus.bundle in Resources */,
+				9042BF4B1A1231D000D87623 /* package.db in Resources */,
 				90163D9419D864B100CB0BBE /* star_unselect.png in Resources */,
 				903D5C7B19A483CB00119129 /* Images.xcassets in Resources */,
 				90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */,
