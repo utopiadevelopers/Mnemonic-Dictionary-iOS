@@ -210,7 +210,7 @@
 {
     [wordLV deselectRowAtIndexPath:indexPath animated:NO];
     WordListTableViewCell *cell = (WordListTableViewCell*)[wordLV cellForRowAtIndexPath:indexPath];
-    [cell toggleFav];
+    [self presentViewController:[CommonFunction getWordInfoViewController:[[cell wordObj] wordID]] animated:YES completion:^{}];
 }
 
 

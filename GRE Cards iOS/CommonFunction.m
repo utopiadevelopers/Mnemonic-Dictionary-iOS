@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "DownloadViewController.h"
 #import "DashboardViewController.h"
+#import "WordInfoViewController.h"
 
 @implementation CommonFunction
 
@@ -160,52 +161,40 @@ static NSString *urlEncode(id object)
 + (UINavigationController *) getLoginViewController
 {
     LoginViewController *lvc = [[LoginViewController alloc] init];
-    
-    UINavigationController *loginNavigationController = [[UINavigationController alloc] initWithRootViewController:lvc];
-    
-    [loginNavigationController setNavigationBarHidden:NO];
-    [[loginNavigationController navigationBar] setTintColor:[UIColor whiteColor]];
-    [[loginNavigationController navigationBar] setBarTintColor:UIColorFromRGB(NAV_BAR_COLOR)];
-    [[loginNavigationController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
-    [[loginNavigationController navigationBar] setTranslucent:NO];
-    [[loginNavigationController navigationBar] setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(NAV_BAR_COLOR)] forBarMetrics:UIBarMetricsDefault];
-    [[loginNavigationController navigationBar] setShadowImage:[[UIImage alloc] init]];
-    
-    return loginNavigationController;
+    return [CommonFunction getNavigationController:lvc];
 }
 
 + (UINavigationController *) getDownloadViewController
 {
     DownloadViewController *dvc = [[DownloadViewController alloc] init];
-    
-    UINavigationController *downloadNavigationController = [[UINavigationController alloc] initWithRootViewController:dvc];
-    
-    [downloadNavigationController setNavigationBarHidden:NO];
-    [[downloadNavigationController navigationBar] setTintColor:[UIColor whiteColor]];
-    [[downloadNavigationController navigationBar] setBarTintColor:UIColorFromRGB(NAV_BAR_COLOR)];
-    [[downloadNavigationController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
-    [[downloadNavigationController navigationBar] setTranslucent:NO];
-    [[downloadNavigationController navigationBar] setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(NAV_BAR_COLOR)] forBarMetrics:UIBarMetricsDefault];
-    [[downloadNavigationController navigationBar] setShadowImage:[[UIImage alloc] init]];
-    
-    return downloadNavigationController;
+    return [CommonFunction getNavigationController:dvc];
 }
 
 + (UINavigationController *) getDashboardViewController
 {
     DashboardViewController *dvc = [[DashboardViewController alloc] init];
+    return [CommonFunction getNavigationController:dvc];
+}
+
++ (UINavigationController *) getWordInfoViewController:(NSString*) wordID
+{
+    WordInfoViewController *wvc = [[WordInfoViewController alloc] initWithWordID:wordID];
+    return [CommonFunction getNavigationController:wvc];
+}
+
++ (UINavigationController *) getNavigationController:(UIViewController*) vc
+{
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    UINavigationController *dashboardNavigationController = [[UINavigationController alloc] initWithRootViewController:dvc];
+    [navigationController setNavigationBarHidden:NO];
+    [[navigationController navigationBar] setTintColor:[UIColor whiteColor]];
+    [[navigationController navigationBar] setBarTintColor:UIColorFromRGB(NAV_BAR_COLOR)];
+    [[navigationController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
+    [[navigationController navigationBar] setTranslucent:NO];
+    [[navigationController navigationBar] setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(NAV_BAR_COLOR)] forBarMetrics:UIBarMetricsDefault];
+    [[navigationController navigationBar] setShadowImage:[[UIImage alloc] init]];
     
-    [dashboardNavigationController setNavigationBarHidden:NO];
-    [[dashboardNavigationController navigationBar] setTintColor:[UIColor whiteColor]];
-    [[dashboardNavigationController navigationBar] setBarTintColor:UIColorFromRGB(NAV_BAR_COLOR)];
-    [[dashboardNavigationController navigationBar] setBarStyle:UIBarStyleBlackTranslucent];
-    [[dashboardNavigationController navigationBar] setTranslucent:NO];
-    [[dashboardNavigationController navigationBar] setBackgroundImage:[CommonFunction imageWithColor:UIColorFromRGB(NAV_BAR_COLOR)] forBarMetrics:UIBarMetricsDefault];
-    [[dashboardNavigationController navigationBar] setShadowImage:[[UIImage alloc] init]];
-    
-    return dashboardNavigationController;
+    return navigationController;
 }
 
 #pragma Size Related

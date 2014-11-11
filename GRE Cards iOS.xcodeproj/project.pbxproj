@@ -27,6 +27,7 @@
 		903D5C8C19A483CB00119129 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903D5C8A19A483CB00119129 /* InfoPlist.strings */; };
 		903D5C8E19A483CB00119129 /* GRE_Cards_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */; };
 		9042BF4B1A1231D000D87623 /* package.db in Resources */ = {isa = PBXBuildFile; fileRef = 9042BF4A1A1231D000D87623 /* package.db */; };
+		9042BF4E1A1270BA00D87623 /* WordInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */; };
 		9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9047189D1A0E93A4003B483C /* LoginAPI.m */; };
 		904718A11A0F3963003B483C /* UtopiaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718A01A0F3963003B483C /* UtopiaObject.m */; };
 		904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718BB1A109A16003B483C /* SocialLoginAPI.m */; };
@@ -97,6 +98,8 @@
 		903D5C8B19A483CB00119129 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Cards_iOSTests.m; sourceTree = "<group>"; };
 		9042BF4A1A1231D000D87623 /* package.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = package.db; sourceTree = "<group>"; };
+		9042BF4C1A1270BA00D87623 /* WordInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordInfoViewController.h; sourceTree = "<group>"; };
+		9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordInfoViewController.m; sourceTree = "<group>"; };
 		9047189C1A0E93A4003B483C /* LoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAPI.h; path = API/LoginAPI.h; sourceTree = "<group>"; };
 		9047189D1A0E93A4003B483C /* LoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPI.m; path = API/LoginAPI.m; sourceTree = "<group>"; };
 		9047189F1A0F3963003B483C /* UtopiaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtopiaObject.h; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				90163D9619D869F100CB0BBE /* WordViewController.m */,
 				90EF61881A080995007F4D7E /* SplashViewController.h */,
 				90EF61891A080995007F4D7E /* SplashViewController.m */,
+				9042BF4C1A1270BA00D87623 /* WordInfoViewController.h */,
+				9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
 				904718A11A0F3963003B483C /* UtopiaObject.m in Sources */,
+				9042BF4E1A1270BA00D87623 /* WordInfoViewController.m in Sources */,
 				90DA96D919B200C600C7141A /* WordObject.m in Sources */,
 				906824E919A49F2F003957A1 /* NSString+MD5.m in Sources */,
 				905F8DA219D31AD900519C99 /* WordListViewController.m in Sources */,

@@ -60,6 +60,7 @@
 + (UINavigationController *) getLoginViewController;
 + (UINavigationController *) getDownloadViewController;
 + (UINavigationController *) getDashboardViewController;
++ (UINavigationController *) getWordInfoViewController:(NSString*) wordID;
 
 // Size Related
 + (CGFloat) getPhoneWidth;
