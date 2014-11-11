@@ -16,18 +16,20 @@
 @synthesize defintion_arr;
 @synthesize mnemonics_arr;
 @synthesize isFav;
+@synthesize isComplete;
 
 -(id) init
 {
     self = [super init];
     if (self)
     {
-        word             = @"";
-        wordID           = @"";
-        definition_short = @"";
-        defintion_arr    = [[NSMutableArray alloc] init];
-        mnemonics_arr    = [[NSMutableArray alloc] init];
-        isFav            = FALSE;
+        [self setWord:@""];
+        [self setWordID:@""];
+        [self setDefinition_short:@""];
+        [self setDefintion_arr:[[NSMutableArray alloc] init]];
+        [self setMnemonics_arr:[[NSMutableArray alloc] init]];
+        [self setIsComplete:NO];
+        [self setIsFav:NO];        
     }
     return self;
 }

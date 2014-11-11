@@ -176,9 +176,9 @@ static NSString *urlEncode(id object)
     return [CommonFunction getNavigationController:dvc];
 }
 
-+ (UINavigationController *) getWordInfoViewController:(NSString*) wordID
++ (UINavigationController *) getWordInfoViewController:(WordObject*) word
 {
-    WordInfoViewController *wvc = [[WordInfoViewController alloc] initWithWordID:wordID];
+    WordInfoViewController *wvc = [[WordInfoViewController alloc] initWithWord:word];
     return [CommonFunction getNavigationController:wvc];
 }
 

@@ -32,6 +32,10 @@
 
 - (void) presentViewController:(NSTimer*) timer
 {
+    [self presentViewController:[CommonFunction getDownloadViewController] animated:YES completion:^{}];
+    
+    return;
+    
     if([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGGED_IN])
     {
         [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{}];

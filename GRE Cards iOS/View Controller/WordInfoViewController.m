@@ -7,6 +7,7 @@
 //
 
 #import "WordInfoViewController.h"
+#import "MainHeaderView.h"
 
 @interface WordInfoViewController ()
 
@@ -14,16 +15,24 @@
 
 @implementation WordInfoViewController
 
-@synthesize wordID;
+@synthesize wordObj;
 
-- (id) initWithWordID:(NSString*) word
+- (id) initWithWord:(WordObject*) word
 {
     self = [super init];
     if(self)
     {
-        [self setWordID:word];
+        [self setWordObj:word];
+        [self setupNavigationBar];
     }
     return self;
+}
+
+- (void) setupNavigationBar
+{
+    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:[wordObj word] backButtonRequired:YES];
+    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
+    [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
 }
 
 - (void)viewDidLoad

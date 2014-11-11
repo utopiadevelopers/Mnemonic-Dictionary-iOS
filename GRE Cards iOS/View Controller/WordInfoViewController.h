@@ -10,8 +10,8 @@
 
 @interface WordInfoViewController : UIViewController
 
-@property (strong,nonatomic) NSString *wordID;
+@property (strong,nonatomic) WordObject *wordObj;
 
-- (id) initWithWordID:(NSString*) word;
+- (id) initWithWord:(WordObject*) word;
 
 @end

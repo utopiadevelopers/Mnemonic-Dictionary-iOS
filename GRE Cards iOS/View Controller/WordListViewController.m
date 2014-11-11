@@ -210,7 +210,7 @@
 {
     [wordLV deselectRowAtIndexPath:indexPath animated:NO];
     WordListTableViewCell *cell = (WordListTableViewCell*)[wordLV cellForRowAtIndexPath:indexPath];
-    [self presentViewController:[CommonFunction getWordInfoViewController:[[cell wordObj] wordID]] animated:YES completion:^{}];
+    [self presentViewController:[CommonFunction getWordInfoViewController:[cell wordObj]] animated:YES completion:^{}];
 }
 
 
