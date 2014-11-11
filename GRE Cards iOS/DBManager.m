@@ -141,7 +141,7 @@ static sqlite3 *database = nil;
 {
     NSMutableArray *array = [[NSMutableArray alloc]init];
     sqlite3_stmt    *statement;
-    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@ ORDER BY %@",COLUMN_SERVER_WORDID,COLUMN_WORD,COLUMN_DEF_SHORT,TABLE_WORDS,COLUMN_WORD];
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@,%@ FROM %@ ORDER BY %@",COLUMN_SERVER_WORDID,COLUMN_WORD,COLUMN_DEF_SHORT,COLUMN_IS_COMPLETE,TABLE_WORDS,COLUMN_WORD];
     const char *query_stmt = [querySQL UTF8String];
     if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
     {
@@ -151,6 +151,7 @@ static sqlite3 *database = nil;
             [wordObj setWordID:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 0)]];
             [wordObj setWord:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 1)]];
             [wordObj setDefinition_short:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 2)]];
+            [wordObj setIsComplete:[DBManager getBooleanFromString:[NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 3)]]];
             [array addObject:wordObj];
         }
         sqlite3_finalize(statement);
@@ -158,6 +159,17 @@ static sqlite3 *database = nil;
     return array;
 }
 
++(BOOL) getBooleanFromString:(NSString*) value
+{
+    if([value isEqualToString:@"1"])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
 
 #pragma Adding Word
 
