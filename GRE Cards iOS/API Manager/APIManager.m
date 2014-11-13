@@ -32,6 +32,14 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 
 }
 
++ (NSMutableDictionary*) accessTokenDict
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [dict setValue:[prefs valueForKey:AUTH_KEY] forKey:@"access_token"];
+    return dict;
+}
+
 + (NSURL *) getAPIBaseUrl
 {
     NSURLComponents *URLComponent = [[NSURLComponents alloc] init];

@@ -15,6 +15,7 @@
 
 @implementation WordInfoViewController
 {
+    WordInfoAPI *wordAPI;
     UIActivityIndicatorView *activityIndicator;
     UIView *activityIndicatorView;
 }
@@ -27,10 +28,19 @@
     if(self)
     {
         [self setWordObj:word];
+        [self initalizeVariables];
         [self setupIndicatorView];
         [self setupNavigationBar];
     }
     return self;
+}
+
+#pragma init
+
+- (void) initalizeVariables
+{
+    wordAPI = [[WordInfoAPI alloc] init];
+    [wordAPI setDelegate:self];
 }
 
 - (void) setupNavigationBar
@@ -59,10 +69,11 @@
     if(![wordObj isComplete])
     {
         [activityIndicator startAnimating];
+        [wordAPI fetchWordWithWordID:[wordObj wordID]];
     }
 }
 
-
+#pragma Views Setup
 
 - (void)viewDidLoad
 {
@@ -73,6 +84,18 @@
 - (void) setupViews
 {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+}
+
+#pragma Word Info Delegates
+
+- (void) wordFetchedSuccesfully
+{
+    [activityIndicator stopAnimating];
+}
+
+- (void) wordFetchingFailed
+{
+    
 }
 
 @end

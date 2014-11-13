@@ -21,7 +21,8 @@
 #define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/data.json"
 //#define JSON_URL_TEST @"http://www.utopiadevelopers.com/gre/upload/test.json"
 
-#define LOGIN_SUCCESS @"success"
+#define STATUS_SUCCESS @"success"
+#define LOGIN_SUCCESS STATUS_SUCCESS
 #define LOGIN_FAIL @"fail"
 #define LOGIN_TYPE @"login_type"
 #define LOGIN_NORMAL @"login_normal"
@@ -49,6 +50,8 @@
 #define IS_LOGGED_IN    @"is_logged_in"
 #define USER_ID         @"user_id"
 #define IS_JSON_DOWNLOADED @"is_file_present"
+#define AUTH_KEY        @"user_auth"
+
 
 //********************* ENDS **************************
 
@@ -96,11 +99,5 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define FONT_HELVETICANEUE_LIGHT(X)     [UIFont fontWithName:@"Helvetica-Light" size:X]
 #define FONT_SUBMIT_BUTTON          FONT_GOTHAM_BOLD(18)
 /*===================================================================================*/
-
-
-//********************* nsuser defaults constants **************************
-#define IS_LOGGED_IN    @"is_logged_in"
-#define AUTH_KEY        @"user_auth"
-//*********************end**************************
 
 @end

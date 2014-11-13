@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WordInfoAPI.h"
 
-@interface WordInfoViewController : UIViewController
+@interface WordInfoViewController : UIViewController<WordInfoDelegateAPI>
 
 @property (strong,nonatomic) WordObject *wordObj;
 

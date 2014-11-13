@@ -23,6 +23,7 @@
 @property (strong, nonatomic) AFHTTPRequestOperationManager *apiManager;
 
 + (APIManager *)sharedApiManager;
++ (NSMutableDictionary*) accessTokenDict;
 + (NSURL *) getAPIBaseUrl;
 - (void) getRequestForClass:(Class)Klass WithParameters:(NSDictionary *)params withDelegate:(id)callbackDelegate;
 - (void) postRequestForClass:(Class)Klass WithPostParameters:(NSDictionary *)postParams withDelegate:(id)callbackDelegate;
