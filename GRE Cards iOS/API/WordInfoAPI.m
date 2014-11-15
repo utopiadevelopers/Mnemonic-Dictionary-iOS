@@ -78,6 +78,7 @@
     NSLog(@"%@",[wordObj description]);
     if([delegate respondsToSelector:@selector(wordFetchedSuccesfully)])
     {
+        [wordObj setIsComplete:YES];
         [delegate wordFetchedSuccesfully];
     }
 }

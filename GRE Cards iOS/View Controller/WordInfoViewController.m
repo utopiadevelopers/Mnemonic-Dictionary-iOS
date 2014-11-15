@@ -8,6 +8,7 @@
 
 #import "WordInfoViewController.h"
 #import "MainHeaderView.h"
+#import <math.h>
 
 @interface WordInfoViewController ()
 
@@ -18,6 +19,13 @@
     WordInfoAPI *wordAPI;
     UIActivityIndicatorView *activityIndicator;
     UIView *activityIndicatorView;
+    
+    // WordObj
+    
+    UILabel *mnemonicHeader;
+    UILabel *shortDefinition;
+    UIView *definitionView;
+    NSMutableArray *mnemonicViewArray;
 }
 
 @synthesize wordObj;
@@ -79,11 +87,53 @@
 {
     [super viewDidLoad];
     [self setupViews];
+    [self updateWordView];
 }
 
 - (void) setupViews
 {
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [[self view] setBackgroundColor:[UIColor whiteColor]];
+    
+    shortDefinition = [[UILabel alloc] initWithFrame:CGRectZero];
+    definitionView  = [[UIView alloc] initWithFrame:CGRectZero];
+    mnemonicHeader  = [[UILabel alloc] initWithFrame:CGRectZero];
+    
+    
+    [shortDefinition setFont:FONT_BODY];
+    [shortDefinition setTextColor:[UIColor blackColor]];
+    [shortDefinition setNumberOfLines:0];
+    [shortDefinition sizeToFit];
+    
+    
+    [[self view] addSubview:shortDefinition];
+    [[self view] addSubview:definitionView];
+    [[self view] addSubview:mnemonicHeader];
+}
+
+- (void) viewDidLayoutSubviews
+{
+    if([wordObj isComplete])
+    {
+        CGRect shortDefinitionRect = [[shortDefinition text] boundingRectWithSize:CGSizeMake((W([self view])-SIDE_PADDING), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[shortDefinition font]} context:nil];
+        [shortDefinition setFrame:CGRectMake(SIDE_PADDING/2, SIDE_PADDING/2,shortDefinitionRect.size.width,shortDefinitionRect.size.height)];
+    }
+}
+
+- (void) updateWordView
+{
+    [shortDefinition setAttributedText:[self getShortDefinitionAttributedString]];
+}
+
+- (NSMutableAttributedString*) getShortDefinitionAttributedString
+{
+    NSString *definition_header = @"Short Definition : ";
+    
+    NSMutableAttributedString *definition_short = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",definition_header,[wordObj definition_short]]];
+    
+    [definition_short addAttribute:NSFontAttributeName value:FONT_BODY_BOLD range:NSMakeRange(0, [definition_header length])];
+    [definition_short addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [definition_header length])];
+
+    return definition_short;
 }
 
 #pragma Word Info Delegates
@@ -91,6 +141,9 @@
 - (void) wordFetchedSuccesfully
 {
     [activityIndicator stopAnimating];
+    [self setWordObj:[wordAPI wordObj]];
+    [self viewDidLayoutSubviews];
+    [self updateWordView];
 }
 
 - (void) wordFetchingFailed

@@ -19,4 +19,5 @@
 
 @property (nonatomic) BOOL isFav;
 @property (nonatomic) BOOL isComplete;
+
 @end
