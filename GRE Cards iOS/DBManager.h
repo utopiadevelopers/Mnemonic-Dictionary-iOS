@@ -81,6 +81,7 @@
 -(void)commitTransaction;
 
 - (void) addWord:(WordObject *) wordObj;
+- (void) updateWord:(WordObject *) wordObj;
 -(NSMutableArray*) getWordList;
 
 //Static Methods

@@ -195,7 +195,10 @@ static sqlite3 *database = nil;
     {
         NSLog(@"Error %s while preparing statement", sqlite3_errmsg(database));
     }
-    
+}
+
+- (void) updateWord:(WordObject *) wordObj
+{
     
 //    word_stmt.bindString(1, obj.getWordID());
 //    word_stmt.bindString(2, obj.getWord());

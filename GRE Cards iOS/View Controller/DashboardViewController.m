@@ -6,6 +6,7 @@
 //
 
 #import "DashboardViewController.h"
+#import "MainHeaderView.h"
 
 @interface DashboardViewController ()
 {
@@ -22,6 +23,13 @@
     [super viewDidLoad];
     [self setupViewController];
     [self setupTabBarExperience];
+    [self setupNavigationBar];
+}
+
+- (void) setupNavigationBar
+{
+    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Word List" backButtonRequired:NO];
+    [[self navigationItem] setTitleView:headerView];
 }
 
 - (void) setupViewController

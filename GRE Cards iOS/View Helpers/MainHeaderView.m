@@ -57,7 +57,7 @@
     if(titletext != nil)
     {
         titleLabel = [[UILabel alloc] init];
-        [titleLabel setFont:FONT_GOTHAM_BOLD(20)];
+        [titleLabel setFont:FONT_GOTHAM_BOLD(18)];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel setTextAlignment:NSTextAlignmentCenter];
         [titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];

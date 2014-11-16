@@ -24,9 +24,12 @@
     UIView *emailTextView ;
     UIView *passwordTextView;
     UIActivityIndicatorView * loginActivityIndicator;
-    GPPSignInButton *signInButton;
+    
     UIButton *fbButton;
+    
+    GPPSignInButton *signInButton;
     GPPSignIn *signIn;
+    
     LoginAPI *loginManager;
     SocialLoginAPI *socialLoginManager;
 }
@@ -54,8 +57,7 @@
 - (void) setupNavigationBar
 {
     MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Login" backButtonRequired:NO];
-    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
-    [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
+    [[self navigationItem] setTitleView:headerView];
 }
 
 #pragma Keyboard Notification

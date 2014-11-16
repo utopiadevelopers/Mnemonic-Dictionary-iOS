@@ -49,9 +49,9 @@
 
 #define IS_LOGGED_IN    @"is_logged_in"
 #define USER_ID         @"user_id"
+#define USER_EMAIL      @"user_email"
 #define IS_JSON_DOWNLOADED @"is_file_present"
 #define AUTH_KEY        @"user_auth"
-
 
 //********************* ENDS **************************
 

@@ -55,8 +55,7 @@
 {
     MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:[wordObj word] backButtonRequired:YES];
     
-    UIBarButtonItem *leftLabelButton = [[UIBarButtonItem alloc] initWithCustomView:headerView];
-    [[self navigationItem] setLeftBarButtonItem:leftLabelButton];
+    [[self navigationItem] setTitleView:headerView];
     
     UIBarButtonItem *rightLabelButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicatorView];
     [[self navigationItem] setRightBarButtonItem:rightLabelButton];
@@ -130,7 +129,7 @@
     
     NSMutableAttributedString *definition_short = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",definition_header,[wordObj definition_short]]];
     
-    [definition_short addAttribute:NSFontAttributeName value:FONT_BODY_BOLD range:NSMakeRange(0, [definition_header length])];
+    //[definition_short addAttribute:NSFontAttributeName value:FONT_BODY_BOLD range:NSMakeRange(0, [definition_header length])];
     [definition_short addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [definition_header length])];
 
     return definition_short;

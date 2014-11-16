@@ -43,6 +43,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
         [[NSUserDefaults standardUserDefaults] setValue:auth forKey:AUTH_KEY];
         [[NSUserDefaults standardUserDefaults] setValue:LOGIN_NORMAL forKey:LOGIN_TYPE];
+        [[NSUserDefaults standardUserDefaults] setValue:email forKey:USER_EMAIL];
         
         if([delegate respondsToSelector:@selector(socialLoginWasSuccessful)])
         {
