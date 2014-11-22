@@ -103,10 +103,16 @@
     [shortDefinition setNumberOfLines:0];
     [shortDefinition sizeToFit];
     
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [settingsButton setTitle:@"b" forState:UIControlStateNormal];
+    [settingsButton setTitle:@"b" forState:UIControlStateHighlighted];
+    [[settingsButton titleLabel] setFont:FONT_ICON(20)];
+    [settingsButton setFrame:CGRectMake(100,100, 100, 100)];
     
     [[self view] addSubview:shortDefinition];
     [[self view] addSubview:definitionView];
     [[self view] addSubview:mnemonicHeader];
+    [[self view] addSubview:settingsButton];
 }
 
 - (void) viewDidLayoutSubviews

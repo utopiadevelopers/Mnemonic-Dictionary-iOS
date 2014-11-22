@@ -28,8 +28,16 @@
 
 - (void) setupNavigationBar
 {
-    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Word List" backButtonRequired:NO];
-    [[self navigationItem] setTitleView:headerView];
+//    MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Word List" backButtonRequired:NO];
+//    [[self navigationItem] setTitleView:headerView];
+    
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [[settingsButton titleLabel] setText:@"b"];
+    [[settingsButton titleLabel] setFont:FONT_ICON(13)];
+    [settingsButton setBackgroundColor:[UIColor grayColor]];
+    
+    UIBarButtonItem *settingBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+    [[self navigationItem] setRightBarButtonItem:settingBarButton];
 }
 
 - (void) setupViewController
