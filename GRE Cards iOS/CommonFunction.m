@@ -11,6 +11,7 @@
 #import "DownloadViewController.h"
 #import "DashboardViewController.h"
 #import "WordInfoViewController.h"
+#import "SettingsViewController.h"
 
 @implementation CommonFunction
 
@@ -180,6 +181,12 @@ static NSString *urlEncode(id object)
 {
     WordInfoViewController *wvc = [[WordInfoViewController alloc] initWithWord:word];
     return [CommonFunction getNavigationController:wvc];
+}
+
++ (UINavigationController *) getSettingsViewController
+{
+    SettingsViewController *svc = [[SettingsViewController alloc] init];
+    return [CommonFunction getNavigationController:svc];
 }
 
 + (UINavigationController *) getNavigationController:(UIViewController*) vc

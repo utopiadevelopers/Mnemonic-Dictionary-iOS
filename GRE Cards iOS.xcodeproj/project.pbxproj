@@ -31,6 +31,7 @@
 		904718A11A0F3963003B483C /* UtopiaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718A01A0F3963003B483C /* UtopiaObject.m */; };
 		904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718BB1A109A16003B483C /* SocialLoginAPI.m */; };
 		9049CD1F1A0C0F56001B61AE /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9049CD1E1A0C0F56001B61AE /* APIManager.m */; };
+		904FEEE71A2071AE00FF7051 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904FEEE61A2071AE00FF7051 /* SettingsViewController.m */; };
 		90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90551A6D1A06B66400FACAF3 /* MainHeaderView.m */; };
 		905AFFF519A4B3D00039A13A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AFFF419A4B3D00039A13A /* FacebookSDK.framework */; };
 		905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 905B6BDD19A4A24300A542E7 /* CommonFunction.m */; };
@@ -109,6 +110,8 @@
 		904718BB1A109A16003B483C /* SocialLoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialLoginAPI.m; path = API/SocialLoginAPI.m; sourceTree = "<group>"; };
 		9049CD1D1A0C0F56001B61AE /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIManager.h; path = "API Manager/APIManager.h"; sourceTree = "<group>"; };
 		9049CD1E1A0C0F56001B61AE /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIManager.m; path = "API Manager/APIManager.m"; sourceTree = "<group>"; };
+		904FEEE51A2071AE00FF7051 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		904FEEE61A2071AE00FF7051 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		90551A6C1A06B66400FACAF3 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHeaderView.h; sourceTree = "<group>"; };
 		90551A6D1A06B66400FACAF3 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView.m; sourceTree = "<group>"; };
 		905AFFF419A4B3D00039A13A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				90EF61891A080995007F4D7E /* SplashViewController.m */,
 				9042BF4C1A1270BA00D87623 /* WordInfoViewController.h */,
 				9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */,
+				904FEEE51A2071AE00FF7051 /* SettingsViewController.h */,
+				904FEEE61A2071AE00FF7051 /* SettingsViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				906824F719A49F7C003957A1 /* LoginViewController.m in Sources */,
 				906824E319A49F13003957A1 /* Toast.m in Sources */,
 				905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */,
+				904FEEE71A2071AE00FF7051 /* SettingsViewController.m in Sources */,
 				90DA96D319B0E9D300C7141A /* DBManager.m in Sources */,
 				9049CD1F1A0C0F56001B61AE /* APIManager.m in Sources */,
 				908B6A5719CBE33600633F2F /* Constants.m in Sources */,

@@ -61,6 +61,7 @@
 + (UINavigationController *) getDownloadViewController;
 + (UINavigationController *) getDashboardViewController;
 + (UINavigationController *) getWordInfoViewController:(WordObject*) word;
++ (UINavigationController *) getSettingsViewController;
 
 // Size Related
 + (CGFloat) getPhoneWidth;
