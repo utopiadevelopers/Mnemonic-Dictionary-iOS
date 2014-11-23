@@ -88,11 +88,12 @@
 
 - (void) setupTableView
 {
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,40, W(self.view), H(self.view)-TAB_BAR_HEIGHT-40)];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,40, W([self view]), H([self view])-TAB_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT-40)];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
     [wordLV setTableHeaderView:searchBar];
+    [wordLV setSectionIndexBackgroundColor:[UIColor clearColor]];
     [[self view] addSubview:wordLV];
 }
 
@@ -154,9 +155,9 @@
     WordObject* wordObj;
     
     if(isSearching)
-        wordObj = [[searchSectionWordList objectForKey:[searchSectionHeading objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        wordObj = [[searchSectionWordList objectForKey:[searchSectionHeading objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
     else
-        wordObj = [[sectionWordList objectForKey:[sectionHeading objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        wordObj = [[sectionWordList objectForKey:[sectionHeading objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
     
     static NSString * cellIdentifier = @"WordListCell";
     

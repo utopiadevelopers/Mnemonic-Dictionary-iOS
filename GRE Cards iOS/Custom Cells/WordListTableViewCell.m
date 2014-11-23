@@ -35,8 +35,8 @@
     [favView addTarget:self action:@selector(toggleFav) forControlEvents:UIControlEventTouchDown];
     
     [favView setFrame:CGRectMake(W(self.contentView)-1.60*SIDE_PADDING-20, SIDE_PADDING, 20, 20)];
-    [wordLabel setFrame:CGRectMake(SIDE_PADDING/2,SIDE_PADDING/2,W(self.contentView)-2*SIDE_PADDING-W(favView),20)];
-    [shortDefLabel setFrame:CGRectMake(SIDE_PADDING/2, SIDE_PADDING/2+BOTTOM(wordLabel),W(self.contentView)-2*SIDE_PADDING-W(favView),20)];
+    [wordLabel setFrame:CGRectMake(SIDE_PADDING,SIDE_PADDING/2,W(self.contentView)-2*SIDE_PADDING-W(favView),20)];
+    [shortDefLabel setFrame:CGRectMake(SIDE_PADDING, SIDE_PADDING/2+BOTTOM(wordLabel),W(self.contentView)-2*SIDE_PADDING-W(favView),20)];
     
     [self.contentView addSubview:wordLabel];
     [self.contentView addSubview:shortDefLabel];

@@ -31,18 +31,21 @@
     MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:@"Word List" backButtonRequired:NO];
     [[self navigationItem] setTitleView:headerView];
     
+    UIBarButtonItem *negativeSpace = [[UIBarButtonItem alloc] init];
+    negativeSpace.width = 40;
+    
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [settingsButton addTarget:self action:@selector(openSettings) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton setTitle:@"b" forState:UIControlStateNormal];
-    [settingsButton setTitle:@"b" forState:UIControlStateHighlighted];
     [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [[settingsButton titleLabel] setFont:FONT_ICON(22)];
     [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [settingsButton setFrame:CGRectMake(0,20,40,40)];
+    [settingsButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     
     UIBarButtonItem *settingBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
-    [[self navigationItem] setRightBarButtonItem:settingBarButton];
+    [[self navigationItem] setRightBarButtonItems:@[negativeSpace,settingBarButton]];
 }
 
 - (void) setupViewController

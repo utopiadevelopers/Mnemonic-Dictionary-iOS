@@ -10,9 +10,7 @@
 #import "WordInfoViewController.h"
 
 @interface MainHeaderView()
-{
-    BOOL backButtonSpaceRequired;
-}
+
 @end
 
 @implementation MainHeaderView
@@ -36,22 +34,12 @@
         self = [self initWithFrame:CGRectMake(0, 0, [CommonFunction getPhoneWidth], MAIN_HEADER_HEIGHT)];
     }
     
-    
-    
-    backButtonSpaceRequired = backButtonRequired;
-
-    
     if(backButtonRequired)
     {
         backButton = [[UIButton alloc] init];
         [backButton setBackgroundColor:[UIColor clearColor]];
         [backButton addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
-        //[backButton setImage:UIIcon_Z9(@"misc_backarrowwhite.png") forState:UIControlStateNormal];
         [backButton setTintColor:[UIColor whiteColor]];
-//        barBackButton = [[UIBarButtonItem alloc] initWithImage:UIIcon_Z9(@"misc_backarrowwhite.png") style:UIBarButtonItemStylePlain target:self action:@selector(backPressed)];
-//        [barBackButton setTintColor:[UIColor whiteColor]];
-//        [barBackButton setBackgroundImage:[CommonFunction imageWithColor:[UIColor ZomatoRedColor]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-//        [barBackButton setBackgroundImage:[CommonFunction imageWithColor:[UIColor clearColor]] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
     }
     
     if(titletext != nil)
@@ -70,11 +58,14 @@
 - (void)layoutSubviews
 {
     CGFloat titleWidth = [CommonFunction getPhoneWidth];
-    CGFloat titleX = 5;
+    CGFloat titleX = 40;
     
     if (backButton != nil)
     {
-        ((UIViewController *)parentVC).navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]  initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+        
+        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        [[((UIViewController *) parentVC) navigationItem] setBackBarButtonItem:backBarButton];
+
     }
     
     if (titleLabel != nil)
@@ -89,15 +80,14 @@
 
 - (void)backPressed
 {
-    
-    [((UIViewController *)parentVC).navigationController popViewControllerAnimated:YES];
+    [[((UIViewController *)parentVC) navigationController] popViewControllerAnimated:YES];
 }
 
 + (void)popVC:(id)vc
 {
-    if(((UIViewController *)vc).isViewLoaded)
+    if([((UIViewController *)vc) isViewLoaded])
     {
-        [((UIViewController *)vc).navigationController popViewControllerAnimated:YES];
+        [[((UIViewController *)vc) navigationController] popViewControllerAnimated:YES];
     }
 }
 
