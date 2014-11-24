@@ -18,7 +18,7 @@
     NSMutableDictionary *sectionWordList;
     NSMutableArray* searchSectionHeading;
     NSMutableDictionary *searchSectionWordList;
-    
+    UIView *searchBar;
     BOOL isSearching;
 }
 @end
@@ -28,8 +28,6 @@
 @synthesize actionBar;
 @synthesize wordLV;
 @synthesize wordListType;
-@synthesize searchBar;
-@synthesize searchBarController;
 
 -(id) initWithWordListType:(WordListType) listType
 {
@@ -79,21 +77,24 @@
 
 - (void) setupSearchBar
 {
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, W([self view]), SEARCH_BAR_HEIGHT)];
-    searchBarController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    [searchBarController setSearchResultsDataSource:self];
-    [searchBarController setSearchResultsDelegate:self];
-    [searchBar setDelegate:self];
+    searchBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W([self view]), SEARCH_BAR_HEIGHT)];
+    [searchBar setBackgroundColor:UIColorFromRGB(SEARCH_BAR_COLOR)];
+    
+    UITextView *searchTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 7, W(searchBar)-20, 30)];
+    [searchTextView setBackgroundColor:[UIColor whiteColor]];
+    [[searchTextView layer] setCornerRadius:3];
+    [searchBar addSubview:searchTextView];
     [[self view] addSubview:searchBar];
 }
 
 - (void) setupTableView
 {
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,SEARCH_BAR_HEIGHT, W([self view]), H([self view])-TAB_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT-SEARCH_BAR_HEIGHT)];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,0, W([self view]), H([self view])-TAB_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT)];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
     [wordLV setSectionIndexBackgroundColor:[UIColor clearColor]];
+    [wordLV setTableHeaderView:searchBar];
     [[self view] addSubview:wordLV];
 }
 
@@ -141,25 +142,6 @@
             [searchSectionHeading addObject:w_str];
         }
     }
-}
-
-#pragma Search Display Controller
-
-- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
-{
-    isSearching = YES;
-    NSLog(@"Inside This");
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    NSLog(@"Inside This");
-    return NO;
-}
-
-- (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
-{
-    
 }
 
 #pragma TableView Delegates
