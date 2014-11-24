@@ -6,6 +6,7 @@
 //
 
 #import "DashboardViewController.h"
+#import "SettingsViewController.h"
 #import "MainHeaderView.h"
 
 @interface DashboardViewController ()
@@ -80,7 +81,7 @@
 
 - (void) openSettings
 {
-    [self presentViewController:[CommonFunction getSettingsViewController] animated:YES completion:^{}];
+    [[self navigationController] pushViewController:[[SettingsViewController alloc] init] animated:YES];
 }
 
 @end

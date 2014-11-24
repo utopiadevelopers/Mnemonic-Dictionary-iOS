@@ -54,9 +54,8 @@
 - (void) setupNavigationBar
 {
     MainHeaderView *headerView = [[MainHeaderView alloc] initMainHeaderWithParent:self WithTitle:[wordObj word] backButtonRequired:YES];
-    
     [[self navigationItem] setTitleView:headerView];
-    
+
     UIBarButtonItem *rightLabelButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicatorView];
     [[self navigationItem] setRightBarButtonItem:rightLabelButton];
     

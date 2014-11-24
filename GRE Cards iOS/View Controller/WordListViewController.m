@@ -7,6 +7,9 @@
 //
 
 #import "WordListViewController.h"
+#import "WordInfoViewController.h"
+
+#define SEARCH_BAR_HEIGHT 44.0f
 
 @interface WordListViewController ()
 {
@@ -47,8 +50,8 @@
 {
     [super viewDidLoad];
     [self initVariables];
-    [self setupTableView];
     [self setupSearchBar];
+    [self setupTableView];
 }
 
 - (void) initVariables
@@ -72,27 +75,24 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) setupSearchBar
 {
-    searchBar = [[UISearchBar alloc] init];
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, W([self view]), SEARCH_BAR_HEIGHT)];
     searchBarController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
     [searchBarController setSearchResultsDataSource:self];
     [searchBarController setSearchResultsDelegate:self];
-    [searchBar setFrame:CGRectMake(0,0, W([self view]),40)];
     [searchBar setDelegate:self];
     [[self view] addSubview:searchBar];
 }
 
 - (void) setupTableView
 {
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,40, W([self view]), H([self view])-TAB_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT-40)];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,SEARCH_BAR_HEIGHT, W([self view]), H([self view])-TAB_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT-SEARCH_BAR_HEIGHT)];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
-    [wordLV setTableHeaderView:searchBar];
     [wordLV setSectionIndexBackgroundColor:[UIColor clearColor]];
     [[self view] addSubview:wordLV];
 }
@@ -143,9 +143,23 @@
     }
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+#pragma Search Display Controller
+
+- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
-    return true;
+    isSearching = YES;
+    NSLog(@"Inside This");
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    NSLog(@"Inside This");
+    return NO;
+}
+
+- (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+{
+    
 }
 
 #pragma TableView Delegates
@@ -211,7 +225,9 @@
 {
     [wordLV deselectRowAtIndexPath:indexPath animated:NO];
     WordListTableViewCell *cell = (WordListTableViewCell*)[wordLV cellForRowAtIndexPath:indexPath];
-    [self presentViewController:[CommonFunction getWordInfoViewController:[cell wordObj]] animated:YES completion:^{}];
+    
+    WordInfoViewController *wvc = [[WordInfoViewController alloc] initWithWord:[cell wordObj]];
+    [[self navigationController] pushViewController:wvc animated:YES];
 }
 
 

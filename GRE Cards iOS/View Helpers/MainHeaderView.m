@@ -9,7 +9,7 @@
 #import "MainHeaderView.h"
 #import "WordInfoViewController.h"
 
-#define BACK_BUTTON_WIDTH 25.0f
+#define BACK_BUTTON_WIDTH 20.0f
 
 @interface MainHeaderView()
 
@@ -42,7 +42,6 @@
         [backButton setBackgroundColor:[UIColor clearColor]];
         [backButton setBackgroundImage:IMG(@"backarrow") forState:UIControlStateNormal];
         [backButton setBackgroundImage:IMG(@"backarrow") forState:UIControlStateHighlighted];
-        [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         [backButton addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
         [backButton setTintColor:[UIColor whiteColor]];
     }
@@ -68,9 +67,8 @@
     if (backButton != nil)
     {
         [backButton setFrame:CGRectMake(0, 12.5, BACK_BUTTON_WIDTH,20)];
-        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] init];
-        [[((UIViewController *) parentVC) navigationItem] setBackBarButtonItem:backBarButton];
-        titleX = BACK_BUTTON_WIDTH;
+        [[((UIViewController *) parentVC) navigationItem] setBackBarButtonItem:[[UIBarButtonItem alloc]  initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]]; //done to hide the native back button
+        titleX = BACK_BUTTON_WIDTH+SIDE_PADDING/3;
 
     }
     
