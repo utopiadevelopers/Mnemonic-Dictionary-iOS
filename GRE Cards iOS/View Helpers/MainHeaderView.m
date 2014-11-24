@@ -9,6 +9,8 @@
 #import "MainHeaderView.h"
 #import "WordInfoViewController.h"
 
+#define BACK_BUTTON_WIDTH 25.0f
+
 @interface MainHeaderView()
 
 @end
@@ -38,6 +40,9 @@
     {
         backButton = [[UIButton alloc] init];
         [backButton setBackgroundColor:[UIColor clearColor]];
+        [backButton setBackgroundImage:IMG(@"backarrow") forState:UIControlStateNormal];
+        [backButton setBackgroundImage:IMG(@"backarrow") forState:UIControlStateHighlighted];
+        [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         [backButton addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
         [backButton setTintColor:[UIColor whiteColor]];
     }
@@ -58,24 +63,25 @@
 - (void)layoutSubviews
 {
     CGFloat titleWidth = [CommonFunction getPhoneWidth];
-    CGFloat titleX = 40;
+    CGFloat titleX = SIDE_PADDING/2;
     
     if (backButton != nil)
     {
-        
-        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        [backButton setFrame:CGRectMake(0, 12.5, BACK_BUTTON_WIDTH,20)];
+        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] init];
         [[((UIViewController *) parentVC) navigationItem] setBackBarButtonItem:backBarButton];
+        titleX = BACK_BUTTON_WIDTH;
 
     }
     
     if (titleLabel != nil)
     {
         [titleLabel setFrame:CGRectMake(titleX, 0, titleWidth - titleX, H(self))];
-        [titleLabel setFrame:CGRectMake(0, 0, titleWidth, H(self))];
         [titleLabel setTextAlignment:NSTextAlignmentLeft];
     }
     
     [self addSubview:titleLabel];
+    [self addSubview:backButton];
 }
 
 - (void)backPressed

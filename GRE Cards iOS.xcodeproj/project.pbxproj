@@ -32,6 +32,8 @@
 		904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718BB1A109A16003B483C /* SocialLoginAPI.m */; };
 		9049CD1F1A0C0F56001B61AE /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9049CD1E1A0C0F56001B61AE /* APIManager.m */; };
 		904FEEE71A2071AE00FF7051 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904FEEE61A2071AE00FF7051 /* SettingsViewController.m */; };
+		904FEF151A239A3B00FF7051 /* FontMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 904FEF141A239A3B00FF7051 /* FontMapping.m */; };
+		904FEF171A23A4EF00FF7051 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 904FEF161A23A4EF00FF7051 /* backarrow.png */; };
 		90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90551A6D1A06B66400FACAF3 /* MainHeaderView.m */; };
 		905AFFF519A4B3D00039A13A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AFFF419A4B3D00039A13A /* FacebookSDK.framework */; };
 		905B6BE019A4A24300A542E7 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 905B6BDD19A4A24300A542E7 /* CommonFunction.m */; };
@@ -112,6 +114,9 @@
 		9049CD1E1A0C0F56001B61AE /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIManager.m; path = "API Manager/APIManager.m"; sourceTree = "<group>"; };
 		904FEEE51A2071AE00FF7051 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		904FEEE61A2071AE00FF7051 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		904FEF131A239A3B00FF7051 /* FontMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontMapping.h; sourceTree = "<group>"; };
+		904FEF141A239A3B00FF7051 /* FontMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontMapping.m; sourceTree = "<group>"; };
+		904FEF161A23A4EF00FF7051 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backarrow.png; sourceTree = "<group>"; };
 		90551A6C1A06B66400FACAF3 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHeaderView.h; sourceTree = "<group>"; };
 		90551A6D1A06B66400FACAF3 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView.m; sourceTree = "<group>"; };
 		905AFFF419A4B3D00039A13A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -208,6 +213,7 @@
 		90163D8419D739CC00CB0BBE /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				904FEF161A23A4EF00FF7051 /* backarrow.png */,
 				90B86C5C1A184A2900447F11 /* fonts */,
 				90B11D7B1A128644009AA707 /* package.db */,
 				90163D9119D864B100CB0BBE /* star_select.png */,
@@ -283,6 +289,8 @@
 				905B6BDD19A4A24300A542E7 /* CommonFunction.m */,
 				908B6A5519CBE33600633F2F /* Constants.h */,
 				908B6A5619CBE33600633F2F /* Constants.m */,
+				904FEF131A239A3B00FF7051 /* FontMapping.h */,
+				904FEF141A239A3B00FF7051 /* FontMapping.m */,
 				903D5C7A19A483CB00119129 /* Images.xcassets */,
 				903D5C6F19A483CB00119129 /* Supporting Files */,
 				9047189F1A0F3963003B483C /* UtopiaObject.h */,
@@ -491,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904FEF171A23A4EF00FF7051 /* backarrow.png in Resources */,
 				903D5C7319A483CB00119129 /* InfoPlist.strings in Resources */,
 				90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */,
 				90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */,
@@ -564,6 +573,7 @@
 				90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */,
 				90B11D831A1293E1009AA707 /* WordInfoAPI.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
+				904FEF151A239A3B00FF7051 /* FontMapping.m in Sources */,
 				904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
 				904718A11A0F3963003B483C /* UtopiaObject.m in Sources */,
