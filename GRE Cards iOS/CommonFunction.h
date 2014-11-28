@@ -59,9 +59,10 @@
 + (UIViewController *) getSplashViewController;
 + (UINavigationController *) getLoginViewController;
 + (UINavigationController *) getDownloadViewController;
-+ (UINavigationController *) getDashboardViewController;
 + (UINavigationController *) getWordInfoViewController:(WordObject*) word;
 + (UINavigationController *) getSettingsViewController;
+
++ (UIViewController *) getDashboardViewController;
 
 // Size Related
 + (CGFloat) getPhoneWidth;

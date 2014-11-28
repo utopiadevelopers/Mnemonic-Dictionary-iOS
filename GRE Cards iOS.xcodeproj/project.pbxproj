@@ -27,6 +27,7 @@
 		903D5C8C19A483CB00119129 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 903D5C8A19A483CB00119129 /* InfoPlist.strings */; };
 		903D5C8E19A483CB00119129 /* GRE_Cards_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */; };
 		9042BF4E1A1270BA00D87623 /* WordInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */; };
+		9044A2461A28CD52003B2E84 /* LeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9044A2451A28CD52003B2E84 /* LeftDrawerViewController.m */; };
 		9047189E1A0E93A4003B483C /* LoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9047189D1A0E93A4003B483C /* LoginAPI.m */; };
 		904718A11A0F3963003B483C /* UtopiaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718A01A0F3963003B483C /* UtopiaObject.m */; };
 		904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 904718BB1A109A16003B483C /* SocialLoginAPI.m */; };
@@ -104,6 +105,8 @@
 		903D5C8D19A483CB00119129 /* GRE_Cards_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Cards_iOSTests.m; sourceTree = "<group>"; };
 		9042BF4C1A1270BA00D87623 /* WordInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordInfoViewController.h; sourceTree = "<group>"; };
 		9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordInfoViewController.m; sourceTree = "<group>"; };
+		9044A2441A28CD52003B2E84 /* LeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftDrawerViewController.h; sourceTree = "<group>"; };
+		9044A2451A28CD52003B2E84 /* LeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerViewController.m; sourceTree = "<group>"; };
 		9047189C1A0E93A4003B483C /* LoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAPI.h; path = API/LoginAPI.h; sourceTree = "<group>"; };
 		9047189D1A0E93A4003B483C /* LoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPI.m; path = API/LoginAPI.m; sourceTree = "<group>"; };
 		9047189F1A0F3963003B483C /* UtopiaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtopiaObject.h; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 				9042BF4D1A1270BA00D87623 /* WordInfoViewController.m */,
 				904FEEE51A2071AE00FF7051 /* SettingsViewController.h */,
 				904FEEE61A2071AE00FF7051 /* SettingsViewController.m */,
+				9044A2441A28CD52003B2E84 /* LeftDrawerViewController.h */,
+				9044A2451A28CD52003B2E84 /* LeftDrawerViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */,
 				90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */,
 				90B11D831A1293E1009AA707 /* WordInfoAPI.m in Sources */,
+				9044A2461A28CD52003B2E84 /* LeftDrawerViewController.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
 				904FEF151A239A3B00FF7051 /* FontMapping.m in Sources */,
 				904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */,

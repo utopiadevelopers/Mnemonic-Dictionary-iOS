@@ -7,7 +7,10 @@
 //
 
 #import "WordListViewController.h"
+#import "SettingsViewController.h"
 #import "WordInfoViewController.h"
+#import "MainHeaderView.h"
+#import "UIViewController+MMDrawerController.h"
 
 #define SEARCH_BAR_HEIGHT 44.0f
 
@@ -48,6 +51,7 @@
 {
     [super viewDidLoad];
     [self initVariables];
+    [self setupNavigationBar];
     [self setupSearchBar];
     [self setupTableView];
 }
@@ -75,6 +79,44 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void) setupNavigationBar
+{
+    [[self navigationItem] setTitle:@"Word List"];
+    
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [settingsButton addTarget:self action:@selector(openSettings) forControlEvents:UIControlEventTouchUpInside];
+    [settingsButton setTitle:FONT_ICON_GEAR forState:UIControlStateNormal];
+    [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [[settingsButton titleLabel] setFont:FONT_ICON(22)];
+    [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [settingsButton setFrame:CGRectMake(0,20,40,40)];
+    [settingsButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    
+    UIButton *threeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [threeButton addTarget:self action:@selector(toggleDrawer) forControlEvents:UIControlEventTouchUpInside];
+    [threeButton setTitle:FONT_ICON_THREE_BARS forState:UIControlStateNormal];
+    [threeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [[threeButton titleLabel] setFont:FONT_ICON(22)];
+    [threeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [threeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [threeButton setFrame:CGRectMake(0,0,40,40)];
+    [threeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    
+    UIBarButtonItem *threeBarButton = [[UIBarButtonItem alloc] initWithCustomView:threeButton];
+    UIBarButtonItem *settingBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+    
+    UIBarButtonItem *negativeSpace = [[UIBarButtonItem alloc] init];
+    [negativeSpace setWidth:-15.0f];
+    
+    UIBarButtonItem *postiveSpace = [[UIBarButtonItem alloc] init];
+    [postiveSpace setWidth:40.0f];
+
+    [[self navigationItem] setRightBarButtonItems:@[postiveSpace,settingBarButton]];
+    [[self navigationItem] setLeftBarButtonItems:@[negativeSpace,threeBarButton]];
+}
+
+
 - (void) setupSearchBar
 {
     searchBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W([self view]), SEARCH_BAR_HEIGHT)];
@@ -84,12 +126,11 @@
     [searchTextView setBackgroundColor:[UIColor whiteColor]];
     [[searchTextView layer] setCornerRadius:3];
     [searchBar addSubview:searchTextView];
-    [[self view] addSubview:searchBar];
 }
 
 - (void) setupTableView
 {
-    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,0, W([self view]), H([self view])-TAB_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT)];
+    wordLV = [[UITableView alloc] initWithFrame:CGRectMake(0,0, W([self view]), H([self view])-NAVIGATION_BAR_HEIGHT)];
     [wordLV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
@@ -212,6 +253,19 @@
     [[self navigationController] pushViewController:wvc animated:YES];
 }
 
+- (void) openSettings
+{
+    [[self navigationController] pushViewController:[[SettingsViewController alloc] init] animated:YES];
+}
 
+-(void) sneakPeak
+{
+    [[self mm_drawerController] bouncePreviewForDrawerSide:MMDrawerSideLeft completion:nil];
+}
+
+-(void) toggleDrawer
+{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
 @end

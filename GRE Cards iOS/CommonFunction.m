@@ -12,6 +12,8 @@
 #import "DashboardViewController.h"
 #import "WordInfoViewController.h"
 #import "SettingsViewController.h"
+#import "MMDrawerController.h"
+#import "LeftDrawerViewController.h"
 
 @implementation CommonFunction
 
@@ -171,10 +173,14 @@ static NSString *urlEncode(id object)
     return [CommonFunction getNavigationController:dvc];
 }
 
-+ (UINavigationController *) getDashboardViewController
++ (UIViewController *) getDashboardViewController
 {
-    DashboardViewController *dvc = [[DashboardViewController alloc] init];
-    return [CommonFunction getNavigationController:dvc];
+    WordListViewController *wlv = [[WordListViewController alloc] initWithWordListType:WordListTypeFull];
+    LeftDrawerViewController * leftDrawer = [[LeftDrawerViewController alloc] init];
+    
+    MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:[CommonFunction getNavigationController:wlv]
+                                                                            leftDrawerViewController:leftDrawer];
+    return drawerController;
 }
 
 + (UINavigationController *) getWordInfoViewController:(WordObject*) word
