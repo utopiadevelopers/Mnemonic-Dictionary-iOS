@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define FONT_ICON_BOOK @"a"
+#define FONT_ICON_BOOK_1 @"a"
 #define FONT_ICON_GEAR @"b"
 #define FONT_ICON_THREE_BARS @"c"
 #define FONT_ICON_X @"d"
@@ -17,6 +17,7 @@
 #define FONT_ICON_FACEBOOK @"g"
 #define FONT_ICON_GOOGLE_PLUS @"h"
 #define FONT_ICON_LEFT_OPEN_BIG @"j"
+#define FONT_ICON_BOOK_2 @"i"
 
 @interface FontMapping : NSObject
 

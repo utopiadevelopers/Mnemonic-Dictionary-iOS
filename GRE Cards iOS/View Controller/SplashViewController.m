@@ -8,11 +8,45 @@
 
 #import "SplashViewController.h"
 
-@interface SplashViewController ()
+#define LOGO_HEIGHT 300.0f
 
+@interface SplashViewController ()
+{
+    UILabel *logo;
+    UILabel *app_name;
+}
 @end
 
 @implementation SplashViewController
+
+-(id) init
+{
+    self = [super init];
+    if(self)
+    {
+        [self setupViews];
+    }
+    return self;
+}
+
+-(void) setupViews
+{
+    logo = [[UILabel alloc] init];
+    [logo setFont:FONT_ICON(220)];
+    [logo setTextAlignment:NSTextAlignmentLeft];
+    [logo setTextColor:[UIColor whiteColor]];
+    [logo setNumberOfLines:1];
+    [logo setText:FONT_ICON_BOOK_2];
+    [logo sizeToFit];
+    [[self view] addSubview:logo];
+}
+
+#pragma View Functions
+
+-(void) viewDidLayoutSubviews
+{
+    [logo setCenter:[[self view] center]];
+}
 
 - (void) viewDidLoad
 {
@@ -22,7 +56,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(presentViewController:) userInfo:nil repeats:NO];
+    //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(presentViewController:) userInfo:nil repeats:NO];
 }
 
 -(BOOL) prefersStatusBarHidden
