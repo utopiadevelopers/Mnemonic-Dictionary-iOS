@@ -10,7 +10,6 @@
 #import "SettingsViewController.h"
 #import "WordInfoViewController.h"
 #import "MainHeaderView.h"
-#import "UIViewController+MMDrawerController.h"
 
 #define SEARCH_BAR_HEIGHT 44.0f
 
@@ -260,12 +259,12 @@
 
 -(void) sneakPeak
 {
-    [[self mm_drawerController] bouncePreviewForDrawerSide:MMDrawerSideLeft completion:nil];
+    //[[self mm_drawerController] bouncePreviewForDrawerSide:MMDrawerSideLeft completion:nil];
 }
 
 -(void) toggleDrawer
 {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    //[[self mm_drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F01A396C5984D5AA5188619 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8D9578962D41289FA0B4A1 /* libPods.a */; };
+		9001137A1A2B357B00D309DA /* UtopiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 900113791A2B357B00D309DA /* UtopiaViewController.m */; };
 		90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8719D739CC00CB0BBE /* tab_fav.png */; };
 		90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8819D739CC00CB0BBE /* tab_ign.png */; };
 		90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8919D739CC00CB0BBE /* tab_list.png */; };
@@ -80,6 +81,8 @@
 /* Begin PBXFileReference section */
 		0C8D9578962D41289FA0B4A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F9B816C212A61F32E4FD92E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		900113781A2B357B00D309DA /* UtopiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtopiaViewController.h; sourceTree = "<group>"; };
+		900113791A2B357B00D309DA /* UtopiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtopiaViewController.m; sourceTree = "<group>"; };
 		90163D8719D739CC00CB0BBE /* tab_fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav.png; sourceTree = "<group>"; };
 		90163D8819D739CC00CB0BBE /* tab_ign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_ign.png; sourceTree = "<group>"; };
 		90163D8919D739CC00CB0BBE /* tab_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_list.png; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				903D5C6F19A483CB00119129 /* Supporting Files */,
 				9047189F1A0F3963003B483C /* UtopiaObject.h */,
 				904718A01A0F3963003B483C /* UtopiaObject.m */,
+				900113781A2B357B00D309DA /* UtopiaViewController.h */,
+				900113791A2B357B00D309DA /* UtopiaViewController.m */,
 			);
 			path = "GRE Cards iOS";
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				906824F619A49F7C003957A1 /* DownloadViewController.m in Sources */,
 				90551A6E1A06B66400FACAF3 /* MainHeaderView.m in Sources */,
 				90B11D831A1293E1009AA707 /* WordInfoAPI.m in Sources */,
+				9001137A1A2B357B00D309DA /* UtopiaViewController.m in Sources */,
 				9044A2461A28CD52003B2E84 /* LeftDrawerViewController.m in Sources */,
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
 				904FEF151A239A3B00FF7051 /* FontMapping.m in Sources */,
@@ -714,7 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gunjan Patidar (L9K768W67J)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/satyamkrishna/Downloads/Code,
@@ -726,7 +732,7 @@
 				INFOPLIST_FILE = "GRE Cards iOS/GRE Cards iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f5234e8f-653f-4b73-92a7-9a53d50507b3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -738,7 +744,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gunjan Patidar (L9K768W67J)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/satyamkrishna/Downloads/Code,
@@ -750,7 +756,7 @@
 				INFOPLIST_FILE = "GRE Cards iOS/GRE Cards iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f5234e8f-653f-4b73-92a7-9a53d50507b3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

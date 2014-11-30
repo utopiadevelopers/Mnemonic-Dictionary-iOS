@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WordListTableViewCell.h"
+#import "UtopiaViewController.h"
 
-@interface WordListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate, UISearchDisplayDelegate>
+@interface WordListViewController : UtopiaViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate, UISearchDisplayDelegate>
 
 typedef NS_ENUM(NSInteger, WordListType)
 {
