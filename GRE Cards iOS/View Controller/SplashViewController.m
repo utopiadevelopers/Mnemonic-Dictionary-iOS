@@ -39,6 +39,9 @@
     [logo setText:FONT_ICON_BOOK_2];
     [logo sizeToFit];
     [[self view] addSubview:logo];
+    
+    app_name = [[UILabel alloc] init];
+    [app_name setFont:FONT_BODY_BOLD];
 }
 
 #pragma View Functions
