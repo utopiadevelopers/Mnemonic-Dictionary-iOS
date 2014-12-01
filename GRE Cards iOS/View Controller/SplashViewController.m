@@ -32,16 +32,26 @@
 -(void) setupViews
 {
     logo = [[UILabel alloc] init];
+    app_name = [[UILabel alloc] init];
+    
+    //Logo
     [logo setFont:FONT_ICON(220)];
     [logo setTextAlignment:NSTextAlignmentLeft];
     [logo setTextColor:[UIColor whiteColor]];
-    [logo setNumberOfLines:1];
     [logo setText:FONT_ICON_BOOK_2];
     [logo sizeToFit];
-    [[self view] addSubview:logo];
     
-    app_name = [[UILabel alloc] init];
-    [app_name setFont:FONT_BODY_BOLD];
+    //App_Name
+    [app_name setFont:FONT_REGULAR(100)];
+    //    [app_name setText:NSLocalizedString(@"APP_NAME", nil)];
+    [app_name setText:@"Test String"];
+    [app_name setNumberOfLines:1];
+    [app_name sizeToFit];
+    [app_name setTextColor:[UIColor whiteColor]];
+    [app_name setBackgroundColor:[UIColor cyanColor]];
+    
+    [[self view] addSubview:logo];
+    [[self view] addSubview:app_name];
 }
 
 #pragma View Functions
@@ -49,6 +59,8 @@
 -(void) viewDidLayoutSubviews
 {
     [logo setCenter:[[self view] center]];
+    [logo setFrame:CGRectMake(X(logo), Y(logo),W(logo),H(logo)-SIDE_PADDING)];
+    [app_name setCenter:CGPointMake(CENTER_X(logo), BOTTOM(logo)+H(app_name)/2)];
 }
 
 - (void) viewDidLoad
@@ -80,3 +92,4 @@
 }
 
 @end
+

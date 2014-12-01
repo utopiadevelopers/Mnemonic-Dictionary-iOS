@@ -52,6 +52,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>custom.otf</string>
+		<string>OpenSans-Bold.otf</string>
+		<string>OpenSans-Light.otf</string>
+		<string>OpenSans-Regular.otf</string>
+		<string>OpenSans-Semibold.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

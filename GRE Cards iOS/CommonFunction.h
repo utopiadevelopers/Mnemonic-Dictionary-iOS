@@ -17,18 +17,19 @@
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 #define ENABLE_DEBUGGING false
-#define UIVIEW_HEIGHT(v)                              v.frame.size.height
-#define UIVIEW_WIDTH(v)                               v.frame.size.width
-#define UIVIEW_X(v)                                   v.frame.origin.x
-#define UIVIEW_Y(v)                                   v.frame.origin.y
+#define UIVIEW_HEIGHT(v)                            v.frame.size.height
+#define UIVIEW_WIDTH(v)                             v.frame.size.width
+#define UIVIEW_X(v)                                 v.frame.origin.x
+#define UIVIEW_Y(v)                                 v.frame.origin.y
 
-#define X(v)                                            v.frame.origin.x
-#define Y(v)                                            v.frame.origin.y
-#define H(v)                                            v.frame.size.height
-#define W(v)                                            v.frame.size.width
-#define BOTTOM(v)                                       v.frame.origin.y + v.frame.size.height
-#define AFTER(v)                                        v.frame.origin.x + v.frame.size.width
-
+#define X(v)                                        v.frame.origin.x
+#define Y(v)                                        v.frame.origin.y
+#define H(v)                                        v.frame.size.height
+#define W(v)                                        v.frame.size.width
+#define BOTTOM(v)                                   v.frame.origin.y + v.frame.size.height
+#define AFTER(v)                                    v.frame.origin.x + v.frame.size.width
+#define CENTER_X(v)                                 v.center.x
+#define CENTER_Y(v)                                 v.center.y
 #define ZIMG(p)                                     [UIImage imageNamed:[NSString stringWithFormat: @"/Images/%@", p]]
 
 
