@@ -14,6 +14,9 @@
 {
     UILabel *logo;
     UILabel *app_name;
+    
+    UIButton *signUpButton;
+    UIButton *loginButton;
 }
 @end
 
@@ -34,6 +37,9 @@
     logo = [[UILabel alloc] init];
     app_name = [[UILabel alloc] init];
     
+    signUpButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    loginButton  = [UIButton buttonWithType:UIButtonTypeSystem];
+    
     //Logo
     [logo setFont:FONT_ICON(220)];
     [logo setTextAlignment:NSTextAlignmentLeft];
@@ -42,16 +48,26 @@
     [logo sizeToFit];
     
     //App_Name
-    [app_name setFont:FONT_REGULAR(100)];
-    //    [app_name setText:NSLocalizedString(@"APP_NAME", nil)];
-    [app_name setText:@"Test String"];
+    [app_name setFont:FONT_VERY_BIG_BOLD];
+    [app_name setText:NSLocalizedString(@"APP_NAME", nil)];
     [app_name setNumberOfLines:1];
     [app_name sizeToFit];
     [app_name setTextColor:[UIColor whiteColor]];
-    [app_name setBackgroundColor:[UIColor cyanColor]];
+    
+    //Login Button
+    [loginButton setTitle:NSLocalizedString(@"LOGIN", nil) forState:UIControlStateNormal];
+    [loginButton setTitle:NSLocalizedString(@"LOGIN", nil) forState:UIControlStateHighlighted];
+    [loginButton setHidden:YES];
+
+    // Signup
+    [signUpButton setTitle:NSLocalizedString(@"SIGNUP", nil) forState:UIControlStateNormal];
+    [signUpButton setTitle:NSLocalizedString(@"SIGNUP", nil) forState:UIControlStateHighlighted];
+    [signUpButton setHidden:YES];
     
     [[self view] addSubview:logo];
     [[self view] addSubview:app_name];
+    [[self view] addSubview:signUpButton];
+    [[self view] addSubview:loginButton];
 }
 
 #pragma View Functions
@@ -59,9 +75,16 @@
 -(void) viewDidLayoutSubviews
 {
     [logo setCenter:[[self view] center]];
-    [logo setFrame:CGRectMake(X(logo), Y(logo),W(logo),H(logo)-SIDE_PADDING)];
+    [logo setFrame:CGRectMake(X(logo), Y(logo)-1*SIDE_PADDING,W(logo),H(logo)-2*SIDE_PADDING)];
     [app_name setCenter:CGPointMake(CENTER_X(logo), BOTTOM(logo)+H(app_name)/2)];
+    
+    [signUpButton setFrame:CGRectMake(2*SIDE_PADDING, BOTTOM(app_name), W([self view])-4*SIDE_PADDING, BUTTON_HEIGHT)];
+    [loginButton setFrame:CGRectMake(2*SIDE_PADDING, BOTTOM(signUpButton)+SIDE_PADDING/2, W([self view])-4*SIDE_PADDING, BUTTON_HEIGHT)];
+    
+    [signUpButton setBackgroundColor:[UIColor cyanColor]];
+    [loginButton setBackgroundColor:[UIColor greenColor]];
 }
+
 
 - (void) viewDidLoad
 {
@@ -71,7 +94,14 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(presentViewController:) userInfo:nil repeats:NO];
+    if([CommonFunction isUserLoggedIn])
+    {
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(presentViewController:) userInfo:nil repeats:NO];
+    }
+    else
+    {
+        [self showLoginViews];
+    }
 }
 
 -(BOOL) prefersStatusBarHidden
@@ -81,14 +111,15 @@
 
 - (void) presentViewController:(NSTimer*) timer
 {
-    if([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGGED_IN])
-    {
-        [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{}];
-    }
-    else
-    {
-        [self presentViewController:[CommonFunction getLoginViewController] animated:YES completion:^{}];
-    }
+    [self presentViewController:[CommonFunction getDashboardViewController] animated:YES completion:^{}];
+}
+
+#pragma Login Animations 
+
+-(void) showLoginViews
+{
+    [loginButton setHidden:NO];
+    [signUpButton setHidden:NO];
 }
 
 @end

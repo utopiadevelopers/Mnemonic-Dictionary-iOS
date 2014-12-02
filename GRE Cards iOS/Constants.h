@@ -31,8 +31,9 @@
 
 //***********************end***********************
 
-//********************default height of some views***********************
+//********************default heights & widths of some views***********************
 
+#define LEFT_DRAWER_WIDTH 225.0f
 #define SIDE_PADDING 15.0
 #define SCROLLABLE_TAB_HEIGHT 40.0f
 #define URC_LOW 3.0
@@ -40,6 +41,7 @@
 #define NAVIGATION_BAR_HEIGHT 64.0
 #define MAIN_HEADER_HEIGHT 45.0f
 #define TAB_BAR_HEIGHT 49.0
+#define BUTTON_HEIGHT 45.0f
 #define STATUS_BAR_HEIGHT_ADDITION (SYSTEM_VERSION_LESS_THAN(@"7.0") ? 0.0f : 20.0f)
 
 //***********************end***********************
@@ -171,7 +173,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 #define FONT_BIG_LIGHT              [UIFont fontWithName:@"OpenSans" size:21]
 
-#define FONT_VERY_BIG_BOLD          [UIFont fontWithName:@"OpenSans-Bold" size:24]
+#define FONT_VERY_BIG_BOLD          [UIFont fontWithName:@"OpenSans-Bold" size:23]
 
 #define FONT_ICON(X)                [UIFont fontWithName:@"custom" size:X]
 

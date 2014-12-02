@@ -10,4 +10,7 @@
 
 @interface UtopiaViewController : UIViewController
 
+-(void) sneakPeak;
+-(void) toggleDrawer;
+
 @end

@@ -51,8 +51,8 @@
     [shortDefLabel setText:[word definition_short]];
     
     
-    [wordLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
-    [shortDefLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:13]];
+    [wordLabel setFont:FONT_HELVETICANEUE_LIGHT(18)];
+    [shortDefLabel setFont:FONT_HELVETICANEUE_LIGHT(13)];
  
     [self updateFav];
 }

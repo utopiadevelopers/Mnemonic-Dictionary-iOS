@@ -111,7 +111,7 @@
     UIBarButtonItem *postiveSpace = [[UIBarButtonItem alloc] init];
     [postiveSpace setWidth:40.0f];
 
-    [[self navigationItem] setRightBarButtonItems:@[postiveSpace,settingBarButton]];
+    //[[self navigationItem] setRightBarButtonItems:@[postiveSpace,settingBarButton]];
     [[self navigationItem] setLeftBarButtonItems:@[negativeSpace,threeBarButton]];
 }
 
@@ -134,7 +134,7 @@
     [wordLV setDataSource:self];
     [wordLV setDelegate:self];
     [wordLV setSectionIndexBackgroundColor:[UIColor clearColor]];
-    [wordLV setTableHeaderView:searchBar];
+//    [wordLV setTableHeaderView:searchBar];
     [[self view] addSubview:wordLV];
 }
 
@@ -259,12 +259,12 @@
 
 -(void) sneakPeak
 {
-    //[[self mm_drawerController] bouncePreviewForDrawerSide:MMDrawerSideLeft completion:nil];
+    [super sneakPeak];
 }
 
 -(void) toggleDrawer
 {
-    //[[self mm_drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [super toggleDrawer];
 }
 
 @end

@@ -14,6 +14,7 @@
 		9001138B1A2C45E400D309DA /* OpenSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900113871A2C45E400D309DA /* OpenSans-Light.otf */; };
 		9001138C1A2C45E400D309DA /* OpenSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900113881A2C45E400D309DA /* OpenSans-Regular.otf */; };
 		9001138D1A2C45E400D309DA /* OpenSans-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 900113891A2C45E400D309DA /* OpenSans-Semibold.otf */; };
+		900113901A2CD4A200D309DA /* LeftDrawerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9001138F1A2CD4A200D309DA /* LeftDrawerTableViewCell.m */; };
 		90163D8C19D739CC00CB0BBE /* tab_fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8719D739CC00CB0BBE /* tab_fav.png */; };
 		90163D8D19D739CC00CB0BBE /* tab_ign.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8819D739CC00CB0BBE /* tab_ign.png */; };
 		90163D8E19D739CC00CB0BBE /* tab_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 90163D8919D739CC00CB0BBE /* tab_list.png */; };
@@ -93,6 +94,8 @@
 		900113871A2C45E400D309DA /* OpenSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.otf"; sourceTree = "<group>"; };
 		900113881A2C45E400D309DA /* OpenSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.otf"; sourceTree = "<group>"; };
 		900113891A2C45E400D309DA /* OpenSans-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.otf"; sourceTree = "<group>"; };
+		9001138E1A2CD4A200D309DA /* LeftDrawerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftDrawerTableViewCell.h; path = "Custom Cells/LeftDrawerTableViewCell.h"; sourceTree = "<group>"; };
+		9001138F1A2CD4A200D309DA /* LeftDrawerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftDrawerTableViewCell.m; path = "Custom Cells/LeftDrawerTableViewCell.m"; sourceTree = "<group>"; };
 		90163D8719D739CC00CB0BBE /* tab_fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fav.png; sourceTree = "<group>"; };
 		90163D8819D739CC00CB0BBE /* tab_ign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_ign.png; sourceTree = "<group>"; };
 		90163D8919D739CC00CB0BBE /* tab_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_list.png; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 			children = (
 				905F8D9C19D3159D00519C99 /* WordListTableViewCell.h */,
 				905F8D9D19D3159D00519C99 /* WordListTableViewCell.m */,
+				9001138E1A2CD4A200D309DA /* LeftDrawerTableViewCell.h */,
+				9001138F1A2CD4A200D309DA /* LeftDrawerTableViewCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				906824F519A49F7C003957A1 /* DashboardViewController.m in Sources */,
 				904FEF151A239A3B00FF7051 /* FontMapping.m in Sources */,
 				904718BC1A109A16003B483C /* SocialLoginAPI.m in Sources */,
+				900113901A2CD4A200D309DA /* LeftDrawerTableViewCell.m in Sources */,
 				90DA96D619B1FF9E00C7141A /* DefinitionObject.m in Sources */,
 				904718A11A0F3963003B483C /* UtopiaObject.m in Sources */,
 				9042BF4E1A1270BA00D87623 /* WordInfoViewController.m in Sources */,

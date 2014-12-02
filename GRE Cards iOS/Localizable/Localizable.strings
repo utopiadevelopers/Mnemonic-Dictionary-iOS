@@ -7,3 +7,10 @@
 */
 
 "APP_NAME" = "Mnemonic Dictionary";
+"SIGNUP"   = "Sign up";
+"LOGIN"    = "Log in";
+
+// Left Drawer
+
+"WORD_LIST_SELECTION" = "Word List Type";
+"SETTINGS"            = "Settings";

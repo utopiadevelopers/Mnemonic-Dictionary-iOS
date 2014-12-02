@@ -34,7 +34,18 @@
     
     // Maximum Width
     
-    [self.mm_drawerController setMaximumLeftDrawerWidth:225.0f];
+    [self.mm_drawerController setMaximumLeftDrawerWidth:LEFT_DRAWER_WIDTH];
 }
+
+-(void) sneakPeak
+{
+    [[self mm_drawerController] bouncePreviewForDrawerSide:MMDrawerSideLeft completion:nil];
+}
+
+-(void) toggleDrawer
+{
+    [[self mm_drawerController] toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
 
 @end
