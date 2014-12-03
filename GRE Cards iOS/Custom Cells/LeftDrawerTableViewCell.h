@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define LEFT_DRAWER_CELL_HEIGHT 45.0f
+
 @interface LeftDrawerTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *labelName;

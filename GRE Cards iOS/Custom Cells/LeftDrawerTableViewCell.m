@@ -8,7 +8,7 @@
 
 #import "LeftDrawerTableViewCell.h"
 
-#define ICON_SIZE 40.0f
+#define ICON_SIZE 25.0f
 
 @implementation LeftDrawerTableViewCell
 
@@ -27,12 +27,17 @@
 
 -(void) setupCell
 {
-    labelIcon = [[UILabel alloc] initWithFrame:CGRectMake(SIDE_PADDING, 0, ICON_SIZE, 0)];
+    [self setBackgroundColor:[UIColor clearColor]];
+    
+    labelIcon = [[UILabel alloc] initWithFrame:CGRectMake(SIDE_PADDING, 0, ICON_SIZE, LEFT_DRAWER_CELL_HEIGHT)];
     [labelIcon setFont:FONT_ICON(14)];
     
-    labelName = [[UILabel alloc] initWithFrame:CGRectMake(AFTER(labelIcon)+SIDE_PADDING/2, Y(labelIcon), W([self contentView]) - ICON_SIZE - SIDE_PADDING, 0)];
-    [labelName setFont:FONT_HELVETICANEUE_LIGHT(15)];
+    labelName = [[UILabel alloc] initWithFrame:CGRectMake(AFTER(labelIcon)+SIDE_PADDING/2, Y(labelIcon), W([self contentView]) - ICON_SIZE - SIDE_PADDING, LEFT_DRAWER_CELL_HEIGHT)];
+    [labelName setTextColor:[UIColor whiteColor]];
+    [labelName setFont:FONT_BODY_BOLD];
     
+    [[self contentView] addSubview:labelIcon];
+    [[self contentView] addSubview:labelName];
 }
 
 -(void) updateCellWithName:(NSString*) name andIcon:(NSString*) icon

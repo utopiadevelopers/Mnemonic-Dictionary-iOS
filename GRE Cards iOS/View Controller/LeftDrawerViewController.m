@@ -42,6 +42,11 @@
 
 #pragma Table View Functions
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return LEFT_DRAWER_CELL_HEIGHT;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * cellIdentifier = @"LeftDrawerCell";
@@ -49,19 +54,30 @@
     LeftDrawerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(!cell)
         cell = [[LeftDrawerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    switch ([indexPath section])
+    
+    if([indexPath section] ==  SECTION_WORDLISTSELECTION)
     {
-        case SECTION_WORDLISTSELECTION:
-            
-            break;
-            
-        case SECTION_SETTINGS:
-            
-            break;
-            
-        default:
-            break;
+        switch ([indexPath row])
+        {
+            case 0:
+                
+                break;
+            default:
+                break;
+        }
     }
+    else if([indexPath section] ==  SECTION_SETTINGS)
+    {
+        switch ([indexPath row])
+        {
+            case 0:
+                [cell updateCellWithName:@"Test" andIcon:@""];
+                break;
+            default:
+                break;
+        }
+    }
+    
     return cell;
 }
 
@@ -73,7 +89,7 @@
     }
     else if(section == SECTION_SETTINGS)
     {
-        return 0;
+        return 1;
     }
     return 0;
 }
